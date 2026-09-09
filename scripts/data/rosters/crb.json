@@ -1,0 +1,118 @@
+{
+  "clube": "CRB",
+  "sigla": "CRB",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Vitor Caetano",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 85,
+      "data_nascimento": "1999-07-01",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Henri",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 85,
+      "data_nascimento": "2002-02-19",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lucas Lovat",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 184,
+      "peso_kg": 80,
+      "data_nascimento": "1997-01-15",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Hereda",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 72,
+      "data_nascimento": "1998-09-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Patrick de Lucca",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 75,
+      "data_nascimento": "2000-03-02",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Pedro Castro",
+      "apelido": null,
+      "posicao_principal": "MC",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 77,
+      "data_nascimento": "1993-02-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Danielzinho",
+      "apelido": null,
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 173,
+      "peso_kg": 65,
+      "data_nascimento": "1996-01-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Dadá Belmonte",
+      "apelido": "Dadá",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 172,
+      "peso_kg": 70,
+      "data_nascimento": "1997-02-08",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Mikael",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 184,
+      "peso_kg": 93,
+      "data_nascimento": "1999-05-28",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Luiz Phellype",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 83,
+      "data_nascimento": "1993-09-27",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

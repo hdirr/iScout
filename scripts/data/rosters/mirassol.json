@@ -1,0 +1,118 @@
+{
+  "clube": "Mirassol",
+  "sigla": "MIR",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Georgemy",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 189,
+      "peso_kg": 82,
+      "data_nascimento": "1995-11-12",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Walter",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 192,
+      "peso_kg": 85,
+      "data_nascimento": "1987-05-17",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Willian Machado",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 187,
+      "peso_kg": 83,
+      "data_nascimento": "1996-06-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Igor Formiga",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 72,
+      "data_nascimento": "1998-03-15",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Reinaldo",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["MEI"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 70,
+      "data_nascimento": "1989-09-28",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Neto Moura",
+      "apelido": "Neto",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Destro",
+      "altura_cm": 183,
+      "peso_kg": 78,
+      "data_nascimento": "1996-07-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Denilson",
+      "apelido": null,
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 75,
+      "data_nascimento": "2000-04-09",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Negueba",
+      "apelido": null,
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE"],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 68,
+      "data_nascimento": "1999-08-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Edson Carioca",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["MEI"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 80,
+      "data_nascimento": "1996-10-14",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Nathan Fogaça",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Canhoto",
+      "altura_cm": 183,
+      "peso_kg": 78,
+      "data_nascimento": "1998-06-09",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

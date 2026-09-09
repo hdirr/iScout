@@ -1,0 +1,118 @@
+{
+  "clube": "Botafogo",
+  "sigla": "BOT",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Warleson do Nascimento Sena",
+      "apelido": "Warleson",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 82,
+      "data_nascimento": "1997-05-15",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel Batista de Souza Santos",
+      "apelido": "Gabriel Batista",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 189,
+      "peso_kg": 83,
+      "data_nascimento": "1998-01-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Victor Luis da Silva",
+      "apelido": "Vitinho",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 68,
+      "data_nascimento": "1998-07-23",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Alex Nicolao Telles",
+      "apelido": "Alex Telles",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Canhoto",
+      "altura_cm": 181,
+      "peso_kg": 73,
+      "data_nascimento": "1992-12-15",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Allan Rodrigues de Souza",
+      "apelido": "Allan",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 78,
+      "data_nascimento": "1991-03-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Danilo dos Santos de Oliveira",
+      "apelido": "Danilo",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 72,
+      "data_nascimento": "2001-01-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Cristian Medina",
+      "apelido": null,
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEC", "VOL"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 70,
+      "data_nascimento": "2002-06-22",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Santiago Mariano Rodríguez Motta",
+      "apelido": "Santi Rodríguez",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["PEE", "PED"],
+      "pe": "Canhoto",
+      "altura_cm": 173,
+      "peso_kg": 68,
+      "data_nascimento": "2000-05-14",
+      "nacionalidade": "Uruguai"
+    },
+    {
+      "nome": "Arthur Cabral",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Canhoto",
+      "altura_cm": 185,
+      "peso_kg": 80,
+      "data_nascimento": "1998-04-25",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Matheus Martins Lopes",
+      "apelido": "Matheus Martins",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 67,
+      "data_nascimento": "2003-04-15",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "clube": "Chapecoense",
+  "sigla": "CHA",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Anderson",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 192,
+      "peso_kg": 84,
+      "data_nascimento": "1998-03-04",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rafael Santos",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 85,
+      "data_nascimento": "1989-01-27",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Eduardo Doma",
+      "apelido": "Doma",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 187,
+      "peso_kg": 82,
+      "data_nascimento": "1998-07-15",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "João Paulo",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 83,
+      "data_nascimento": "1996-04-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Fernando",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 181,
+      "peso_kg": 74,
+      "data_nascimento": "1999-10-18",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Higor Meritão",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "1994-11-23",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Dylan Borrero",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 70,
+      "data_nascimento": "2002-01-26",
+      "nacionalidade": "Colômbia"
+    },
+    {
+      "nome": "Marcinho",
+      "apelido": null,
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE"],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 70,
+      "data_nascimento": "1995-01-12",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Franco Rossi",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 75,
+      "data_nascimento": "2001-04-17",
+      "nacionalidade": "Uruguai"
+    },
+    {
+      "nome": "Neto Pessoa",
+      "apelido": null,
+      "posicao_principal": "CF",
+      "posicoes_alternativas": ["CA"],
+      "pe": "Destro",
+      "altura_cm": 182,
+      "peso_kg": 78,
+      "data_nascimento": "1993-10-08",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

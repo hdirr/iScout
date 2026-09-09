@@ -1,0 +1,118 @@
+{
+  "clube": "Goiás",
+  "sigla": "GOI",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Tadeu",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 184,
+      "peso_kg": 80,
+      "data_nascimento": "1992-02-04",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lucas Ribeiro",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 85,
+      "data_nascimento": "1999-01-19",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Nicolas",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 181,
+      "peso_kg": 76,
+      "data_nascimento": "1997-02-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rodrigo Soares",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 73,
+      "data_nascimento": "1992-12-26",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Filipe Machado",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 72,
+      "data_nascimento": "1996-01-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lourenço",
+      "apelido": null,
+      "posicao_principal": "MC",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 169,
+      "peso_kg": 67,
+      "data_nascimento": "1997-09-07",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lucas Lima",
+      "apelido": null,
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 176,
+      "peso_kg": 73,
+      "data_nascimento": "1990-07-09",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Esli García",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 165,
+      "peso_kg": 65,
+      "data_nascimento": "2000-07-14",
+      "nacionalidade": "Paraguai"
+    },
+    {
+      "nome": "Pedrinho",
+      "apelido": null,
+      "posicao_principal": "PED",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 182,
+      "peso_kg": 75,
+      "data_nascimento": "2004-03-23",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Cadu",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 82,
+      "data_nascimento": "2004-05-24",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

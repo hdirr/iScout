@@ -1,0 +1,118 @@
+{
+  "clube": "Atlético-MG",
+  "sigla": "CAM",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Éverson Felipe Marques Pires",
+      "apelido": "Éverson",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 83,
+      "data_nascimento": "1989-12-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Renan Lodi de Souza",
+      "apelido": "Renan Lodi",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 173,
+      "peso_kg": 70,
+      "data_nascimento": "1998-04-14",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Leonardo Duarte da Silva",
+      "apelido": "Léo Duarte",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["ZAD"],
+      "pe": "Destro",
+      "altura_cm": 182,
+      "peso_kg": 78,
+      "data_nascimento": "1997-03-07",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Ruan Tressoldi Cheng",
+      "apelido": "Ruan Tressoldi",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["ZAE"],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "1999-05-18",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Natanael de Jesus Guedes",
+      "apelido": "Natanael",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 70,
+      "data_nascimento": "2002-01-27",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Alexsander Rodrigues da Silva",
+      "apelido": "Alexsander",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 73,
+      "data_nascimento": "2004-05-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Frederico Chaves Guedes",
+      "apelido": "Fred",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 169,
+      "peso_kg": 65,
+      "data_nascimento": "1992-10-12",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gustavo Scarpa Moutinho",
+      "apelido": "Gustavo Scarpa",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Canhoto",
+      "altura_cm": 176,
+      "peso_kg": 72,
+      "data_nascimento": "1994-01-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Tomás Ezequiel Cuello",
+      "apelido": "Cuello",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PON"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 70,
+      "data_nascimento": "2000-03-02",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Mateo Antonio Cassierra Castañeda",
+      "apelido": "Cassierra",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 77,
+      "data_nascimento": "1997-04-13",
+      "nacionalidade": "Colômbia"
+    }
+  ]
+}

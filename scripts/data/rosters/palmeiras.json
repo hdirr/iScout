@@ -1,0 +1,118 @@
+{
+  "clube": "Palmeiras",
+  "sigla": "PAL",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Carlos Miguel dos Santos Pereira",
+      "apelido": "Carlos Miguel",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 204,
+      "peso_kg": 95,
+      "data_nascimento": "1998-10-09",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Marcelo Lomba do Nascimento",
+      "apelido": "Marcelo Lomba",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 83,
+      "data_nascimento": "1986-12-18",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gustavo Raúl Gómez Portillo",
+      "apelido": "Gustavo Gómez",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 68,
+      "data_nascimento": "1993-05-06",
+      "nacionalidade": "Paraguai"
+    },
+    {
+      "nome": "Murilo Cerqueira Paim",
+      "apelido": "Murilo",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 83,
+      "data_nascimento": "1997-03-27",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Agustín Giay",
+      "apelido": "Agustín Giay",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 78,
+      "data_nascimento": "2004-01-16",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Joaquín Piquerez",
+      "apelido": "Piquerez",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["ZAE"],
+      "pe": "Canhoto",
+      "altura_cm": 184,
+      "peso_kg": 75,
+      "data_nascimento": "1998-08-24",
+      "nacionalidade": "Uruguai"
+    },
+    {
+      "nome": "Andreas Hoelgebaum Pereira",
+      "apelido": "Andreas Pereira",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEI", "VOL"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 71,
+      "data_nascimento": "1996-01-01",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Maurício Magalhães Prado",
+      "apelido": "Mauricio",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Canhoto",
+      "altura_cm": 174,
+      "peso_kg": 70,
+      "data_nascimento": "2001-06-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Jhon Adolfo Arias Andrade",
+      "apelido": "Jhon Arias",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE", "SA"],
+      "pe": "Destro",
+      "altura_cm": 168,
+      "peso_kg": 68,
+      "data_nascimento": "1997-09-21",
+      "nacionalidade": "Colômbia"
+    },
+    {
+      "nome": "Vitor Hugo Roque Ferreira",
+      "apelido": "Vitor Roque",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["SA"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 78,
+      "data_nascimento": "2005-02-28",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

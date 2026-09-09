@@ -1,0 +1,118 @@
+{
+  "clube": "São Paulo",
+  "sigla": "SAO",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Carlos Coronel",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 193,
+      "peso_kg": 93,
+      "data_nascimento": "1997-04-06",
+      "nacionalidade": "Paraguai"
+    },
+    {
+      "nome": "Rafael Fernandes de Almeida",
+      "apelido": "Rafael",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 193,
+      "peso_kg": 91,
+      "data_nascimento": "1989-05-23",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rafael Tolói",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 74,
+      "data_nascimento": "1990-10-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Robert Arboleda",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 84,
+      "data_nascimento": "1991-10-22",
+      "nacionalidade": "Equador"
+    },
+    {
+      "nome": "Enzo Díaz",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 64,
+      "data_nascimento": "1995-12-17",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Pablo Maia",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 72,
+      "data_nascimento": "2002-01-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Marcos Antônio Lourenço da Silva",
+      "apelido": "Marcos Antônio",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 165,
+      "peso_kg": 54,
+      "data_nascimento": "2000-03-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lucas Rodrigues Moura da Silva",
+      "apelido": "Lucas Moura",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE"],
+      "pe": "Destro",
+      "altura_cm": 172,
+      "peso_kg": 65,
+      "data_nascimento": "1992-08-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Jonathan Calleri",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 75,
+      "data_nascimento": "1993-09-23",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Luciano da Souza de Castro",
+      "apelido": "Luciano",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["MEI"],
+      "pe": "Destro",
+      "altura_cm": 173,
+      "peso_kg": 68,
+      "data_nascimento": "1993-01-08",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "clube": "Fortaleza",
+  "sigla": "FOR",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "João Ricardo",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 83,
+      "data_nascimento": "1988-02-02",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Breno",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 85,
+      "data_nascimento": "1999-03-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gastón Ávila",
+      "apelido": null,
+      "posicao_principal": "ZAE",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Canhoto",
+      "altura_cm": 182,
+      "peso_kg": 78,
+      "data_nascimento": "2001-09-26",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Tomás Cardona",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["ZAD"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 80,
+      "data_nascimento": "1994-09-10",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Eros Mancuso",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Destro",
+      "altura_cm": 171,
+      "peso_kg": 66,
+      "data_nascimento": "1998-01-30",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Gabriel Fuentes",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 181,
+      "peso_kg": 75,
+      "data_nascimento": "1996-08-09",
+      "nacionalidade": "Colômbia"
+    },
+    {
+      "nome": "Lucas Sasha",
+      "apelido": "Sasha",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Ambidestro",
+      "altura_cm": 177,
+      "peso_kg": 74,
+      "data_nascimento": "1989-04-01",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Tomás Pochettino",
+      "apelido": null,
+      "posicao_principal": "MEC",
+      "posicoes_alternativas": ["MED"],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 72,
+      "data_nascimento": "1996-02-17",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Adam Bareiro",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF", "MEC"],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 76,
+      "data_nascimento": "1996-02-26",
+      "nacionalidade": "Paraguai"
+    },
+    {
+      "nome": "Deyverson",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Canhoto",
+      "altura_cm": 187,
+      "peso_kg": 79,
+      "data_nascimento": "1991-05-04",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

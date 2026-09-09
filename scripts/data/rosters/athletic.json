@@ -1,0 +1,118 @@
+{
+  "clube": "Athletic",
+  "sigla": "ATH",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Luan Polli",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 85,
+      "data_nascimento": "1993-04-06",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lucas Belezi",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "2003-05-08",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Philipe Sampaio",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 85,
+      "data_nascimento": "1994-11-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rodrigo Gelado",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 182,
+      "peso_kg": 76,
+      "data_nascimento": "2003-09-28",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Zeca",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Ambidestro",
+      "altura_cm": 169,
+      "peso_kg": 68,
+      "data_nascimento": "1994-05-16",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Kauan Rodrigues",
+      "apelido": null,
+      "posicao_principal": "MC",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 70,
+      "data_nascimento": "2005-04-16",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gustavinho",
+      "apelido": null,
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 174,
+      "peso_kg": 70,
+      "data_nascimento": "2001-10-29",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Dixon Vera",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 70,
+      "data_nascimento": "2003-04-06",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Ronaldo Tavares",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 194,
+      "peso_kg": 90,
+      "data_nascimento": "1997-07-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Carlinhos",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 196,
+      "peso_kg": 90,
+      "data_nascimento": "1997-02-12",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

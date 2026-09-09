@@ -1,0 +1,118 @@
+{
+  "clube": "Novorizontino",
+  "sigla": "NVD",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "César",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 83,
+      "data_nascimento": "1995-02-16",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Eduardo Brock",
+      "apelido": "Brock",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 82,
+      "data_nascimento": "1991-02-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Patrick",
+      "apelido": null,
+      "posicao_principal": "ZAD",
+      "posicoes_alternativas": ["ZAE"],
+      "pe": "Destro",
+      "altura_cm": 183,
+      "peso_kg": 79,
+      "data_nascimento": "1999-03-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Nilson Castrillón",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 77,
+      "data_nascimento": "1996-03-15",
+      "nacionalidade": "Colômbia"
+    },
+    {
+      "nome": "Luís Oyama",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 171,
+      "peso_kg": 68,
+      "data_nascimento": "1996-10-01",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Christian Ortíz",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["MEC", "PED"],
+      "pe": "Canhoto",
+      "altura_cm": 169,
+      "peso_kg": 70,
+      "data_nascimento": "1992-09-18",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Rômulo",
+      "apelido": null,
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC", "CA"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 73,
+      "data_nascimento": "2001-06-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Robson",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF", "PED"],
+      "pe": "Destro",
+      "altura_cm": 179,
+      "peso_kg": 76,
+      "data_nascimento": "1991-05-30",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Carlão",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "1992-07-03",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Vinícius Paiva",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED", "MEC"],
+      "pe": "Destro",
+      "altura_cm": 170,
+      "peso_kg": 64,
+      "data_nascimento": "2000-11-25",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

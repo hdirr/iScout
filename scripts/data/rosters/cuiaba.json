@@ -1,0 +1,118 @@
+{
+  "clube": "Cuiabá",
+  "sigla": "CUI",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Marcelo Henrique Passos Carné",
+      "apelido": "Marcelo Carné",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 88,
+      "data_nascimento": "1990-02-06",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "João Othávio Basso",
+      "apelido": "João Basso",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["SA"],
+      "pe": "Destro",
+      "altura_cm": 187,
+      "peso_kg": 73,
+      "data_nascimento": "1997-01-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Vitor Mendes Alves",
+      "apelido": "Vitor Mendes",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 73,
+      "data_nascimento": "1999-02-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Alan Empereur",
+      "apelido": "Alan Empereur",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 185,
+      "peso_kg": 82,
+      "data_nascimento": "1994-03-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "João Pedro Vilardi Pinto",
+      "apelido": "Pepê",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEI", "VOL"],
+      "pe": "Destro",
+      "altura_cm": 183,
+      "peso_kg": 73,
+      "data_nascimento": "1998-01-06",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Marcos Júnior Lima dos Santos",
+      "apelido": "Marcos Júnior",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["PEE"],
+      "pe": "Destro",
+      "altura_cm": 167,
+      "peso_kg": 63,
+      "data_nascimento": "1993-01-19",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "David Miguel de Souza Arcanjo",
+      "apelido": "David Miguel",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Ambidestro",
+      "altura_cm": 180,
+      "peso_kg": 73,
+      "data_nascimento": "2007-03-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Yamil Rodrigo Asad",
+      "apelido": "Yamil Asad",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 70,
+      "data_nascimento": "1994-07-27",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Eliel Chrystian Pereira Silva",
+      "apelido": "Eliel",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED", "SA"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 73,
+      "data_nascimento": "2003-01-26",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rodrigo Antônio Rodrigues",
+      "apelido": "Rodrigo Rodrigues",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["PON"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 78,
+      "data_nascimento": "2000-04-21",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

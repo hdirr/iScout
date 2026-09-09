@@ -1,0 +1,118 @@
+{
+  "clube": "Grêmio",
+  "sigla": "GRE",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Weverton Pereira da Silva",
+      "apelido": "Weverton",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 84,
+      "data_nascimento": "1987-12-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel Grando",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 194,
+      "peso_kg": 87,
+      "data_nascimento": "2000-03-29",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Walter Kannemann",
+      "apelido": "Kannemann",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Canhoto",
+      "altura_cm": 184,
+      "peso_kg": 80,
+      "data_nascimento": "1991-03-14",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Gustavo Martins Nogueira",
+      "apelido": "Gustavo Martins",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "2002-08-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Fabián Cornelio Balbuena Almirón",
+      "apelido": "Balbuena",
+      "posicao_principal": "ZAD",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 82,
+      "data_nascimento": "1991-08-23",
+      "nacionalidade": "Paraguai"
+    },
+    {
+      "nome": "Marcos Rocha dos Santos",
+      "apelido": "Marcos Rocha",
+      "posicao_principal": "LAT",
+      "posicoes_alternativas": ["ZAD"],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 75,
+      "data_nascimento": "1988-12-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Cristian David Pavón",
+      "apelido": "Pavón",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["LAD"],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 68,
+      "data_nascimento": "1996-01-21",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Tetê da Silva Lessa",
+      "apelido": "Tetê",
+      "posicao_principal": "MEC",
+      "posicoes_alternativas": ["PED", "PEE"],
+      "pe": "Canhoto",
+      "altura_cm": 173,
+      "peso_kg": 65,
+      "data_nascimento": "2000-02-15",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Francis Amuzu",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 68,
+      "data_nascimento": "1999-08-23",
+      "nacionalidade": "Gana"
+    },
+    {
+      "nome": "Carlos Vinícius Alves Morais",
+      "apelido": "Carlos Vinícius",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Canhoto",
+      "altura_cm": 190,
+      "peso_kg": 85,
+      "data_nascimento": "1995-03-25",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

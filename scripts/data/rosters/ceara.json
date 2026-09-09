@@ -1,0 +1,118 @@
+{
+  "clube": "Ceará",
+  "sigla": "CEA",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Matheus Nogueira da Silva",
+      "apelido": "Matheus Nogueira",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 84,
+      "data_nascimento": "1997-09-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Luizão Costa da Silva",
+      "apelido": "Luizão",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 194,
+      "peso_kg": 86,
+      "data_nascimento": "1992-10-09",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Júlio César Soares de Jesus",
+      "apelido": "Júlio César",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 78,
+      "data_nascimento": "2003-09-28",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rafael Ramos da Silva",
+      "apelido": "Rafael Ramos",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 68,
+      "data_nascimento": "1995-01-09",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Sávio Renato da Silva",
+      "apelido": "Sávio",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 173,
+      "peso_kg": 68,
+      "data_nascimento": "1995-05-26",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel Gomes de Almeida",
+      "apelido": "Zanocelo",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 78,
+      "data_nascimento": "2001-01-30",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Matheus Araújo dos Santos",
+      "apelido": "Matheus Araújo",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 70,
+      "data_nascimento": "2002-05-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Leonardo Lobato da Silva",
+      "apelido": "Lenny Lobato",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Canhoto",
+      "altura_cm": 174,
+      "peso_kg": 67,
+      "data_nascimento": "2001-02-03",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Wendel dos Santos Borges",
+      "apelido": "Wendel",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 76,
+      "data_nascimento": "2000-08-02",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Renzo López Patrón",
+      "apelido": "Renzo López",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 192,
+      "peso_kg": 85,
+      "data_nascimento": "1994-04-16",
+      "nacionalidade": "Uruguai"
+    }
+  ]
+}

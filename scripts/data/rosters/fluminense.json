@@ -1,0 +1,118 @@
+{
+  "clube": "Fluminense",
+  "sigla": "FLU",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Vitor Eudes Belo Borges",
+      "apelido": "Vitor Eudes",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 194,
+      "peso_kg": 83,
+      "data_nascimento": "1998-10-21",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Marcelo Pitaluga Filho",
+      "apelido": "Marcelo Pitaluga",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 193,
+      "peso_kg": 77,
+      "data_nascimento": "2002-12-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Ignácio da Silva Oliveira",
+      "apelido": "Ignácio",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 183,
+      "peso_kg": 73,
+      "data_nascimento": "1996-12-01",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Guilherme Antonio Arana Lopes",
+      "apelido": "Guilherme Arana",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["ZAE"],
+      "pe": "Canhoto",
+      "altura_cm": 176,
+      "peso_kg": 71,
+      "data_nascimento": "1997-04-14",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Juan Pablo Freytes",
+      "apelido": "Juan Pablo Freytes",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 187,
+      "peso_kg": 81,
+      "data_nascimento": "2000-01-11",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Martinelli",
+      "apelido": "Martinelli",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 73,
+      "data_nascimento": "2001-10-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Luciano Acosta",
+      "apelido": "Luciano Acosta",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 160,
+      "peso_kg": 59,
+      "data_nascimento": "1994-05-31",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Hércules Pereira do Nascimento",
+      "apelido": "Hércules",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 76,
+      "data_nascimento": "2001-04-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Germán Ezequiel Cano Recalde",
+      "apelido": "Germán Cano",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 81,
+      "data_nascimento": "1988-01-02",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Agustín Canobbio",
+      "apelido": "Agustín Canobbio",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE", "SA"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 81,
+      "data_nascimento": "1998-10-01",
+      "nacionalidade": "Uruguai"
+    }
+  ]
+}

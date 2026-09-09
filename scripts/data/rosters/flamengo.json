@@ -1,0 +1,118 @@
+{
+  "clube": "Flamengo",
+  "sigla": "FLA",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Agustín Daniel Rossi",
+      "apelido": "Agustín Rossi",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 90,
+      "data_nascimento": "1995-08-21",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Leonardo Reidel Ortiz",
+      "apelido": "Léo Ortiz",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 83,
+      "data_nascimento": "1996-01-03",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Leonardo Pereira da Silva",
+      "apelido": "Léo Pereira",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 189,
+      "peso_kg": 79,
+      "data_nascimento": "1996-01-31",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Ayrton Lucas Dantas de Medeiros",
+      "apelido": "Ayrton Lucas",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["ZAE"],
+      "pe": "Canhoto",
+      "altura_cm": 180,
+      "peso_kg": 72,
+      "data_nascimento": "1997-06-19",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Emerson Royal",
+      "apelido": "Emerson Royal",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["ZAD"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 78,
+      "data_nascimento": "1999-01-14",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Erick Pulgar Farfán",
+      "apelido": "Erick Pulgar",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 187,
+      "peso_kg": 78,
+      "data_nascimento": "1994-01-15",
+      "nacionalidade": "Chile"
+    },
+    {
+      "nome": "Giorgian Daniel De Arrascaeta Benedetti",
+      "apelido": "Arrascaeta",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 172,
+      "peso_kg": 73,
+      "data_nascimento": "1994-06-01",
+      "nacionalidade": "Uruguai"
+    },
+    {
+      "nome": "Nicolás De La Cruz",
+      "apelido": "De La Cruz",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEI"],
+      "pe": "Destro",
+      "altura_cm": 167,
+      "peso_kg": 64,
+      "data_nascimento": "1997-06-01",
+      "nacionalidade": "Uruguai"
+    },
+    {
+      "nome": "Pedro Guilherme Abreu dos Santos",
+      "apelido": "Pedro",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 72,
+      "data_nascimento": "1997-06-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gonzalo Jordy Plata Jiménez",
+      "apelido": "Gonzalo Plata",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE", "SA"],
+      "pe": "Canhoto",
+      "altura_cm": 178,
+      "peso_kg": 76,
+      "data_nascimento": "2000-11-01",
+      "nacionalidade": "Equador"
+    }
+  ]
+}

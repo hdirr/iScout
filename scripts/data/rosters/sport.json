@@ -1,0 +1,118 @@
+{
+  "clube": "Sport",
+  "sigla": "SPO",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Thiago Couto",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 80,
+      "data_nascimento": "1999-03-26",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Marcelo Benevenuto",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 78,
+      "data_nascimento": "1996-01-07",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Felipinho",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 177,
+      "peso_kg": 73,
+      "data_nascimento": "1997-01-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Claudinho",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 180,
+      "peso_kg": 75,
+      "data_nascimento": "2000-09-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Patrick de Paula",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 180,
+      "peso_kg": 75,
+      "data_nascimento": "1999-09-08",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Fábio Matheus",
+      "apelido": null,
+      "posicao_principal": "MC",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 182,
+      "peso_kg": 76,
+      "data_nascimento": "2003-04-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Biel Fonseca",
+      "apelido": null,
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "2002-03-19",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Diego Hernández",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 70,
+      "data_nascimento": "2000-06-22",
+      "nacionalidade": "Uruguai"
+    },
+    {
+      "nome": "Chrystian Barletta",
+      "apelido": null,
+      "posicao_principal": "PED",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 178,
+      "peso_kg": 72,
+      "data_nascimento": "2001-07-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Perotti",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 186,
+      "peso_kg": 82,
+      "data_nascimento": "1997-11-22",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

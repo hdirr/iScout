@@ -1,0 +1,118 @@
+{
+  "clube": "Bahia",
+  "sigla": "BAH",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Ronaldo dos Santos",
+      "apelido": "Ronaldo",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 194,
+      "peso_kg": 85,
+      "data_nascimento": "1996-08-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Santiago Ramos Mingo",
+      "apelido": "Ramos Mingo",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["ZAE"],
+      "pe": "Canhoto",
+      "altura_cm": 186,
+      "peso_kg": 84,
+      "data_nascimento": "2001-11-21",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Claudivan dos Santos Duarte",
+      "apelido": "Kanu",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 82,
+      "data_nascimento": "1997-03-07",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Luciano Batista da Silva Junior",
+      "apelido": "Luciano Juba",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["PEE", "MC"],
+      "pe": "Canhoto",
+      "altura_cm": 176,
+      "peso_kg": 72,
+      "data_nascimento": "1999-08-29",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Caio Alexandre Souza e Silva",
+      "apelido": "Caio Alexandre",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 73,
+      "data_nascimento": "1999-02-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Nicolás Acevedo",
+      "apelido": "Nicolás Acevedo",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 75,
+      "data_nascimento": "1999-04-14",
+      "nacionalidade": "Uruguai"
+    },
+    {
+      "nome": "Jean Lucas de Souza Oliveira",
+      "apelido": "Jean Lucas",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 77,
+      "data_nascimento": "1998-06-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Éverton Augusto de Barros Ribeiro",
+      "apelido": "Everton Ribeiro",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC", "PED"],
+      "pe": "Canhoto",
+      "altura_cm": 174,
+      "peso_kg": 71,
+      "data_nascimento": "1989-04-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Erick Luiz Peraro",
+      "apelido": "Erick Pulga",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED", "SA"],
+      "pe": "Canhoto",
+      "altura_cm": 172,
+      "peso_kg": 70,
+      "data_nascimento": "2001-01-06",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Alejo Véliz",
+      "apelido": "Alejo Véliz",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "2003-09-19",
+      "nacionalidade": "Argentina"
+    }
+  ]
+}

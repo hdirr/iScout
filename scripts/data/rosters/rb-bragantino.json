@@ -1,0 +1,118 @@
+{
+  "clube": "Red Bull Bragantino",
+  "sigla": "RBB",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Cleiton Schwengber",
+      "apelido": "Cleiton",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 88,
+      "data_nascimento": "1997-07-26",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Juninho Capixaba",
+      "apelido": "Juninho Capixaba",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["PEE", "LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 72,
+      "data_nascimento": "1997-08-06",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Pedro Henrique da Silva Nascimento",
+      "apelido": "Pedro Henrique",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["ZAD"],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 82,
+      "data_nascimento": "1996-03-13",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gustavo Henrique de Souza Marques",
+      "apelido": "Gustavo Marques",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["ZAE"],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 83,
+      "data_nascimento": "2002-05-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Fabinho Bruno da Silva",
+      "apelido": "Fabinho",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 75,
+      "data_nascimento": "2002-01-14",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Eric Ramires da Silva",
+      "apelido": "Eric Ramires",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 73,
+      "data_nascimento": "2000-04-02",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rodrigo da Silva Ribeiro",
+      "apelido": "Rodriguinho",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 70,
+      "data_nascimento": "2004-03-17",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lucas Barbosa da Silva",
+      "apelido": "Lucas Barbosa",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 72,
+      "data_nascimento": "2001-08-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "José Manuel Herrera",
+      "apelido": "Herrera",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Canhoto",
+      "altura_cm": 173,
+      "peso_kg": 68,
+      "data_nascimento": "2003-06-08",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Isidro Pitta Sánchez",
+      "apelido": "Isidro Pitta",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 183,
+      "peso_kg": 79,
+      "data_nascimento": "1999-08-14",
+      "nacionalidade": "Paraguai"
+    }
+  ]
+}

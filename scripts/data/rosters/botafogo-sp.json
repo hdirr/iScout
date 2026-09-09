@@ -1,0 +1,118 @@
+{
+  "clube": "Botafogo-SP",
+  "sigla": "BFC",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Victor Bernardes Andrade e Souza",
+      "apelido": "Victor Souza",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 191,
+      "peso_kg": 88,
+      "data_nascimento": "1992-08-31",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Wallace Fortuna dos Santos",
+      "apelido": "Wallace",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 84,
+      "data_nascimento": "1994-10-14",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Guilherme Mariano Barbosa",
+      "apelido": "Guilherme Mariano",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["LAD"],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 80,
+      "data_nascimento": "1999-12-12",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Patrick de Carvalho Brey",
+      "apelido": "Patrick Brey",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["MEI"],
+      "pe": "Canhoto",
+      "altura_cm": 177,
+      "peso_kg": 72,
+      "data_nascimento": "1997-06-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel de Souza Inocêncio",
+      "apelido": "Gabriel Inocêncio",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["LAE"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 72,
+      "data_nascimento": "1994-08-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Leandro Isaac Maciel",
+      "apelido": "Leandro Maciel",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 73,
+      "data_nascimento": "1995-12-29",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Everton Morelli Casimiro",
+      "apelido": "Everton Morelli",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEI", "VOL"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 80,
+      "data_nascimento": "1997-11-04",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Kelvin Giacobe Alves dos Santos",
+      "apelido": "Kelvin",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE", "SA"],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 70,
+      "data_nascimento": "1997-08-18",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "José Hugo Sousa dos Santos",
+      "apelido": "Zé Hugo",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 72,
+      "data_nascimento": "1999-10-17",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Hygor Cléber Garcia Silva",
+      "apelido": "Hygor",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["PED", "PEE"],
+      "pe": "Destro",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "1992-08-13",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "clube": "Operário-PR",
+  "sigla": "OPE",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Elias Curzel",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 188,
+      "peso_kg": 82,
+      "data_nascimento": "1995-07-12",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Miranda",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 184,
+      "peso_kg": 80,
+      "data_nascimento": "2000-01-19",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel Feliciano",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 185,
+      "peso_kg": 80,
+      "data_nascimento": "2001-07-26",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Mikael Doka",
+      "apelido": null,
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 170,
+      "peso_kg": 68,
+      "data_nascimento": "2000-01-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Matheus Trindade",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 72,
+      "data_nascimento": "1996-03-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Juan Zuluaga",
+      "apelido": null,
+      "posicao_principal": "MC",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 73,
+      "data_nascimento": "1993-06-15",
+      "nacionalidade": "Colômbia"
+    },
+    {
+      "nome": "Gabriel Boschilia",
+      "apelido": null,
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 173,
+      "peso_kg": 70,
+      "data_nascimento": "1996-03-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Vinícius Diniz",
+      "apelido": null,
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 82,
+      "data_nascimento": "1999-07-25",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Vinicius Mingotti",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 85,
+      "data_nascimento": "2000-01-07",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Caio Dantas",
+      "apelido": null,
+      "posicao_principal": "CA",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 75,
+      "data_nascimento": "1993-02-19",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

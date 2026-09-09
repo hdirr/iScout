@@ -1,0 +1,118 @@
+{
+  "clube": "Santos",
+  "sigla": "SAN",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Gabriel Brazão Ferreira",
+      "apelido": "Gabriel Brazão",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 193,
+      "peso_kg": 85,
+      "data_nascimento": "2002-05-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Diógenes Júnior da Silva Nascimento",
+      "apelido": "Diógenes",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 83,
+      "data_nascimento": "1999-12-01",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Lucas Veríssimo da Silva",
+      "apelido": "Lucas Veríssimo",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 188,
+      "peso_kg": 82,
+      "data_nascimento": "1995-07-02",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Adonis Frías",
+      "apelido": null,
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 185,
+      "peso_kg": 80,
+      "data_nascimento": "1998-03-12",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Igor Vinícius da Silva",
+      "apelido": "Igor Vinícius",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Destro",
+      "altura_cm": 174,
+      "peso_kg": 68,
+      "data_nascimento": "1997-04-01",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gonzalo Escobar",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Canhoto",
+      "altura_cm": 178,
+      "peso_kg": 72,
+      "data_nascimento": "1997-03-16",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Willian Arão da Silva",
+      "apelido": "Willian Arão",
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["ZAG"],
+      "pe": "Destro",
+      "altura_cm": 181,
+      "peso_kg": 78,
+      "data_nascimento": "1992-03-27",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel Bontempo da Silva",
+      "apelido": "Gabriel Bontempo",
+      "posicao_principal": "MEC",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 68,
+      "data_nascimento": "2005-04-10",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Neymar da Silva Santos Júnior",
+      "apelido": "Neymar",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["PEE", "CA"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 68,
+      "data_nascimento": "1992-02-05",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Rony Rodrigues de Souza",
+      "apelido": "Rony",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["PED", "PEE"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 70,
+      "data_nascimento": "1995-05-11",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

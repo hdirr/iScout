@@ -50,6 +50,7 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
 | CRUD de jogadores | ok |
 | Autenticação (Supabase Auth) | ok — email/senha + proteção de rotas |
 | RLS restrito a autenticados | pendente — rodar `supabase/security.sql` |
+| Dados de mercado (Série A/B 2026) | ok — 400 jogadores via seed (p/ demo) |
 | Dashboard com filtros avançados (seção 7 doc) | ok — busca avançada em `/jogadores` |
 
 ## Dashboard de busca avançada (`/jogadores`)
@@ -69,8 +70,23 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
   (`LIMITE_CARREGAMENTO = 1000` no data layer).
 - **Atenção**: os embeds do PostgREST vêm com nome de tabela (`player_injuries`, `player_evaluations`) — o
   data layer renomeia para `injuries`/`evaluations` (erro clássico "jogador.evaluations is not iterable").
-- Dados de demonstração inseridos no banco: 5 jogadores com temporada, lesão e avaliação (Lucas Andrade, Ibrahim
-  Diallo, Federico Montiel, Kevin Osei, Tomás Herrera). Apagar pelo UI quando quiser.
+- Banco agora tem o **mercado brasileiro (Séries A e B 2026)**: 400 jogadores reais (10 destaques por clube, 20
+  clubes de cada série), cada um com temporada 2025/2026, ~34% com lesão(s) e ~72% com avaliação do scout —
+  ver seção "Mercado brasileiro" abaixo.
+
+## Mercado brasileiro (Séries A e B 2026)
+
+- Pedido do usuário: focar no mercado brasileiro p/ demo. **400 jogadores** inseridos (10 destaques por clube ×
+  20 clubes Série A + 20 clubes Série B), todos com `clube_atual`, `liga_atual` ("Campeonato Brasileiro Série
+  A/B"), `pais_clube = "Brasil"`.
+- **Nomes reais** de elencos 2026 pesquisados na web (via agentes de pesquisa); stats/lesões/avaliações são
+  **gerados de forma plausível** (seed demo) com valores condizentes com divisão (elite A > A > B), posição e idade.
+- **Seed**: `scripts/seed-brasileirao-2026.js` (determinístico — PRNG com seed fixo `20260909`). Lê os elencos em
+  `scripts/data/rosters/*.json` (nome + posição/pé/altura/peso/nascimento/nacionalidade), gera temporada
+  2025/2026, lesões (~34%, 1 ou 2 por jogador quando houver), avaliações (~72%) e grava no Supabase.
+  **Atenção: o script apaga TODOS os jogadores antes de inserir (purge total).**
+- Como rodar: `node scripts/seed-brasileirao-2026.js` na raiz do projeto (usa chaves do `.env.local`).
+- Ênfase: para a demo, clubes são apenas `clube_atual` (texto) — não existe tabela `clubes` no schema ainda.
 
 ## Autenticação — como funciona
 
@@ -141,3 +157,5 @@ Modelo em `.env.local.example`.
 2. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
 3. Relatório do jogador — visão única (seção 8).
 4. Sistema de compatibilidade (fit) (seção 9) e alertas inteligentes (seção 10).
+5. Mercado BR: quando o tempo permitir, subir nome de clube para tabela própria (`clubes`) + escudos/fotos;
+   aumentar volume e incluir ligas/mercados secundários no seed.

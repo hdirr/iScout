@@ -1,0 +1,118 @@
+{
+  "clube": "Londrina",
+  "sigla": "LON",
+  "divisao": "B",
+  "liga": "Campeonato Brasileiro Série B",
+  "jogadores": [
+    {
+      "nome": "Mauricio Kozlinski",
+      "apelido": null,
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 191,
+      "peso_kg": 85,
+      "data_nascimento": "1991-06-18",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel Lacerda de Souza",
+      "apelido": "Gabriel Lacerda",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 190,
+      "peso_kg": 82,
+      "data_nascimento": "1999-08-29",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Heron de Jesus da Silva",
+      "apelido": "Heron",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": [],
+      "pe": "Canhoto",
+      "altura_cm": 186,
+      "peso_kg": 80,
+      "data_nascimento": "2000-08-17",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "André Dhominique da Silva",
+      "apelido": "André Dhominique",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 72,
+      "data_nascimento": "2003-10-07",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Kevyn Felipe Vieira",
+      "apelido": "Kevyn",
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 178,
+      "peso_kg": 73,
+      "data_nascimento": "1997-12-28",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Chumbinho",
+      "apelido": null,
+      "posicao_principal": "VOL",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 189,
+      "peso_kg": 80,
+      "data_nascimento": "2003-09-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Thalisson César Moreira",
+      "apelido": "Thalis",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MC"],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 70,
+      "data_nascimento": "1996-03-19",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Vitor Jacaré de Lima",
+      "apelido": "Vitor Jacaré",
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE"],
+      "pe": "Destro",
+      "altura_cm": 168,
+      "peso_kg": 63,
+      "data_nascimento": "1999-10-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "William Pottker",
+      "apelido": null,
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PED"],
+      "pe": "Canhoto",
+      "altura_cm": 182,
+      "peso_kg": 75,
+      "data_nascimento": "1993-12-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gilberto de Oliveira Júnior",
+      "apelido": "Gilberto",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 178,
+      "peso_kg": 73,
+      "data_nascimento": "1989-06-05",
+      "nacionalidade": "Brasil"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "clube": "Cruzeiro",
+  "sigla": "CRU",
+  "divisao": "A",
+  "liga": "Campeonato Brasileiro Série A",
+  "jogadores": [
+    {
+      "nome": "Cássio Ramos",
+      "apelido": "Cássio",
+      "posicao_principal": "GOL",
+      "posicoes_alternativas": [],
+      "pe": "Destro",
+      "altura_cm": 196,
+      "peso_kg": 103,
+      "data_nascimento": "1987-03-06",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Fagner Santos da Costa",
+      "apelido": "Fagner",
+      "posicao_principal": "LAD",
+      "posicoes_alternativas": ["ZAD"],
+      "pe": "Destro",
+      "altura_cm": 176,
+      "peso_kg": 72,
+      "data_nascimento": "1989-06-11",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Fabrício Bruno Soares",
+      "apelido": "Fabrício Bruno",
+      "posicao_principal": "ZAG",
+      "posicoes_alternativas": ["ZAD"],
+      "pe": "Destro",
+      "altura_cm": 192,
+      "peso_kg": 84,
+      "data_nascimento": "1996-02-16",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Gabriel Rojas",
+      "apelido": null,
+      "posicao_principal": "LAE",
+      "posicoes_alternativas": ["LAT"],
+      "pe": "Canhoto",
+      "altura_cm": 178,
+      "peso_kg": 75,
+      "data_nascimento": "1997-02-23",
+      "nacionalidade": "Argentina"
+    },
+    {
+      "nome": "Gerson Santos da Silva",
+      "apelido": "Gerson",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Canhoto",
+      "altura_cm": 176,
+      "peso_kg": 73,
+      "data_nascimento": "1997-05-20",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Matheus Henrique de Souza",
+      "apelido": "Matheus Henrique",
+      "posicao_principal": "MC",
+      "posicoes_alternativas": ["VOL"],
+      "pe": "Destro",
+      "altura_cm": 177,
+      "peso_kg": 70,
+      "data_nascimento": "1997-12-22",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Matheus Pereira da Cruz",
+      "apelido": "Matheus Pereira",
+      "posicao_principal": "MEI",
+      "posicoes_alternativas": ["MEC"],
+      "pe": "Canhoto",
+      "altura_cm": 175,
+      "peso_kg": 70,
+      "data_nascimento": "1996-05-07",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Luis Fernando Sinisterra Vera",
+      "apelido": "Sinisterra",
+      "posicao_principal": "PEE",
+      "posicoes_alternativas": ["PON"],
+      "pe": "Destro",
+      "altura_cm": 172,
+      "peso_kg": 70,
+      "data_nascimento": "1999-06-17",
+      "nacionalidade": "Colômbia"
+    },
+    {
+      "nome": "Kaio Jorge Pires Ramos",
+      "apelido": "Kaio Jorge",
+      "posicao_principal": "CA",
+      "posicoes_alternativas": ["CF"],
+      "pe": "Destro",
+      "altura_cm": 175,
+      "peso_kg": 63,
+      "data_nascimento": "2002-01-24",
+      "nacionalidade": "Brasil"
+    },
+    {
+      "nome": "Keny Arroyo",
+      "apelido": null,
+      "posicao_principal": "PED",
+      "posicoes_alternativas": ["PEE"],
+      "pe": "Destro",
+      "altura_cm": 173,
+      "peso_kg": 68,
+      "data_nascimento": "2005-10-14",
+      "nacionalidade": "Equador"
+    }
+  ]
+}
