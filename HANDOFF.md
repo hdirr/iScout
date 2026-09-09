@@ -51,21 +51,26 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
 | Autenticação (Supabase Auth) | ok — email/senha + proteção de rotas |
 | RLS restrito a autenticados | pendente — rodar `supabase/security.sql` |
 | Dados de mercado (Série A/B 2026) | ok — 400 jogadores via seed (p/ demo) |
-| Dashboard com filtros avançados (seção 7 doc) | ok — busca avançada em `/jogadores` |
+| Dashboard com busca simplificada (seção 7 doc) | ok — busca por jogador ou time em `/jogadores` |
 
-## Dashboard de busca avançada (`/jogadores`)
+## Dashboard de busca `(/jogadores)`
 
 - **`buscarJogadores(filters)`** em `src/lib/data/players.ts` busca uma única query aninhada
   `players + season_stats + player_injuries + player_evaluations` (PostgREST embeds) e agrega
   em memória → `PlayerSummary` (última temporada, total gols/assistências, total lesões,
   maior dias afastado, última avaliação).
+- **Busca simples no campo `busca`**: casa `nome_completo` / `nome_usual` / `apelido` **OU**
+  `clube_atual` / `liga_atual`, **ignorando acentos e caixa** (ex.: `sao paulo` encontra "São Paulo").
 - **Regras definidas** (importante para não gerar conflitos):
   - Desempenho (gols, assist, xG, xA, desarmes, precisão de passes, mín. jogos) aplicado à **última temporada**.
   - Lesões: `maxDiasAfastado` compara com a **pior lesão**; `/tipo/gravidade/recidiva` = pelo menos uma lesão que satisfaça.
   - Scout (recomendação, scout, potencial, data) aplicado à **última avaliação** (por `data_avaliacao`).
   - Precisão de passes = `passes_completos/passes_tentados * 100` na última temporada.
-- **UI**: `src/components/jogadores-filtros.tsx` — form GET com os grupos Jogador / Clube e contrato /
-  Mercado / Desempenho / Lesões / Scout (formulário e tabela ricos na página).
+- **UI** (request do usuário: "busca simples por time ou jogador, métricas importantes, ferramenta fácil"):
+  `src/components/jogadores-filtros.tsx` é um form compacto com **campo único de busca** (jogador OU time),
+  três seletores-chave (Posição, Disponibilidade, Recomendação do scout), ordenação (Nome/Idade/Posição/Clube/
+  Nota/Valor + direção) e botões Buscar/Limpar. A tabela mostra as métricas importantes: Jogador, Posição,
+  Clube/Liga, Temporada (jogos), Gols · Assist, Dias afastado, Recomendação, Valor, Nota e Status.
 - **Nota de escala**: com muitos players, migrar a agregação para função RPC no Postgres
   (`LIMITE_CARREGAMENTO = 1000` no data layer).
 - **Atenção**: os embeds do PostgREST vêm com nome de tabela (`player_injuries`, `player_evaluations`) — o

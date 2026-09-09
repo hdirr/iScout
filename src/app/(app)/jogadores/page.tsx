@@ -8,18 +8,12 @@ import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { calcularIdade, formatarMoedaEUR } from "@/lib/utils";
 import { JogadoresFiltros } from "@/components/jogadores-filtros";
 import {
-  GRAVIDADE_LESAO,
-  PES,
   POSICOES,
   RECOMENDACAO,
   STATUS_DISPONIBILIDADE,
-  TIPO_LESAO,
-  type GravidadeLesao,
-  type Pe,
   type Posicao,
   type Recomendacao,
   type StatusDisponibilidade,
-  type TipoLesao,
 } from "@/lib/types";
 
 export const metadata = { title: "Jogadores" };
@@ -40,19 +34,6 @@ function texto(sp: SearchParams, chave: string): string | undefined {
   return typeof v === "string" && v.trim() !== "" ? v : undefined;
 }
 
-function numero(sp: SearchParams, chave: string): number | undefined {
-  const v = texto(sp, chave);
-  if (v === undefined) return undefined;
-  const n = Number(v);
-  return Number.isFinite(n) ? n : undefined;
-}
-
-function bool(sp: SearchParams, chave: string): boolean | undefined {
-  const v = texto(sp, chave);
-  if (v === undefined) return undefined;
-  return v === "true";
-}
-
 function enumValor<T extends string>(
   sp: SearchParams,
   chave: string,
@@ -70,59 +51,16 @@ function lerFiltros(sp: SearchParams): PlayerFilters {
   return {
     busca: texto(sp, "busca"),
     posicao: enumValor(sp, "posicao", Object.values(POSICOES) as Posicao[]),
-    pe: enumValor(sp, "pe", Object.values(PES) as Pe[]),
-    nacionalidade: texto(sp, "nacionalidade"),
-    clube: texto(sp, "clube"),
-    liga: texto(sp, "liga"),
-    pais: texto(sp, "pais"),
     status: enumValor(
       sp,
       "status",
       Object.values(STATUS_DISPONIBILIDADE) as StatusDisponibilidade[]
     ),
-    idadeMin: numero(sp, "idadeMin"),
-    idadeMax: numero(sp, "idadeMax"),
-    alturaMin: numero(sp, "alturaMin"),
-    alturaMax: numero(sp, "alturaMax"),
-    pesoMin: numero(sp, "pesoMin"),
-    pesoMax: numero(sp, "pesoMax"),
-    fimContratoDe: texto(sp, "fimContratoDe"),
-    fimContratoAte: texto(sp, "fimContratoAte"),
-    valorMin: numero(sp, "valorMin"),
-    valorMax: numero(sp, "valorMax"),
-    minJogos: numero(sp, "minJogos"),
-    golsMin: numero(sp, "golsMin"),
-    golsMax: numero(sp, "golsMax"),
-    assistMin: numero(sp, "assistMin"),
-    assistMax: numero(sp, "assistMax"),
-    xgMin: numero(sp, "xgMin"),
-    xgMax: numero(sp, "xgMax"),
-    xaMin: numero(sp, "xaMin"),
-    xaMax: numero(sp, "xaMax"),
-    precisaoPassesMin: numero(sp, "precisaoPassesMin"),
-    precisaoPassesMax: numero(sp, "precisaoPassesMax"),
-    desarmesMin: numero(sp, "desarmesMin"),
-    desarmesMax: numero(sp, "desarmesMax"),
-    notaMin: numero(sp, "notaMin"),
-    notaMax: numero(sp, "notaMax"),
-    maxDiasAfastado: numero(sp, "maxDiasAfastado"),
-    tipoLesao: enumValor(sp, "tipoLesao", Object.values(TIPO_LESAO) as TipoLesao[]),
-    gravidade: enumValor(
-      sp,
-      "gravidade",
-      Object.values(GRAVIDADE_LESAO) as GravidadeLesao[]
-    ),
-    recidiva: bool(sp, "recidiva"),
-    avaliadoDe: texto(sp, "avaliadoDe"),
-    avaliadoAte: texto(sp, "avaliadoAte"),
-    scout: texto(sp, "scout"),
     recomendacao: enumValor(
       sp,
       "recomendacao",
       Object.values(RECOMENDACAO) as Recomendacao[]
     ),
-    potencialMin: numero(sp, "potencialMin"),
-    potencialMax: numero(sp, "potencialMax"),
     ordenarPor,
     ordem,
   };
@@ -196,8 +134,8 @@ export default async function JogadoresPage({
                 <th className="px-4 py-3 font-medium">Jogador</th>
                 <th className="px-4 py-3 font-medium">Posição</th>
                 <th className="px-4 py-3 font-medium">Clube / Liga</th>
-                <th className="px-4 py-3 font-medium">Últ. temporada</th>
-                <th className="px-4 py-3 font-medium">Gols (G/A)</th>
+                <th className="px-4 py-3 font-medium">Temporada</th>
+                <th className="px-4 py-3 font-medium">Gols · Assist</th>
                 <th className="px-4 py-3 font-medium">Dias afastado</th>
                 <th className="px-4 py-3 font-medium">Recomendação</th>
                 <th className="px-4 py-3 font-medium">Valor</th>

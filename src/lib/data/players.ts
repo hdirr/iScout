@@ -167,12 +167,12 @@ function compararAvaliacoes(a: PlayerEvaluation, b: PlayerEvaluation) {
 }
 
 function aplicaFiltros(j: PlayerSummary, f: PlayerFilters): boolean {
-  // ---------- Jogador ----------
+  // ---------- Busca ----------
   if (f.busca) {
-    const termo = f.busca.toLowerCase();
-    const alvos = [j.nome_completo, j.nome_usual, j.apelido]
+    const termo = normalizar(f.busca);
+    const alvos = [j.nome_completo, j.nome_usual, j.apelido, j.clube_atual, j.liga_atual]
       .filter(Boolean)
-      .map((v) => v!.toLowerCase());
+      .map((v) => normalizar(v!));
     if (!alvos.some((v) => v.includes(termo))) return false;
   }
   if (f.posicao && j.posicao_principal !== f.posicao) return false;
@@ -302,6 +302,13 @@ function aplicaFiltros(j: PlayerSummary, f: PlayerFilters): boolean {
   }
 
   return true;
+}
+
+function normalizar(v: string): string {
+  return v
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
 }
 
 function emRange(
