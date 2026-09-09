@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { getCurrentUser } from "@/lib/dal";
 
-export default function Home() {
+export default async function Home() {
+  const user = await getCurrentUser();
+
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-4 py-16">
       <section className="max-w-2xl">
@@ -19,14 +22,16 @@ export default function Home() {
             href="/jogadores"
             className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
           >
-            Explorar jogadores
+            {user ? "Explorar jogadores" : "Ver jogadores"}
           </Link>
-          <Link
-            href="/jogadores/novo"
-            className="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-900"
-          >
-            Cadastrar jogador
-          </Link>
+          {!user && (
+            <Link
+              href="/registrar"
+              className="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-900"
+            >
+              Criar conta grátis
+            </Link>
+          )}
         </div>
       </section>
     </div>

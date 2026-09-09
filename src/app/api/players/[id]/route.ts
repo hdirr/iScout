@@ -4,12 +4,16 @@ import {
   getPlayer,
   updatePlayer,
 } from "@/lib/data/players";
+import { isAuthed } from "@/lib/dal";
 import type { PlayerInput } from "@/lib/types";
 
 export async function PATCH(
   request: NextRequest,
   ctx: RouteContext<"/api/players/[id]">
 ) {
+  if (!(await isAuthed())) {
+    return Response.json({ error: "Não autenticado." }, { status: 401 });
+  }
   try {
     const { id } = await ctx.params;
     const body = (await request.json()) as Partial<PlayerInput>;
@@ -25,6 +29,9 @@ export async function DELETE(
   _request: NextRequest,
   ctx: RouteContext<"/api/players/[id]">
 ) {
+  if (!(await isAuthed())) {
+    return Response.json({ error: "Não autenticado." }, { status: 401 });
+  }
   try {
     const { id } = await ctx.params;
     const existing = await getPlayer(id);
