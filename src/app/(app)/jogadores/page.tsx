@@ -1,35 +1,146 @@
 import Link from "next/link";
-import { getPlayers } from "@/lib/data/players";
+import {
+  buscarJogadores,
+  type OrdenarJogadores,
+  type PlayerFilters,
+} from "@/lib/data/players";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { calcularIdade, formatarMoedaEUR } from "@/lib/utils";
+import { JogadoresFiltros } from "@/components/jogadores-filtros";
 import {
+  GRAVIDADE_LESAO,
+  PES,
   POSICOES,
-  POSICAO_LABEL,
-  type Player,
+  RECOMENDACAO,
+  STATUS_DISPONIBILIDADE,
+  TIPO_LESAO,
+  type GravidadeLesao,
+  type Pe,
   type Posicao,
+  type Recomendacao,
+  type StatusDisponibilidade,
+  type TipoLesao,
 } from "@/lib/types";
 
 export const metadata = { title: "Jogadores" };
 
+type SearchParams = Record<string, string | string[] | undefined>;
+
+const ORDENACOES: OrdenarJogadores[] = [
+  "nome_completo",
+  "idade",
+  "posicao_principal",
+  "clube_atual",
+  "nota_global",
+  "valor_mercado_estimado",
+];
+
+function texto(sp: SearchParams, chave: string): string | undefined {
+  const v = sp[chave];
+  return typeof v === "string" && v.trim() !== "" ? v : undefined;
+}
+
+function numero(sp: SearchParams, chave: string): number | undefined {
+  const v = texto(sp, chave);
+  if (v === undefined) return undefined;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : undefined;
+}
+
+function bool(sp: SearchParams, chave: string): boolean | undefined {
+  const v = texto(sp, chave);
+  if (v === undefined) return undefined;
+  return v === "true";
+}
+
+function enumValor<T extends string>(
+  sp: SearchParams,
+  chave: string,
+  valores: readonly T[]
+): T | undefined {
+  const v = texto(sp, chave);
+  if (v === undefined) return undefined;
+  return valores.includes(v as T) ? (v as T) : undefined;
+}
+
+function lerFiltros(sp: SearchParams): PlayerFilters {
+  const ordenarPor = enumValor(sp, "ordenarPor", ORDENACOES);
+  const ordem = texto(sp, "ordem") === "desc" ? "desc" : "asc";
+
+  return {
+    busca: texto(sp, "busca"),
+    posicao: enumValor(sp, "posicao", Object.values(POSICOES) as Posicao[]),
+    pe: enumValor(sp, "pe", Object.values(PES) as Pe[]),
+    nacionalidade: texto(sp, "nacionalidade"),
+    clube: texto(sp, "clube"),
+    liga: texto(sp, "liga"),
+    pais: texto(sp, "pais"),
+    status: enumValor(
+      sp,
+      "status",
+      Object.values(STATUS_DISPONIBILIDADE) as StatusDisponibilidade[]
+    ),
+    idadeMin: numero(sp, "idadeMin"),
+    idadeMax: numero(sp, "idadeMax"),
+    alturaMin: numero(sp, "alturaMin"),
+    alturaMax: numero(sp, "alturaMax"),
+    pesoMin: numero(sp, "pesoMin"),
+    pesoMax: numero(sp, "pesoMax"),
+    fimContratoDe: texto(sp, "fimContratoDe"),
+    fimContratoAte: texto(sp, "fimContratoAte"),
+    valorMin: numero(sp, "valorMin"),
+    valorMax: numero(sp, "valorMax"),
+    minJogos: numero(sp, "minJogos"),
+    golsMin: numero(sp, "golsMin"),
+    golsMax: numero(sp, "golsMax"),
+    assistMin: numero(sp, "assistMin"),
+    assistMax: numero(sp, "assistMax"),
+    xgMin: numero(sp, "xgMin"),
+    xgMax: numero(sp, "xgMax"),
+    xaMin: numero(sp, "xaMin"),
+    xaMax: numero(sp, "xaMax"),
+    precisaoPassesMin: numero(sp, "precisaoPassesMin"),
+    precisaoPassesMax: numero(sp, "precisaoPassesMax"),
+    desarmesMin: numero(sp, "desarmesMin"),
+    desarmesMax: numero(sp, "desarmesMax"),
+    notaMin: numero(sp, "notaMin"),
+    notaMax: numero(sp, "notaMax"),
+    maxDiasAfastado: numero(sp, "maxDiasAfastado"),
+    tipoLesao: enumValor(sp, "tipoLesao", Object.values(TIPO_LESAO) as TipoLesao[]),
+    gravidade: enumValor(
+      sp,
+      "gravidade",
+      Object.values(GRAVIDADE_LESAO) as GravidadeLesao[]
+    ),
+    recidiva: bool(sp, "recidiva"),
+    avaliadoDe: texto(sp, "avaliadoDe"),
+    avaliadoAte: texto(sp, "avaliadoAte"),
+    scout: texto(sp, "scout"),
+    recomendacao: enumValor(
+      sp,
+      "recomendacao",
+      Object.values(RECOMENDACAO) as Recomendacao[]
+    ),
+    potencialMin: numero(sp, "potencialMin"),
+    potencialMax: numero(sp, "potencialMax"),
+    ordenarPor,
+    ordem,
+  };
+}
+
 export default async function JogadoresPage({
   searchParams,
 }: {
-  searchParams: Promise<{ posicao?: string }>;
+  searchParams: Promise<SearchParams>;
 }) {
-  const { posicao } = await searchParams;
-  const posicaoValida = Object.values(POSICOES).includes(posicao as Posicao)
-    ? (posicao as Posicao)
-    : undefined;
-
-  let jogadores: Player[] = [];
+  const sp = await searchParams;
+  const filtros = lerFiltros(sp);
   let erro: string | null = null;
+  let jogadores: Awaited<ReturnType<typeof buscarJogadores>> = [];
 
   if (isSupabaseConfigured()) {
     try {
-      jogadores = await getPlayers({
-        posicao: posicaoValida,
-        ordenarPor: "nome_completo",
-      });
+      jogadores = await buscarJogadores(filtros);
     } catch (err) {
       erro = err instanceof Error ? err.message : "Erro ao carregar jogadores.";
     }
@@ -39,127 +150,168 @@ export default async function JogadoresPage({
     <div className="mx-auto w-full max-w-6xl px-4 py-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Jogadores</h1>
+          <h1 className="text-2xl font-bold tracking-tight">
+            Dashboard de jogadores
+          </h1>
           <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
             {erro
               ? "Não foi possível carregar a lista."
-              : `${jogadores.length} jogador(es) no banco`}
+              : `${jogadores.length} jogador(es) encontrados`}
           </p>
         </div>
-        <form method="get" className="flex items-center gap-2">
-          <select
-            name="posicao"
-            defaultValue={posicaoValida ?? ""}
-            className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
-          >
-            <option value="">Todas as posições</option>
-            {Object.values(POSICOES).map((pos) => (
-              <option key={pos} value={pos}>
-                {pos} — {POSICAO_LABEL[pos]}
-              </option>
-            ))}
-          </select>
-          <button
-            type="submit"
-            className="rounded-md bg-zinc-900 px-3 py-2 text-sm font-semibold text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
-          >
-            Filtrar
-          </button>
-          {posicaoValida && (
-            <Link
-              href="/jogadores"
-              className="rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-900"
-            >
-              Limpar
-            </Link>
-          )}
-        </form>
+        <Link
+          href="/jogadores/novo"
+          className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+        >
+          + Novo jogador
+        </Link>
+      </div>
+
+      <div className="mt-6">
+        <JogadoresFiltros valores={filtros} />
       </div>
 
       {!isSupabaseConfigured() && <SetupPending />}
-      {erro && (
-        <div className="mt-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-300">
-          {erro}
-        </div>
-      )}
+      {erro && <ErroMensagem mensagem={erro} />}
 
       {isSupabaseConfigured() && !erro && jogadores.length === 0 && (
         <div className="mt-12 text-center">
           <p className="text-zinc-500 dark:text-zinc-400">
-            Nenhum jogador cadastrado ainda.
+            Nenhum jogador corresponde aos filtros.
           </p>
           <Link
-            href="/jogadores/novo"
-            className="mt-3 inline-block rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+            href="/jogadores"
+            className="mt-3 inline-block rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-900"
           >
-            Cadastrar o primeiro jogador
+            Limpar filtros
           </Link>
         </div>
       )}
 
       {isSupabaseConfigured() && !erro && jogadores.length > 0 && (
-        <div className="mt-8 overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
-          <table className="w-full min-w-[720px] text-sm">
+        <div className="mt-6 overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table className="w-full min-w-[900px] text-sm">
             <thead>
               <tr className="border-b border-zinc-200 text-left text-xs uppercase tracking-wide text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
                 <th className="px-4 py-3 font-medium">Jogador</th>
                 <th className="px-4 py-3 font-medium">Posição</th>
                 <th className="px-4 py-3 font-medium">Clube / Liga</th>
-                <th className="px-4 py-3 font-medium">Valor de mercado</th>
-                <th className="px-4 py-3 font-medium">Status</th>
+                <th className="px-4 py-3 font-medium">Últ. temporada</th>
+                <th className="px-4 py-3 font-medium">Gols (G/A)</th>
+                <th className="px-4 py-3 font-medium">Dias afastado</th>
+                <th className="px-4 py-3 font-medium">Recomendação</th>
+                <th className="px-4 py-3 font-medium">Valor</th>
                 <th className="px-4 py-3 font-medium">Nota</th>
+                <th className="px-4 py-3 font-medium">Status</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
-              {jogadores.map((j) => (
-                <tr
-                  key={j.id}
-                  className="transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900"
-                >
-                  <td className="px-4 py-3">
-                    <Link
-                      href={`/jogadores/${j.id}`}
-                      className="font-semibold text-zinc-900 hover:underline dark:text-zinc-100"
-                    >
-                      {j.nome_completo}
-                    </Link>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                      {j.nome_usual || j.apelido}
-                      {calcularIdade(j.data_nascimento) !== null && (
-                        <span> · {calcularIdade(j.data_nascimento)} anos</span>
+              {jogadores.map((j) => {
+                const t = j.ultima_temporada;
+                const idade = calcularIdade(j.data_nascimento);
+                const auxiliar = j.nome_usual || j.apelido;
+                return (
+                  <tr
+                    key={j.id}
+                    className="transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900"
+                  >
+                    <td className="px-4 py-3">
+                      <Link
+                        href={`/jogadores/${j.id}`}
+                        className="font-semibold text-zinc-900 hover:underline dark:text-zinc-100"
+                      >
+                        {j.nome_completo}
+                      </Link>
+                      {(auxiliar || idade !== null) && (
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                          {[auxiliar, idade !== null ? `${idade} anos` : null]
+                            .filter(Boolean)
+                            .join(" · ")}
+                        </p>
                       )}
-                    </p>
-                  </td>
-                  <td className="px-4 py-3">
-                    <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-semibold text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
-                      {j.posicao_principal}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
-                    <p>{j.clube_atual ?? "—"}</p>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                      {j.liga_atual ?? "—"}
-                    </p>
-                  </td>
-                  <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
-                    {formatarMoedaEUR(j.valor_mercado_estimado)}
-                  </td>
-                  <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
-                    {j.status_disponibilidade}
-                  </td>
-                  <td className="px-4 py-3 font-semibold">
-                    {j.nota_global !== null ? (
-                      j.nota_global.toFixed(1)
-                    ) : (
-                      <span className="text-zinc-400">—</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-semibold text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                        {j.posicao_principal}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      <p>{j.clube_atual ?? "—"}</p>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                        {j.liga_atual ?? "—"}
+                      </p>
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {t ? (
+                        <>
+                          <p>{t.temporada}</p>
+                          <p className="text-xs text-zinc-500">
+                            {t.jogos_disputados} jogos
+                          </p>
+                        </>
+                      ) : (
+                        <span className="text-zinc-400">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {t ? (
+                        <>
+                          <p className="font-semibold">{t.gols_marcados}</p>
+                          <p className="text-xs text-zinc-500">
+                            {t.assistencias} assist.
+                          </p>
+                        </>
+                      ) : (
+                        <span className="text-zinc-400">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {j.total_lesoes > 0 ? (
+                        <>
+                          <p className="font-semibold text-red-600 dark:text-red-400">
+                            {j.max_dias_afastado} dias
+                          </p>
+                          <p className="text-xs text-zinc-500">
+                            {j.total_lesoes} lesão(ões)
+                          </p>
+                        </>
+                      ) : (
+                        <span className="text-zinc-400">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {j.ultima_avaliacao?.recomendacao_final ?? (
+                        <span className="text-zinc-400">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {formatarMoedaEUR(j.valor_mercado_estimado)}
+                    </td>
+                    <td className="px-4 py-3 font-semibold">
+                      {j.nota_global !== null ? (
+                        j.nota_global.toFixed(1)
+                      ) : (
+                        <span className="text-zinc-400">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {j.status_disponibilidade}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
       )}
+    </div>
+  );
+}
+
+function ErroMensagem({ mensagem }: { mensagem: string }) {
+  return (
+    <div className="mt-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-300">
+      {mensagem}
     </div>
   );
 }

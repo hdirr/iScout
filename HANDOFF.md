@@ -35,7 +35,27 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
 | CRUD de jogadores | ok |
 | Autenticação (Supabase Auth) | ok — email/senha + proteção de rotas |
 | RLS restrito a autenticados | pendente — rodar `supabase/security.sql` |
-| Dashboard com filtros avançados (seção 7 doc) | pendente (próximo) |
+| Dashboard com filtros avançados (seção 7 doc) | ok — busca avançada em `/jogadores` |
+
+## Dashboard de busca avançada (`/jogadores`)
+
+- **`buscarJogadores(filters)`** em `src/lib/data/players.ts` busca uma única query aninhada
+  `players + season_stats + player_injuries + player_evaluations` (PostgREST embeds) e agrega
+  em memória → `PlayerSummary` (última temporada, total gols/assistências, total lesões,
+  maior dias afastado, última avaliação).
+- **Regras definidas** (importante para não gerar conflitos):
+  - Desempenho (gols, assist, xG, xA, desarmes, precisão de passes, mín. jogos) aplicado à **última temporada**.
+  - Lesões: `maxDiasAfastado` compara com a **pior lesão**; `/tipo/gravidade/recidiva` = pelo menos uma lesão que satisfaça.
+  - Scout (recomendação, scout, potencial, data) aplicado à **última avaliação** (por `data_avaliacao`).
+  - Precisão de passes = `passes_completos/passes_tentados * 100` na última temporada.
+- **UI**: `src/components/jogadores-filtros.tsx` — form GET com os grupos Jogador / Clube e contrato /
+  Mercado / Desempenho / Lesões / Scout (formulário e tabela ricos na página).
+- **Nota de escala**: com muitos players, migrar a agregação para função RPC no Postgres
+  (`LIMITE_CARREGAMENTO = 1000` no data layer).
+- **Atenção**: os embeds do PostgREST vêm com nome de tabela (`player_injuries`, `player_evaluations`) — o
+  data layer renomeia para `injuries`/`evaluations` (erro clássico "jogador.evaluations is not iterable").
+- Dados de demonstração inseridos no banco: 5 jogadores com temporada, lesão e avaliação (Lucas Andrade, Ibrahim
+  Diallo, Federico Montiel, Kevin Osei, Tomás Herrera). Apagar pelo UI quando quiser.
 
 ## Autenticação — como funciona
 
@@ -64,7 +84,7 @@ src/
 │   │   ├── layout.tsx
 │   │   └── entrar|registrar/
 │   └── api/players/          # route handlers (POST / PATCH / DELETE) c/ 401
-├── components/               # player-form, delete-player-button, sign-in/up-form
+├── components/               # player-form, delete-player-button, sign-in/up-form, jogadores-filtros
 └── lib/
     ├── dal.ts                # getCurrentUser / requireUser / isAuthed
     ├── data/players.ts       # camada de dados (usa cookie session)
@@ -104,5 +124,5 @@ Modelo em `.env.local.example`.
 
 1. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo).
 2. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
-3. Dashboard com filtros avançados (seção 7).
-4. Módulos seguintes do doc (stats por posição, fit, alertas).
+3. Relatório do jogador — visão única (seção 8).
+4. Sistema de compatibilidade (fit) (seção 9) e alertas inteligentes (seção 10).
