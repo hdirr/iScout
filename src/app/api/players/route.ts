@@ -1,12 +1,11 @@
 import type { NextRequest } from "next/server";
 import { createPlayer } from "@/lib/data/players";
-import { isAuthed } from "@/lib/dal";
 import type { PlayerInput } from "@/lib/types";
 
+// MODO DEMONSTRAÇÃO: sem checagem de autenticação.
+// Restaurar depois: `if (!(await isAuthed())) return 401` (commit 8ee2d68).
+
 export async function POST(request: NextRequest) {
-  if (!(await isAuthed())) {
-    return Response.json({ error: "Não autenticado." }, { status: 401 });
-  }
   try {
     const body = (await request.json()) as PlayerInput;
     if (!body.nome_completo?.trim()) {

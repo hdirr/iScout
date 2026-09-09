@@ -6,6 +6,21 @@ Documento de contexto para novos agentes/sessões. Atualizado ao final de cada m
 
 ---
 
+## ⚠️ MODO DEMONSTRAÇÃO (ATIVO — reativar após apresentar ao clube)
+
+Acesso liberado para mostrar o SaaS ao CEO do clube (request do usuário, commit próprio):
+
+- `src/proxy.ts` → **pass-through** (`NextResponse.next()`, `matcher: []`): `/jogadores*` não exige login;
+  `/entrar` e `/registrar` continuam funcionando.
+- `src/app/api/players/route.ts` e `src/app/api/players/[id]/route.ts` → **sem checagem `isAuthed`** (401 removido).
+- **Para reativar a proteção** (quando o usuário pedir):
+  1. Restaurar `src/proxy.ts` do commit `8ee2d68` (proxy com `updateSession` + matcher `/jogadores/:path*`, `/entrar/:path*`, `/registrar/:path*`).
+  2. Re-adicionar `if (!(await isAuthed())) return 401` nos dois route handlers (estado do commit `8ee2d68`).
+  3. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo no banco).
+- Lembrar no fim da demo: **restaurar + reabilitar auth + security.sql**. Não esquecer de atualizar este bloco.
+
+---
+
 ## Resumo
 
 SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `documento_central.md`. Repo remoto: `https://github.com/hdirr/iScout.git` (branch `main`).
