@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚽ iScout
 
-## Getting Started
+Plataforma web de scouting profissional focada em **mercados emergentes e menos explorados**, identificando talentos com alto potencial de valorização e custo-benefício.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + **TypeScript**
+- **Tailwind CSS 4**
+- **Supabase** (PostgreSQL) como banco de dados
+- **ESLint**
+
+## Começando
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação roda em [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuração do Supabase
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Crie um projeto em [supabase.com](https://supabase.com).
+2. Abra o **SQL Editor** e execute o arquivo [`supabase/schema.sql`](supabase/schema.sql).
+3. Copie `URL do projeto` e `anon key` em **Settings → API**.
+4. Preencha o `.env.local` (consulte `.env.local.example`):
 
-## Learn More
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Comando | Descrição |
+|---|---|
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | Build de produção |
+| `npm run start` | Serve o build de produção |
+| `npm run lint` | Verifica lint (ESLint) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estrutura
 
-## Deploy on Vercel
+```
+src/
+├── app/                  # Rotas (App Router)
+│   ├── api/players/      # Route handlers (CRUD)
+│   └── jogadores/        # Lista, detalhe, criar e editar
+├── components/           # Componentes reutilizáveis
+└── lib/
+    ├── data/             # Camada de acesso a dados
+    ├── supabase/         # Clientes do Supabase
+    ├── types/            # Tipos e enums do domínio
+    └── utils.ts          # Helpers de formatação
+supabase/
+└── schema.sql            # Schema PostgreSQL do domínio
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> O documento central com a especificação completa está em [`documento_central.md`](documento_central.md).
