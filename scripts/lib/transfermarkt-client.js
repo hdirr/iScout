@@ -321,6 +321,83 @@ async function getDesempenho(id) {
   return res;
 }
 
+// ---------- lesões (histórico, página verletzungen) ----------
+function dataIsoData(d) {
+  const m = String(d).match(/(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{2,4})/);
+  if (!m) return null;
+  let ano = m[3];
+  if (ano.length === 2) ano = 2000 + parseInt(ano, 10);
+  return `${ano}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+}
+
+const TIPOS_LESAO = [
+  ["cruzado", "Ligamento"], ["ligamento", "Ligamento"], ["menisco", "Cartilagem"],
+  ["cartilagem", "Cartilagem"], ["joelho", "Ligamento"],
+  ["isquiotibial", "Muscular"], ["adutor", "Muscular"], ["muscular", "Muscular"],
+  ["coxa", "Muscular"], ["panturrilha", "Muscular"], ["virilha", "Muscular"],
+  ["tendao", "Tendão"], ["fratura", "Osso"], ["osso", "Osso"],
+  ["concussao", "Concussão"], ["cirurgia", "Cirurgia"], ["operacao", "Cirurgia"],
+];
+const LOCAIS_LESAO = [
+  ["joelho", "Joelho"], ["coxa", "Coxa"], ["panturrilha", "Panturrilha"],
+  ["tornozelo", "Tornozelo"], ["pe", "Pé"], ["quadril", "Quadril"],
+  ["virilha", "Virilha"], ["costas", "Costas"], ["ombro", "Ombro"],
+  ["mao", "Mão/Braço"], ["braco", "Mão/Braço"], ["cabeca", "Cabeça"],
+];
+
+function parseLesoes(html) {
+  const out = [];
+  const linhas = html.split(/<tr[\s>]/i).slice(1);
+  for (const linha of linhas) {
+    const bruto = linha.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const dias = (bruto.match(/(\d{1,3})\s*days?/i) || [])[1];
+    const datas = [...bruto.matchAll(/(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{2,4})/g)].map((m) => `${m[3].length === 2 ? 2000 + parseInt(m[3], 10) : m[3]}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}`);
+    if (!datas.length) continue;
+    const ini = datas[0];
+    const fim = datas.length > 1 ? datas[datas.length - 1] : null;
+    const semDatas = bruto.replace(/(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{2,4})/g, "").replace(/\d+\s*days?/i, "").replace(/\d+\s*games?\s*(missed|spielfrei)?/i, "").trim();
+    const n = normalizar(semDatas);
+    const tipo = (TIPOS_LESAO.find(([k]) => n.includes(k)) || [])[1] || "Outro";
+    const localizacao = (LOCAIS_LESAO.find(([k]) => n.includes(k)) || [])[1] || null;
+    const d = parseInt(dias, 10);
+    const gravidade =
+      d > 84 ? "Muito Severa (>84 dias)" : d > 28 ? "Severa (28-84 dias)" : d > 7 ? "Moderada (7-28 dias)" : "Pequena (<7 dias)";
+    const causa = /fratura|concussao|contus/.test(n) ? "Contato" : /recidiva|recurr/.test(n) ? "Recidiva" : /cirurgia|operacao/.test(n) ? "Acidente de treino" : "Muscular sem contato";
+    out.push({
+      dataInicio: ini,
+      dataRetornoEfetivo: fim,
+      diasAfastado: isFinite(d) ? d : null,
+      jogosPerdidos: (bruto.match(/(\d{1,3})\s*games?\s*missed/i) || [])[1] ? parseInt(bruto.match(/(\d{1,3})\s*games?\s*missed/i)[1], 10) : null,
+      tipo,
+      localizacao,
+      gravidade,
+      causa,
+      recidiva: /recidiva|recurr/.test(n),
+      cirurgia: /cirurgia|operacao/.test(n),
+      observacoes: semDatas.slice(0, 120) || null,
+    });
+  }
+  return out;
+}
+
+async function getLesoes(id, href) {
+  const cacheKey = `lesoes-${id}.json`;
+  const cached = await getCache(cacheKey);
+  if (cached) return cached;
+  const url = href
+    ? href.replace(/\/profil\/spieler\//, "/verletzungen/spieler/")
+    : `https://www.transfermarkt.com/profil/spieler/injuries/${id}`;
+  const html = await httpGet(url, { referer: `https://www.transfermarkt.com/${href ? href.match(/transfermarkt\.com\/([^/]+)\//)[1] : ""}/profil/spieler/${id}` });
+  const lesoes = parseLesoes(html);
+  await setCache(cacheKey, { lesoes });
+  return { lesoes };
+}
+
+async function getLesoesCache(id) {
+  const cached = await getCache(`lesoes-${id}.json`);
+  return cached || { lesoes: [] };
+}
+
 module.exports = {
   normalizar,
   httpGet,
@@ -330,6 +407,8 @@ module.exports = {
   getPerfilCache,
   getDesempenho,
   getDesempenhoCache,
+  getLesoes,
+  getLesoesCache,
   CACHE_DIR,
 };
 

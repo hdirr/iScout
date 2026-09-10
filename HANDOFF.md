@@ -70,30 +70,48 @@ temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A
   - Stats: `https://www.transfermarkt.com/ceapi/performance-game/{id}` → JSON por jogo. As páginas
     `leistungsdaten` viraram web components (tabela server-rendered não existe mais).
 - **Scripts**:
-  - `scripts/lib/transfermarkt-client.js`: client TM (busca/perfil/desempenho, cache, throttle ~2,5 s,
-    retries, e `buscaJogador` retorna `{cands, bloqueado}` — **não cacheia vazio quando bloqueado**).
-    Helpers offline: `getPerfilCache(id)` / `getDesempenhoCache(id)`.
-  - `scripts/puxar-transfermarkt.js`: pipeline (UUID v5, purge total, upsert players/season_stats,
-    relatório). Suporta `OFFLINE=1` (usa mapa + cache, sem rede), `PILOT=<roster>`, `LIMITE=<n>`.
-    Deduplica por `tm_id` (mesmo jogador em 2 clubes). `resolverJogador` aceita score ≥ 1 e tenta
-    nome completo/apelido; com `OFFLINE` consome `scripts/data/tm-map.json`.
+  - `scripts/lib/transfermarkt-client.js`: client TM (busca/perfil/desempenho/**lesões**, cache,
+    throttle ~2,5 s, retries, e `buscaJogador` retorna `{cands, bloqueado}` — **não cacheia vazio
+    quando bloqueado**). Helpers offline: `getPerfilCache(id)` / `getDesempenhoCache(id)` /
+    `getLesoesCache(id)`.
+  - `scripts/puxar-transfermarkt.js`: pipeline (UUID v5, purge total, upsert players/season_stats/
+    **player_injuries**, relatório). Suporta `OFFLINE=1` (usa mapa + cache, sem rede), `PILOT=<roster>`,
+    `LIMITE=<n>`. Deduplica por `tm_id`. `resolverJogador` aceita score ≥ 1 e tenta nome
+    completo/apelido; com `OFFLINE` consome `scripts/data/tm-map.json`.
   - `scripts/extrair-mapa.js`: reconstrói `tm-map.json` (clube|nome|apelido → TM id) a partir do log
     da run 1, para inserir offline os jogadores já cacheados.
+  - `scripts/calcular-avaliacoes.js`: **avaliação derivada dos stats reais** (roda offline).
+    Nota 0-100 = média ponderada de **percentis** (entre os destaques da amostra) de métricas por 90
+    min, por grupo posicional (GOL: min/precisão/jogos; DEF: desarmes/passes/min; MID: gols+assist/
+    desarmes/passes; MEI: gols+assist/finalizações/passes; ATT: gols/assist/finaizações) com shrink
+    0.92+0.04. `recomendacao_final` = Comprar ≥ 75, Monitorar 40–74, Descartar < 40; preenche
+    `tecnica`/`fisica`/`comportamental`, `potencial_*`, `scout_responsavel="Auto-scout"` e atualiza
+    `players.nota_global`. **Idempotente** (apaga avaliações e reinsere). `node scripts/calcular-avaliacoes.js`.
+  - `scripts/sincronizar-tm.js`: **agendador de re-run**. Sonda a busca TM a cada
+    `TM_PROBE_INTERVAL_MS` (default 10 min, margem sobre throttle); quando o anti-bot liberar, roda o
+    puxar em modo rede até o fim (com lesões), grava `sync-*.log` e `SYNC_OK.json` e encerra.
+    `--uma-vez` para sonda única. Roda em background: `node scripts/sincronizar-tm.js`.
+  - `scripts/data/cache-tm/` **ignorado no git** (`.gitignore` em `scripts/`).
 - **Sincronização atual**: **127/400** jogadores reais inseridos (135 achados − 8 duplicatas), com
   **332 `season_stats`** (média ~2,6 temporadas por jogador), 0 erros. O restante (265) ficou "sem
-  match" porque o TM bloqueou a busca por IP (anti-bot; sequer perfil/ceapi respondem enquanto
-  bloqueado, só o que está em cache).
+  match" porque o TM bloqueou a busca por IP (anti-bot "Human Verification", HTTP 405; quando
+  bloqueado, até perfil/ceapi/lesões param de responder — só o que está em cache continua valendo).
+- **Avaliações derivadas**: **112** avaliações geradas (`Auto-scout`) com nota/recomendação; **15
+  jogadores sem season_stats** (temporadas 2024-2026 vazias na API) ficaram com `nota_global` null e
+  sem avaliação. Top da amostra: Arrascaeta 89, Éverson 82, Viveros 79, Hugo Souza 78, Rossi 77.
+- **Lesões**: parse pronto e integrado no puxar (tipo/localização/gravidade/causa por keyword do
+  texto TM, recidiva por repetição, cirurgia se "surgery/operation"); o **download real vai junto na
+  re-run agendada** (nunca foram cacheadas, então não há como popular offline agora).
 - **Contacts reality check**: dados realistas confirmados — Pedro 2026 = 33 jogos/1053 min/5 gols
   (retorno de lesão), Pulgar 2026 = 1 vermelho, Arrascaeta 2025 = 23 gols/18 assist, valori: Ortiz
   €12M, Rossi €10M.
-- **Como completar os 273 restantes**: aguardar o TM levantar o bloqueio de IP (período de baixa
-  demanda, horas depois) e re-rodar `node scripts/puxar-transfermarkt.js` (agora c/ retry+backoff em
-  bloqueio). Jogadores já cacheados são aproveitados como cache. Não há risco de dados errados por
-  re-run: purge total + idempotente. Nomes óbvios tipo "Gustavo Gómez" que falharam foram vítimas do
-  bloqueio, não do parse.
-- **Pendências**: `player_injuries` ainda **não** sincronizado (página `verletzungen` retorna 200, mas
-  não há parse implementado); `scripts/calcular-avaliacoes.js` (nota/recomendação derivadas) ainda não
-  criado.
+- **Como completar os 273 restantes**: rodar `node scripts/sincronizar-tm.js` (ficar de prontidão em
+  horário de baixa demanda) ou, quando o TM liberar, `node scripts/puxar-transfermarkt.js` (com
+  retry+backoff em bloqueio; os 127 já cacheados saem do cache; busca das lesões inclui os 127 + novos).
+  Não há risco de dados errados por re-run: purge total + idempotente. Nomes óbvios tipo "Gustavo
+  Gómez" que falharam foram vítimas do bloqueio, não do parse.
+- **Pendências**: `player_injuries` entra na próxima re-run (parse pronto); `calcular-avaliacoes.js`
+  concluído (re-rodar depois que os 400 estiverem no banco: `node scripts/calcular-avaliacoes.js`).
 
 ## Dashboard de busca `(/jogadores)`
 
@@ -200,10 +218,12 @@ Modelo em `.env.local.example`.
 
 ## Próximos passos
 
-1. **Completar os 273 dados reais TM** (aguardar anti-bot levantar → re-rodar `scripts/puxar-transfermarkt.js`).
-2. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
-3. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
-4. Relatório do jogador — visão única (seção 8).
-5. Sistema de compatibilidade (fit) (seção 9) e alertas inteligentes (seção 10).
-6. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
+1. **Completar os 273 dados reais TM**: `node scripts/sincronizar-tm.js` (agendador espera o anti-bot
+   liberar e roda o sync completo com lesões automaticamente).
+2. **Re-rodar avaliações após os 400**: `node scripts/calcular-avaliacoes.js`.
+3. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
+4. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
+5. Relatório do jogador — visão única (seção 8).
+6. Sistema de compatibilidade (fit) (seção 9) e alertas inteligentes (seção 10).
+7. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
    incluir ligas/mercados secundários.

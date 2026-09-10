@@ -229,6 +229,9 @@ function montarPlayer(j, r, perfil) {
           continue;
         }
         const temporadas = perf3.temporadas || [];
+        const lesoes = OFFLINE
+          ? await tm.getLesoesCache(res.best.id)
+          : await tm.getLesoes(res.best.id, res.best.href);
         achados.push({
           roster,
           j,
@@ -237,6 +240,7 @@ function montarPlayer(j, r, perfil) {
           query: res.query,
           perfil: perf,
           temporadas,
+          lesoes: lesoes.lesoes || [],
         });
         nClube++;
         console.log(`TM ${res.best.id} (${res.best.nome}) | temporadas: ${temporadas.map((t) => t.temporada).join(",")}`);
@@ -351,6 +355,42 @@ function montarPlayer(j, r, perfil) {
   }
   console.log(`season_stats inseridos: ${okStats} (erros: ${errStats})`);
 
+  // 5.b inserir player_injuries
+  let okLesoes = 0;
+  let errLesoes = 0;
+  for (const a of achados) {
+    const pid = idJogador(a.tmId);
+    for (const l of a.lesoes || []) {
+      const { error } = await sb.from("player_injuries").insert({
+        player_id: pid,
+        data_inicio: l.dataInicio,
+        data_previsao_retorno: null,
+        data_retorno_efetivo: l.dataRetornoEfetivo,
+        dias_afastado: l.diasAfastado,
+        jogos_perdidos: l.jogosPerdidos,
+        tipo_lesao: l.tipo,
+        localizacao: l.localizacao,
+        lado: null,
+        gravidade: l.gravidade,
+        causa: l.causa,
+        recidiva: l.recidiva,
+        cirurgia_necessaria: l.cirurgia,
+        cirurgia_realizada: l.cirurgia,
+        medicacao: null,
+        departamento_medico: null,
+        tratamento: null,
+        observacoes: l.observacoes,
+      });
+      if (error) {
+        errLesoes++;
+        console.error(`Erro player_injuries ${a.j.apelido || a.j.nome}: ${error.message}`);
+      } else {
+        okLesoes++;
+      }
+    }
+  }
+  console.log(`player_injuries inseridos: ${okLesoes} (erros: ${errLesoes})`);
+
   // 6. relatório
   const rel = {
     geradoEm: new Date().toISOString(),
@@ -364,6 +404,7 @@ function montarPlayer(j, r, perfil) {
     erros,
     playersInsertidos: okPlayers,
     seasonStatsInsertidos: okStats,
+    injuriesInsertidos: okLesoes,
     semMatchDetalhe: semMatch,
     pendentesDetalhe: pendentes,
   };
