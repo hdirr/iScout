@@ -51,7 +51,49 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
 | Autenticação (Supabase Auth) | ok — email/senha + proteção de rotas |
 | RLS restrito a autenticados | pendente — rodar `supabase/security.sql` |
 | Dados de mercado (Série A/B 2026) | ok — 400 jogadores via seed (p/ demo) |
+| **Dados reais via Transfermarkt** | **parcial (127/400)** — ver "Milestone Transfermarkt" abaixo; bloqueado pelo anti-bot do TM |
 | Dashboard com busca simplificada (seção 7 doc) | ok — busca por jogador ou time em `/jogadores` |
+
+## Milestone Transfermarkt (dados reais, custo zero)
+
+Objetivo: substituir stats fake do seed por **dados reais do Transfermarkt via wrapper Node**, 3
+temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A/B.
+
+- **Blocker de DDL resolvido**: não há coluna `tm_id`. Usa-se **UUID v5 determinístico** a partir do
+  tm_id (`uuidV5(NAMESPACE='f3f0b2a4-…-9d01', 'transfermarkt:{tmId}')`). RLS permite INSERT/UPDATE/DELETE
+  pela anon key (só DDL é bloqueado). `schema-v2.sql` **não é mais necessário**.
+- **Endpoints TM validados**:
+  - Busca: `https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=…` → HTML com âncoras
+    `href="…/profil/spieler/{id}"`. **Bloqueada por anti-bot (HTTP 405 "Human Verification") em batch longo.**
+  - Perfil: `https://www.transfermarkt.com/{slug}/profil/spieler/{id}` (a URL curta `/profil/spieler/{id}`
+    responde **404**). Meta description traz valor de mercado, nascimento, clube, posição.
+  - Stats: `https://www.transfermarkt.com/ceapi/performance-game/{id}` → JSON por jogo. As páginas
+    `leistungsdaten` viraram web components (tabela server-rendered não existe mais).
+- **Scripts**:
+  - `scripts/lib/transfermarkt-client.js`: client TM (busca/perfil/desempenho, cache, throttle ~2,5 s,
+    retries, e `buscaJogador` retorna `{cands, bloqueado}` — **não cacheia vazio quando bloqueado**).
+    Helpers offline: `getPerfilCache(id)` / `getDesempenhoCache(id)`.
+  - `scripts/puxar-transfermarkt.js`: pipeline (UUID v5, purge total, upsert players/season_stats,
+    relatório). Suporta `OFFLINE=1` (usa mapa + cache, sem rede), `PILOT=<roster>`, `LIMITE=<n>`.
+    Deduplica por `tm_id` (mesmo jogador em 2 clubes). `resolverJogador` aceita score ≥ 1 e tenta
+    nome completo/apelido; com `OFFLINE` consome `scripts/data/tm-map.json`.
+  - `scripts/extrair-mapa.js`: reconstrói `tm-map.json` (clube|nome|apelido → TM id) a partir do log
+    da run 1, para inserir offline os jogadores já cacheados.
+- **Sincronização atual**: **127/400** jogadores reais inseridos (135 achados − 8 duplicatas), com
+  **332 `season_stats`** (média ~2,6 temporadas por jogador), 0 erros. O restante (265) ficou "sem
+  match" porque o TM bloqueou a busca por IP (anti-bot; sequer perfil/ceapi respondem enquanto
+  bloqueado, só o que está em cache).
+- **Contacts reality check**: dados realistas confirmados — Pedro 2026 = 33 jogos/1053 min/5 gols
+  (retorno de lesão), Pulgar 2026 = 1 vermelho, Arrascaeta 2025 = 23 gols/18 assist, valori: Ortiz
+  €12M, Rossi €10M.
+- **Como completar os 273 restantes**: aguardar o TM levantar o bloqueio de IP (período de baixa
+  demanda, horas depois) e re-rodar `node scripts/puxar-transfermarkt.js` (agora c/ retry+backoff em
+  bloqueio). Jogadores já cacheados são aproveitados como cache. Não há risco de dados errados por
+  re-run: purge total + idempotente. Nomes óbvios tipo "Gustavo Gómez" que falharam foram vítimas do
+  bloqueio, não do parse.
+- **Pendências**: `player_injuries` ainda **não** sincronizado (página `verletzungen` retorna 200, mas
+  não há parse implementado); `scripts/calcular-avaliacoes.js` (nota/recomendação derivadas) ainda não
+  criado.
 
 ## Dashboard de busca `(/jogadores)`
 
@@ -158,9 +200,10 @@ Modelo em `.env.local.example`.
 
 ## Próximos passos
 
-1. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo).
-2. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
-3. Relatório do jogador — visão única (seção 8).
-4. Sistema de compatibilidade (fit) (seção 9) e alertas inteligentes (seção 10).
-5. Mercado BR: quando o tempo permitir, subir nome de clube para tabela própria (`clubes`) + escudos/fotos;
-   aumentar volume e incluir ligas/mercados secundários no seed.
+1. **Completar os 273 dados reais TM** (aguardar anti-bot levantar → re-rodar `scripts/puxar-transfermarkt.js`).
+2. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
+3. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
+4. Relatório do jogador — visão única (seção 8).
+5. Sistema de compatibilidade (fit) (seção 9) e alertas inteligentes (seção 10).
+6. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
+   incluir ligas/mercados secundários.
