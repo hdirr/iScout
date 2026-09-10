@@ -1,11 +1,19 @@
-// Reconstroi scripts/data/tm-map.json a partir da saída da run 1
-// (log completo do puxar-transfermarkt). Mapeia clube|nome|apelido -> TM id
-// para inserção offline enquanto o schnellsuche do TM está bloqueado.
+// Reconstrói scripts/data/tm-map.json a partir da saída do puxar-transfermarkt
+// (logs de resolução). Mapeia clube|nome|apelido -> TM id para inserção offline
+// enquanto o schnellsuche do TM está bloqueado.
+//
+// Uso:
+//   node scripts/extrair-mapa.js                                      # log padrão (run 1)
+//   node scripts/extrair-mapa.js cache-tm/sync-full-4.log cache-tm/other.log ...   # mescla logs
 const fs = require("fs");
 const path = require("path");
 
 const DATA = path.join(__dirname, "data");
-const LOG = "C:\\Users\\lenovo\\.local\\share\\opencode\\tool-output\\tool_0883c0746001ihGzDzH3Ma0fTL";
+const DESTINO = path.join(DATA, "tm-map.json");
+const LOGS_ARGV = process.argv.slice(2);
+const LOGS = LOGS_ARGV.length
+  ? LOGS_ARGV.map((l) => (path.isAbsolute(l) ? l : path.join(__dirname, l)))
+  : ["C:\\Users\\lenovo\\.local\\share\\opencode\\tool-output\\tool_0883c0746001ihGzDzH3Ma0fTL"];
 
 function ordemPosicao(p) {
   const m = { GOL: 0, ZAG: 1, ZAE: 1, ZAD: 1, LAT: 1, LAE: 1, LAD: 1, VOL: 2, MC: 2, MED: 2, MEC: 2, MEI: 3, SA: 3, PON: 3, PEE: 3, PED: 3, CA: 4, CF: 4 };
@@ -42,28 +50,37 @@ const rosters = fs
     return { clube: r.clube, destaques: selecionarDestaques(r.jogadores, 10) };
   });
 
-const lines = fs.readFileSync(LOG, "latin1").split(/\r?\n/);
-const mapa = {};
+const mapaBase = fs.existsSync(DESTINO)
+  ? JSON.parse(fs.readFileSync(DESTINO, "utf8")).mapa || {}
+  : {};
+const mapa = { ...mapaBase };
 let achados = 0;
 
-for (let ci = 0; ci < rosters.length; ci++) {
-  const bloco = lines.filter((l) => l.startsWith(`[${ci + 1}/40] `));
-  for (let j = 0; j < rosters[ci].destaques.length; j++) {
-    const linha = bloco[j];
-    if (!linha) continue;
-    const m = linha.match(/TM (\d+) \((.*?)\)/);
-    const jj = rosters[ci].destaques[j];
-    if (m) {
-      const chave = `${rosters[ci].clube}|${jj.nome}|${jj.apelido || ""}`;
-      mapa[chave] = { tmId: Number(m[1]), tmNome: m[2], clube: rosters[ci].clube };
-      achados++;
+for (const LOG of LOGS) {
+  if (!fs.existsSync(LOG)) {
+    console.error(`Log não encontrado: ${LOG}`);
+    continue;
+  }
+  const lines = fs.readFileSync(LOG, "latin1").split(/\r?\n/);
+  for (let ci = 0; ci < rosters.length; ci++) {
+    const bloco = lines.filter((l) => l.startsWith(`[${ci + 1}/40] `));
+    for (let j = 0; j < rosters[ci].destaques.length; j++) {
+      const linha = bloco[j];
+      if (!linha) continue;
+      const m = linha.match(/TM (\d+) \((.*?)\)/);
+      const jj = rosters[ci].destaques[j];
+      if (m) {
+        const chave = `${rosters[ci].clube}|${jj.nome}|${jj.apelido || ""}`;
+        mapa[chave] = { tmId: Number(m[1]), tmNome: m[2], clube: rosters[ci].clube };
+        achados++;
+      }
     }
   }
 }
 
 fs.writeFileSync(
-  path.join(DATA, "tm-map.json"),
+  DESTINO,
   JSON.stringify({ geradoEm: new Date().toISOString(), achados, mapa }, null, 2),
   "utf8"
 );
-console.log(`Mapa salvo: ${achados} achados em scripts/data/tm-map.json`);
+console.log(`Mapa salvo: ${Object.keys(mapa).length} entradas (${LOGS.length} log(s)) em scripts/data/tm-map.json`);

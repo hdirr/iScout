@@ -1,6 +1,6 @@
 {
-  "geradoEm": "2026-09-10T00:20:58.991Z",
-  "achados": 135,
+  "geradoEm": "2026-09-10T19:22:07.676Z",
+  "achados": 366,
   "mapa": {
     "América-MG|Gustavo Santos da Silva|Gustavo": {
       "tmId": 330085,
@@ -104,7 +104,7 @@
     },
     "Athletico-PR|Carlos Terán|Carlos Terán": {
       "tmId": 649184,
-      "tmNome": "Carlos TerÃ¡n",
+      "tmNome": "Carlos TerâÃ¢â¬Ã­n",
       "clube": "Athletico-PR"
     },
     "Athletico-PR|Juan Felipe Aguirre|Juan Felipe Aguirre": {
@@ -114,7 +114,7 @@
     },
     "Athletico-PR|Gastón Benavídez|Gastón Benavídez": {
       "tmId": 696719,
-      "tmNome": "GastÃ³n BenavÃ­dez",
+      "tmNome": "GastâÃ¢â¬ân BenavâÃ¢â¬Â¡dez",
       "clube": "Athletico-PR"
     },
     "Athletico-PR|Bruno Zapelli|Bruno Zapelli": {
@@ -129,7 +129,7 @@
     },
     "Athletico-PR|João Cruz Diniz Biazus|João Cruz": {
       "tmId": 1004738,
-      "tmNome": "JoÃ£o Cruz",
+      "tmNome": "JoâÃ¢â¬Ãºo Cruz",
       "clube": "Athletico-PR"
     },
     "Athletico-PR|Kevin Andrés Viveros Rodallega|Kevin Viveros": {
@@ -179,7 +179,7 @@
     },
     "Atlético-GO|Bruno José de Souza|Bruno José": {
       "tmId": 1080728,
-      "tmNome": "Bruno JosÃ©",
+      "tmNome": "Bruno JosâÃ¢â¬Â®",
       "clube": "Atlético-GO"
     },
     "Atlético-GO|Gustavo Coutinho Silva Lopes|Gustavo Coutinho": {
@@ -209,7 +209,7 @@
     },
     "Atlético-MG|Leonardo Duarte da Silva|Léo Duarte": {
       "tmId": 312678,
-      "tmNome": "LÃ©o Duarte",
+      "tmNome": "LâÃ¢â¬Â®o Duarte",
       "clube": "Atlético-MG"
     },
     "Atlético-MG|Ruan Tressoldi Cheng|Ruan Tressoldi": {
@@ -269,7 +269,7 @@
     },
     "Avaí|Zé Ricardo de Souza|Zé Ricardo": {
       "tmId": 476336,
-      "tmNome": "ZÃ© Ricardo",
+      "tmNome": "ZâÃ¢â¬Â® Ricardo",
       "clube": "Avaí"
     },
     "Avaí|Wenderson da Silva Souza|Wenderson": {
@@ -284,7 +284,7 @@
     },
     "Avaí|Leonardo de Souza Chú|Léo Chú": {
       "tmId": 468320,
-      "tmNome": "LÃ©o ChÃº",
+      "tmNome": "LâÃ¢â¬Â®o ChâÃ¢â¬â",
       "clube": "Avaí"
     },
     "Avaí|Wallison Pereira de Souza|Wallison": {
@@ -319,7 +319,7 @@
     },
     "Bahia|Nicolás Acevedo|Nicolás Acevedo": {
       "tmId": 625569,
-      "tmNome": "NicolÃ¡s Acevedo",
+      "tmNome": "NicolâÃ¢â¬Ã­s Acevedo",
       "clube": "Bahia"
     },
     "Bahia|Jean Lucas de Souza Oliveira|Jean Lucas": {
@@ -384,12 +384,12 @@
     },
     "Botafogo-SP|José Hugo Sousa dos Santos|Zé Hugo": {
       "tmId": 940479,
-      "tmNome": "ZÃ© Hugo",
+      "tmNome": "ZâÃ¢â¬Â® Hugo",
       "clube": "Botafogo-SP"
     },
     "Botafogo-SP|Gabriel de Souza Inocêncio|Gabriel Inocêncio": {
       "tmId": 788402,
-      "tmNome": "Gabriel InocÃªncio",
+      "tmNome": "Gabriel InocâÃ¢â¬Â¬ncio",
       "clube": "Botafogo-SP"
     },
     "Botafogo|Warleson do Nascimento Sena|Warleson": {
@@ -444,12 +444,12 @@
     },
     "Ceará|Luizão Costa da Silva|Luizão": {
       "tmId": 1727,
-      "tmNome": "LuizÃ£o",
+      "tmNome": "LuizâÃ¢â¬Ãºo",
       "clube": "Ceará"
     },
     "Ceará|Júlio César Soares de Jesus|Júlio César": {
       "tmId": 22412,
-      "tmNome": "JÃºlio CÃ©sar",
+      "tmNome": "JâÃ¢â¬âlio CâÃ¢â¬Â®sar",
       "clube": "Ceará"
     },
     "Ceará|Rafael Ramos da Silva|Rafael Ramos": {
@@ -464,7 +464,7 @@
     },
     "Ceará|Matheus Araújo dos Santos|Matheus Araújo": {
       "tmId": 678853,
-      "tmNome": "Matheus AraÃºjo",
+      "tmNome": "Matheus AraâÃ¢â¬âjo",
       "clube": "Ceará"
     },
     "Ceará|Leonardo Lobato da Silva|Lenny Lobato": {
@@ -479,12 +479,12 @@
     },
     "Ceará|Renzo López Patrón|Renzo López": {
       "tmId": 248030,
-      "tmNome": "Renzo LÃ³pez",
+      "tmNome": "Renzo LâÃ¢â¬âpez",
       "clube": "Ceará"
     },
     "Ceará|Sávio Renato da Silva|Sávio": {
       "tmId": 743591,
-      "tmNome": "SÃ¡vio",
+      "tmNome": "SâÃ¢â¬Ã­vio",
       "clube": "Ceará"
     },
     "Chapecoense|Anderson|": {
@@ -499,7 +499,7 @@
     },
     "Chapecoense|João Paulo|": {
       "tmId": 275412,
-      "tmNome": "JoÃ£o Paulo",
+      "tmNome": "JoâÃ¢â¬Ãºo Paulo",
       "clube": "Chapecoense"
     },
     "Chapecoense|Fernando|": {
@@ -509,7 +509,7 @@
     },
     "Chapecoense|Higor Meritão|": {
       "tmId": 646432,
-      "tmNome": "Higor MeritÃ£o",
+      "tmNome": "Higor MeritâÃ¢â¬Ãºo",
       "clube": "Chapecoense"
     },
     "Chapecoense|Dylan Borrero|": {
@@ -579,12 +579,12 @@
     },
     "Corinthians|André Luiz Rodrigues|André Luiz": {
       "tmId": 14855,
-      "tmNome": "AndrÃ© Luiz",
+      "tmNome": "AndrâÃ¢â¬Â® Luiz",
       "clube": "Corinthians"
     },
     "Corinthians|André Martín Carrillo Aguirre|André Carrillo": {
       "tmId": 135057,
-      "tmNome": "AndrÃ© Carrillo",
+      "tmNome": "AndrâÃ¢â¬Â® Carrillo",
       "clube": "Corinthians"
     },
     "Coritiba|Pedro Henrique Morisco|Pedro Morisco": {
@@ -604,17 +604,17 @@
     },
     "Flamengo|Agustín Daniel Rossi|Agustín Rossi": {
       "tmId": 352324,
-      "tmNome": "AgustÃ­n Rossi",
+      "tmNome": "AgustâÃ¢â¬Â¡n Rossi",
       "clube": "Flamengo"
     },
     "Flamengo|Leonardo Reidel Ortiz|Léo Ortiz": {
       "tmId": 374136,
-      "tmNome": "LÃ©o Ortiz",
+      "tmNome": "LâÃ¢â¬Â®o Ortiz",
       "clube": "Flamengo"
     },
     "Flamengo|Leonardo Pereira da Silva|Léo Pereira": {
       "tmId": 288431,
-      "tmNome": "LÃ©o Pereira",
+      "tmNome": "LâÃ¢â¬Â®o Pereira",
       "clube": "Flamengo"
     },
     "Flamengo|Ayrton Lucas Dantas de Medeiros|Ayrton Lucas": {
@@ -634,7 +634,7 @@
     },
     "Flamengo|Nicolás De La Cruz|De La Cruz": {
       "tmId": 397458,
-      "tmNome": "NicolÃ¡s de la Cruz",
+      "tmNome": "NicolâÃ¢â¬Ã­s de la Cruz",
       "clube": "Flamengo"
     },
     "Flamengo|Pedro Guilherme Abreu dos Santos|Pedro": {
@@ -675,6 +675,1161 @@
     "Vitória|Matheus Vinicius de Souza|Matheuzinho": {
       "tmId": 594226,
       "tmNome": "Matheuzinho",
+      "clube": "Vitória"
+    },
+    "Coritiba|Thiago dos Santos|Thiago Santos": {
+      "tmId": 346922,
+      "tmNome": "Thiago Santos",
+      "clube": "Coritiba"
+    },
+    "Coritiba|Felipe Jonatan Lima da Silva|Felipe Jonatan": {
+      "tmId": 587786,
+      "tmNome": "Felipe Jonatan",
+      "clube": "Coritiba"
+    },
+    "Coritiba|Fernando Sobral Silva|Fernando Sobral": {
+      "tmId": 350342,
+      "tmNome": "Fernando Sobral",
+      "clube": "Coritiba"
+    },
+    "Coritiba|Lucas Ronier da Silva|Lucas Ronier": {
+      "tmId": 1090819,
+      "tmNome": "Lucas Ronier",
+      "clube": "Coritiba"
+    },
+    "Coritiba|Pedro Rocha Vieira|Pedro Rocha": {
+      "tmId": 143453,
+      "tmNome": "Pedro Rocha",
+      "clube": "Coritiba"
+    },
+    "Coritiba|Breno Lopes|": {
+      "tmId": 542598,
+      "tmNome": "Breno Lopes",
+      "clube": "Coritiba"
+    },
+    "Coritiba|João Pedro Chermont|JP Chermont": {
+      "tmId": 1089955,
+      "tmNome": "JP Chermont",
+      "clube": "Coritiba"
+    },
+    "CRB|Vitor Caetano|": {
+      "tmId": 593071,
+      "tmNome": "Vitor Caetano",
+      "clube": "CRB"
+    },
+    "CRB|Henri|": {
+      "tmId": 55735,
+      "tmNome": "Henrikh Mkhitaryan",
+      "clube": "CRB"
+    },
+    "CRB|Lucas Lovat|": {
+      "tmId": 391497,
+      "tmNome": "Lucas Lovat",
+      "clube": "CRB"
+    },
+    "CRB|Hereda|": {
+      "tmId": 634139,
+      "tmNome": "Hereda",
+      "clube": "CRB"
+    },
+    "CRB|Patrick de Lucca|": {
+      "tmId": 689737,
+      "tmNome": "Patrick de Lucca",
+      "clube": "CRB"
+    },
+    "CRB|Pedro Castro|": {
+      "tmId": 214312,
+      "tmNome": "Pedro Castro",
+      "clube": "CRB"
+    },
+    "CRB|Danielzinho|": {
+      "tmId": 418530,
+      "tmNome": "Danielzinho",
+      "clube": "CRB"
+    },
+    "CRB|Mikael|": {
+      "tmId": 566615,
+      "tmNome": "Mikael Egill Ellertsson",
+      "clube": "CRB"
+    },
+    "CRB|Luiz Phellype|": {
+      "tmId": 240578,
+      "tmNome": "Luiz Phellype",
+      "clube": "CRB"
+    },
+    "CRB|Dadá Belmonte|Dadá": {
+      "tmId": 290259,
+      "tmNome": "DadâÃ­ Maravilha",
+      "clube": "CRB"
+    },
+    "Criciúma|Alisson|": {
+      "tmId": 105470,
+      "tmNome": "Alisson",
+      "clube": "Criciúma"
+    },
+    "Criciúma|Bruno Alves|": {
+      "tmId": 13121,
+      "tmNome": "Bruno Alves",
+      "clube": "Criciúma"
+    },
+    "Criciúma|Luciano Castán|Castán": {
+      "tmId": 54929,
+      "tmNome": "Leandro CastâÃ­n",
+      "clube": "Criciúma"
+    },
+    "Criciúma|Marcelo Hermes|": {
+      "tmId": 348769,
+      "tmNome": "Marcelo Hermes",
+      "clube": "Criciúma"
+    },
+    "Criciúma|Jean Irmer|": {
+      "tmId": 349826,
+      "tmNome": "Jean Irmer",
+      "clube": "Criciúma"
+    },
+    "Criciúma|Fellipe Mateus|": {
+      "tmId": 520470,
+      "tmNome": "Fellipe Mateus",
+      "clube": "Criciúma"
+    },
+    "Criciúma|Rómulo Otero|Otero": {
+      "tmId": 309651,
+      "tmNome": "Juan Ignacio Otero",
+      "clube": "Criciúma"
+    },
+    "Criciúma|João Carlos|": {
+      "tmId": 15018,
+      "tmNome": "JoâÃºo Carlos",
+      "clube": "Criciúma"
+    },
+    "Criciúma|Romarinho|": {
+      "tmId": 193925,
+      "tmNome": "Romarinho",
+      "clube": "Criciúma"
+    },
+    "Cruzeiro|Cássio Ramos|Cássio": {
+      "tmId": 50144,
+      "tmNome": "CâÃ­ssio",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Fagner Santos da Costa|Fagner": {
+      "tmId": 47592,
+      "tmNome": "Fagner",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Fabrício Bruno Soares|Fabrício Bruno": {
+      "tmId": 432773,
+      "tmNome": "FabrâÂ¡cio Bruno",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Gabriel Rojas|": {
+      "tmId": 471639,
+      "tmNome": "Gabriel Rojas",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Gerson Santos da Silva|Gerson": {
+      "tmId": 341705,
+      "tmNome": "Gerson",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Matheus Henrique de Souza|Matheus Henrique": {
+      "tmId": 552549,
+      "tmNome": "Matheus Henrique",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Matheus Pereira da Cruz|Matheus Pereira": {
+      "tmId": 225984,
+      "tmNome": "Matheus Pereira",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Kaio Jorge Pires Ramos|Kaio Jorge": {
+      "tmId": 620477,
+      "tmNome": "Kaio Jorge",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Luis Fernando Sinisterra Vera|Sinisterra": {
+      "tmId": 1263698,
+      "tmNome": "Felipe Sinisterra",
+      "clube": "Cruzeiro"
+    },
+    "Cruzeiro|Keny Arroyo|": {
+      "tmId": 1074584,
+      "tmNome": "Keny Arroyo",
+      "clube": "Cruzeiro"
+    },
+    "Cuiabá|Marcelo Henrique Passos Carné|Marcelo Carné": {
+      "tmId": 14881,
+      "tmNome": "Marcelo CarnâÂ®",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|João Othávio Basso|João Basso": {
+      "tmId": 410183,
+      "tmNome": "JoâÃºo Basso",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|Vitor Mendes Alves|Vitor Mendes": {
+      "tmId": 686333,
+      "tmNome": "Vitor Mendes",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|Alan Empereur|Alan Empereur": {
+      "tmId": 169179,
+      "tmNome": "Alan Empereur",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|João Pedro Vilardi Pinto|Pepê": {
+      "tmId": 14132,
+      "tmNome": "Pepe",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|Marcos Júnior Lima dos Santos|Marcos Júnior": {
+      "tmId": 218115,
+      "tmNome": "Marcos Jâânior",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|Rodrigo Antônio Rodrigues|Rodrigo Rodrigues": {
+      "tmId": 537928,
+      "tmNome": "Rodrigo Rodrigues",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|Yamil Rodrigo Asad|Yamil Asad": {
+      "tmId": 266600,
+      "tmNome": "Yamil Asad",
+      "clube": "Cuiabá"
+    },
+    "Cuiabá|Eliel Chrystian Pereira Silva|Eliel": {
+      "tmId": 720118,
+      "tmNome": "Eliel",
+      "clube": "Cuiabá"
+    },
+    "Fluminense|Vitor Eudes Belo Borges|Vitor Eudes": {
+      "tmId": 590039,
+      "tmNome": "Vitor Eudes",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Ignácio da Silva Oliveira|Ignácio": {
+      "tmId": 58874,
+      "tmNome": "Ignacio Camacho",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Guilherme Antonio Arana Lopes|Guilherme Arana": {
+      "tmId": 346766,
+      "tmNome": "Guilherme Arana",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Juan Pablo Freytes|Juan Pablo Freytes": {
+      "tmId": 628750,
+      "tmNome": "Juan Pablo Freytes",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Martinelli|Martinelli": {
+      "tmId": 815558,
+      "tmNome": "Martinelli",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Luciano Acosta|Luciano Acosta": {
+      "tmId": 315169,
+      "tmNome": "Luciano Acosta",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Hércules Pereira do Nascimento|Hércules": {
+      "tmId": 982617,
+      "tmNome": "HâÂ®rcules",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Germán Ezequiel Cano Recalde|Germán Cano": {
+      "tmId": 54590,
+      "tmNome": "GermâÃ­n Cano",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Agustín Canobbio|Agustín Canobbio": {
+      "tmId": 457533,
+      "tmNome": "AgustâÂ¡n Canobbio",
+      "clube": "Fluminense"
+    },
+    "Fluminense|Marcelo Pitaluga Filho|Marcelo Pitaluga": {
+      "tmId": 662334,
+      "tmNome": "Marcelo Pitaluga",
+      "clube": "Fluminense"
+    },
+    "Fortaleza|João Ricardo|": {
+      "tmId": 14310,
+      "tmNome": "JoâÃºo Ricardo",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Gastón Ávila|": {
+      "tmId": 748601,
+      "tmNome": "Gastâân âÃ¼vila",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Tomás Cardona|": {
+      "tmId": 422700,
+      "tmNome": "TomâÃ­s Cardona",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Eros Mancuso|": {
+      "tmId": 888545,
+      "tmNome": "Eros Mancuso",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Lucas Sasha|Sasha": {
+      "tmId": 47802,
+      "tmNome": "Sasha Anttilainen",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Tomás Pochettino|": {
+      "tmId": 348354,
+      "tmNome": "TomâÃ­s Pochettino",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Adam Bareiro|": {
+      "tmId": 514120,
+      "tmNome": "Adam Bareiro",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Deyverson|": {
+      "tmId": 243541,
+      "tmNome": "Deyverson",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Gabriel Fuentes|": {
+      "tmId": 480686,
+      "tmNome": "Gabriel Fuentes",
+      "clube": "Fortaleza"
+    },
+    "Fortaleza|Breno|": {
+      "tmId": 52947,
+      "tmNome": "Breno",
+      "clube": "Fortaleza"
+    },
+    "Goiás|Tadeu|": {
+      "tmId": 258367,
+      "tmNome": "Tadeu",
+      "clube": "Goiás"
+    },
+    "Goiás|Lucas Ribeiro|": {
+      "tmId": 605893,
+      "tmNome": "Lucas Ribeiro",
+      "clube": "Goiás"
+    },
+    "Goiás|Nicolas|": {
+      "tmId": 131225,
+      "tmNome": "NicolâÃ­s Tagliafico",
+      "clube": "Goiás"
+    },
+    "Goiás|Rodrigo Soares|": {
+      "tmId": 388236,
+      "tmNome": "Rodrigo Soares",
+      "clube": "Goiás"
+    },
+    "Goiás|Filipe Machado|": {
+      "tmId": 520629,
+      "tmNome": "Filipe Machado",
+      "clube": "Goiás"
+    },
+    "Goiás|Lourenço|": {
+      "tmId": 515068,
+      "tmNome": "LourenâÂºo",
+      "clube": "Goiás"
+    },
+    "Goiás|Lucas Lima|": {
+      "tmId": 232847,
+      "tmNome": "Lucas Lima",
+      "clube": "Goiás"
+    },
+    "Goiás|Cadu|": {
+      "tmId": 19195,
+      "tmNome": "Cadu",
+      "clube": "Goiás"
+    },
+    "Goiás|Esli García|": {
+      "tmId": 486175,
+      "tmNome": "Esli GarcâÂ¡a",
+      "clube": "Goiás"
+    },
+    "Goiás|Pedrinho|": {
+      "tmId": 515208,
+      "tmNome": "Pedrinho",
+      "clube": "Goiás"
+    },
+    "Grêmio|Weverton Pereira da Silva|Weverton": {
+      "tmId": 69400,
+      "tmNome": "Weverton",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Walter Kannemann|Kannemann": {
+      "tmId": 145400,
+      "tmNome": "Walter Kannemann",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Gustavo Martins Nogueira|Gustavo Martins": {
+      "tmId": 874223,
+      "tmNome": "Gustavo Martins",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Fabián Cornelio Balbuena Almirón|Balbuena": {
+      "tmId": 71288,
+      "tmNome": "Salvador Balbuena",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Cristian David Pavón|Pavón": {
+      "tmId": 7517,
+      "tmNome": "Francisco Pavâân",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Tetê da Silva Lessa|Tetê": {
+      "tmId": 371256,
+      "tmNome": "TetâÂ¬",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Francis Amuzu|": {
+      "tmId": 423604,
+      "tmNome": "Francis Amuzu",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Carlos Vinícius Alves Morais|Carlos Vinícius": {
+      "tmId": 525287,
+      "tmNome": "Carlos VinâÂ¡cius",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Marcos Rocha dos Santos|Marcos Rocha": {
+      "tmId": 75435,
+      "tmNome": "Marcos Rocha",
+      "clube": "Grêmio"
+    },
+    "Grêmio|Gabriel Grando|": {
+      "tmId": 878037,
+      "tmNome": "Gabriel Grando",
+      "clube": "Grêmio"
+    },
+    "Internacional|Sergio Rochet|": {
+      "tmId": 264014,
+      "tmNome": "Sergio Rochet",
+      "clube": "Internacional"
+    },
+    "Internacional|Guillermo Maripán|": {
+      "tmId": 249730,
+      "tmNome": "Guillermo MaripâÃ­n",
+      "clube": "Internacional"
+    },
+    "Internacional|Victor Gabriel|": {
+      "tmId": 834444,
+      "tmNome": "Victor Gabriel",
+      "clube": "Internacional"
+    },
+    "Internacional|Alexandro Bernabei|": {
+      "tmId": 719635,
+      "tmNome": "Alexandro Bernabei",
+      "clube": "Internacional"
+    },
+    "Internacional|Rodrigo Villagra|": {
+      "tmId": 657220,
+      "tmNome": "Rodrigo Villagra",
+      "clube": "Internacional"
+    },
+    "Internacional|Alan Patrick|": {
+      "tmId": 104505,
+      "tmNome": "Alan Patrick",
+      "clube": "Internacional"
+    },
+    "Internacional|Kayky|": {
+      "tmId": 668265,
+      "tmNome": "Kayky",
+      "clube": "Internacional"
+    },
+    "Internacional|Antonio Sanabria|": {
+      "tmId": 234523,
+      "tmNome": "Antonio Sanabria",
+      "clube": "Internacional"
+    },
+    "Internacional|Anthoni|": {
+      "tmId": 869437,
+      "tmNome": "Anthoni",
+      "clube": "Internacional"
+    },
+    "Juventude|Jandrei|": {
+      "tmId": 512344,
+      "tmNome": "Jandrei",
+      "clube": "Juventude"
+    },
+    "Juventude|Messias|": {
+      "tmId": 401539,
+      "tmNome": "Messias",
+      "clube": "Juventude"
+    },
+    "Juventude|Rodrigo Sam|": {
+      "tmId": 363174,
+      "tmNome": "Rodrigo Sam",
+      "clube": "Juventude"
+    },
+    "Juventude|Nathan Santos|": {
+      "tmId": 455469,
+      "tmNome": "Nathan Santos",
+      "clube": "Juventude"
+    },
+    "Juventude|Lucas Mineiro|": {
+      "tmId": 432958,
+      "tmNome": "Lucas Mineiro",
+      "clube": "Juventude"
+    },
+    "Juventude|Luis Mandaca|Mandaca": {
+      "tmId": 892091,
+      "tmNome": "Mandaca",
+      "clube": "Juventude"
+    },
+    "Juventude|Manuel Castro|": {
+      "tmId": 335984,
+      "tmNome": "Manuel Castro",
+      "clube": "Juventude"
+    },
+    "Juventude|Alan Kardec|": {
+      "tmId": 53922,
+      "tmNome": "Alan Kardec",
+      "clube": "Juventude"
+    },
+    "Juventude|Alisson Safira|Safira": {
+      "tmId": 1243048,
+      "tmNome": "Anderson Safira",
+      "clube": "Juventude"
+    },
+    "Juventude|Diogo Barbosa|": {
+      "tmId": 167724,
+      "tmNome": "Diogo Barbosa",
+      "clube": "Juventude"
+    },
+    "Londrina|Mauricio Kozlinski|": {
+      "tmId": 438431,
+      "tmNome": "Mauricio Kozlinski",
+      "clube": "Londrina"
+    },
+    "Londrina|Gabriel Lacerda de Souza|Gabriel Lacerda": {
+      "tmId": 742855,
+      "tmNome": "Gabriel Lacerda",
+      "clube": "Londrina"
+    },
+    "Londrina|Heron de Jesus da Silva|Heron": {
+      "tmId": 697401,
+      "tmNome": "Heron",
+      "clube": "Londrina"
+    },
+    "Londrina|André Dhominique da Silva|André Dhominique": {
+      "tmId": 959171,
+      "tmNome": "AndrâÂ® Dhominique",
+      "clube": "Londrina"
+    },
+    "Londrina|Chumbinho|": {
+      "tmId": 79132,
+      "tmNome": "Chumbinho",
+      "clube": "Londrina"
+    },
+    "Londrina|Thalisson César Moreira|Thalis": {
+      "tmId": 476353,
+      "tmNome": "Thalis",
+      "clube": "Londrina"
+    },
+    "Londrina|Vitor Jacaré de Lima|Vitor Jacaré": {
+      "tmId": 691843,
+      "tmNome": "Vitor JacarâÂ®",
+      "clube": "Londrina"
+    },
+    "Londrina|Gilberto de Oliveira Júnior|Gilberto": {
+      "tmId": 18734,
+      "tmNome": "Gilberto",
+      "clube": "Londrina"
+    },
+    "Londrina|William Pottker|": {
+      "tmId": 199472,
+      "tmNome": "William Pottker",
+      "clube": "Londrina"
+    },
+    "Londrina|Kevyn Felipe Vieira|Kevyn": {
+      "tmId": 1116537,
+      "tmNome": "Kevyn",
+      "clube": "Londrina"
+    },
+    "Mirassol|Georgemy|": {
+      "tmId": 258369,
+      "tmNome": "Georgemy",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Willian Machado|": {
+      "tmId": 592340,
+      "tmNome": "Willian Machado",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Igor Formiga|": {
+      "tmId": 688690,
+      "tmNome": "Igor Formiga",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Reinaldo|": {
+      "tmId": 227512,
+      "tmNome": "Reinaldo",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Neto Moura|Neto": {
+      "tmId": 111819,
+      "tmNome": "Neto",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Denilson|": {
+      "tmId": 7660,
+      "tmNome": "Denilson",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Negueba|": {
+      "tmId": 680681,
+      "tmNome": "Negueba",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Edson Carioca|": {
+      "tmId": 794925,
+      "tmNome": "Edson Carioca",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Nathan Fogaça|": {
+      "tmId": 592363,
+      "tmNome": "Nathan FogaâÂºa",
+      "clube": "Mirassol"
+    },
+    "Mirassol|Walter|": {
+      "tmId": 74605,
+      "tmNome": "Walter",
+      "clube": "Mirassol"
+    },
+    "Náutico|Muriel Gustavo Becker|Muriel": {
+      "tmId": 27349,
+      "tmNome": "Muriel",
+      "clube": "Náutico"
+    },
+    "Náutico|Alberto Magno Santos de Melo Filho|Betão": {
+      "tmId": 18445,
+      "tmNome": "BetâÃºo",
+      "clube": "Náutico"
+    },
+    "Náutico|Mateus Ferreira da Silva|Mateus Silva": {
+      "tmId": 167383,
+      "tmNome": "Mateus Silva",
+      "clube": "Náutico"
+    },
+    "Náutico|Igor Fernandes da Silva Araújo|Igor Fernandes": {
+      "tmId": 250841,
+      "tmNome": "Igor Fernandes",
+      "clube": "Náutico"
+    },
+    "Náutico|Jean Carlos Vicente|Jean Carlos": {
+      "tmId": 54311,
+      "tmNome": "Jean Carlos",
+      "clube": "Náutico"
+    },
+    "Náutico|Benjamín Manuel Borasi|Benjamín Borasi": {
+      "tmId": 671539,
+      "tmNome": "BenjamâÂ¡n Borasi",
+      "clube": "Náutico"
+    },
+    "Náutico|Derek Freitas Ribeiro|Derek": {
+      "tmId": 177220,
+      "tmNome": "Derek Mountfield",
+      "clube": "Náutico"
+    },
+    "Náutico|Victor Andrade Santos|Victor Andrade": {
+      "tmId": 137447,
+      "tmNome": "VâÂ¡ctor Andrade",
+      "clube": "Náutico"
+    },
+    "Náutico|Matheus Antunes Ribeiro|Matheus Ribeiro": {
+      "tmId": 373299,
+      "tmNome": "Matheus Ribeiro",
+      "clube": "Náutico"
+    },
+    "Novorizontino|César|": {
+      "tmId": 57500,
+      "tmNome": "CâÂ®sar Azpilicueta",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Eduardo Brock|Brock": {
+      "tmId": 32882,
+      "tmNome": "Martin Fribrock",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Nilson Castrillón|": {
+      "tmId": 339760,
+      "tmNome": "Nilson Castrillâân",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Luís Oyama|": {
+      "tmId": 555277,
+      "tmNome": "LuâÂ¡s Oyama",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Christian Ortíz|": {
+      "tmId": 126239,
+      "tmNome": "Christian OrtâÂ¡z",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Rômulo|": {
+      "tmId": 957874,
+      "tmNome": "Rââ¤mulo",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Robson|": {
+      "tmId": 784966,
+      "tmNome": "Robson Retamozo",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Carlão|": {
+      "tmId": 52893,
+      "tmNome": "CarlâÃºo",
+      "clube": "Novorizontino"
+    },
+    "Novorizontino|Vinícius Paiva|": {
+      "tmId": 689561,
+      "tmNome": "VinâÂ¡cius Paiva",
+      "clube": "Novorizontino"
+    },
+    "Operário-PR|Elias Curzel|": {
+      "tmId": 479211,
+      "tmNome": "Elias Curzel",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Miranda|": {
+      "tmId": 33357,
+      "tmNome": "Miranda",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Gabriel Feliciano|": {
+      "tmId": 1100029,
+      "tmNome": "Gabriel Feliciano",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Mikael Doka|": {
+      "tmId": 816150,
+      "tmNome": "Mikael Doka",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Matheus Trindade|": {
+      "tmId": 395060,
+      "tmNome": "Matheus Trindade",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Juan Zuluaga|": {
+      "tmId": 262553,
+      "tmNome": "Juan Zuluaga",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Gabriel Boschilia|": {
+      "tmId": 288496,
+      "tmNome": "Gabriel Boschilia",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Vinicius Mingotti|": {
+      "tmId": 658664,
+      "tmNome": "Vinicius Mingotti",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Caio Dantas|": {
+      "tmId": 886565,
+      "tmNome": "Caio Dantas",
+      "clube": "Operário-PR"
+    },
+    "Operário-PR|Vinícius Diniz|": {
+      "tmId": 731531,
+      "tmNome": "VinâÂ¡cius Diniz",
+      "clube": "Operário-PR"
+    },
+    "Palmeiras|Carlos Miguel dos Santos Pereira|Carlos Miguel": {
+      "tmId": 172529,
+      "tmNome": "Carlos Miguel",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Gustavo Raúl Gómez Portillo|Gustavo Gómez": {
+      "tmId": 215390,
+      "tmNome": "Gustavo Gââmez",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Murilo Cerqueira Paim|Murilo": {
+      "tmId": 458710,
+      "tmNome": "Murilo",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Agustín Giay|Agustín Giay": {
+      "tmId": 849582,
+      "tmNome": "AgustâÂ¡n Giay",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Andreas Hoelgebaum Pereira|Andreas Pereira": {
+      "tmId": 203394,
+      "tmNome": "Andreas Pereira",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Maurício Magalhães Prado|Mauricio": {
+      "tmId": 678439,
+      "tmNome": "Mauricio",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Jhon Adolfo Arias Andrade|Jhon Arias": {
+      "tmId": 588989,
+      "tmNome": "Jhon Arias",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Vitor Hugo Roque Ferreira|Vitor Roque": {
+      "tmId": 943837,
+      "tmNome": "Vitor Roque",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Joaquín Piquerez|Piquerez": {
+      "tmId": 496268,
+      "tmNome": "JoaquâÂ¡n Piquerez",
+      "clube": "Palmeiras"
+    },
+    "Palmeiras|Marcelo Lomba do Nascimento|Marcelo Lomba": {
+      "tmId": 53015,
+      "tmNome": "Marcelo Lomba",
+      "clube": "Palmeiras"
+    },
+    "Ponte Preta|Vinicius Ferrari|": {
+      "tmId": 986954,
+      "tmNome": "Vinicius Ferrari",
+      "clube": "Ponte Preta"
+    },
+    "Ponte Preta|Lucas Cunha de Sousa|Lucas Cunha": {
+      "tmId": 355496,
+      "tmNome": "Lucas Cunha",
+      "clube": "Ponte Preta"
+    },
+    "Ponte Preta|Sergio Stevan Palacios Zapata|Sergio Palacios": {
+      "tmId": 1174214,
+      "tmNome": "Sergio Palacios",
+      "clube": "Ponte Preta"
+    },
+    "Ponte Preta|Kevyson da Silva Nascimento|Kevyson": {
+      "tmId": 1032891,
+      "tmNome": "Kevyson",
+      "clube": "Ponte Preta"
+    },
+    "Ponte Preta|Murilo da Silva de Souza|Murilo": {
+      "tmId": 458710,
+      "tmNome": "Murilo",
+      "clube": "Ponte Preta"
+    },
+    "Ponte Preta|Élvis de Souza Carlos|Élvis": {
+      "tmId": 76135,
+      "tmNome": "âÃ«lvis",
+      "clube": "Ponte Preta"
+    },
+    "Ponte Preta|David da Hora dos Santos|David da Hora": {
+      "tmId": 752724,
+      "tmNome": "David da Hora",
+      "clube": "Ponte Preta"
+    },
+    "Ponte Preta|Danilo Barcelos da Silva|Danilo Barcelos": {
+      "tmId": 271666,
+      "tmNome": "Danilo Barcelos",
+      "clube": "Ponte Preta"
+    },
+    "Red Bull Bragantino|Cleiton Schwengber|Cleiton": {
+      "tmId": 943237,
+      "tmNome": "Cleiton",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Juninho Capixaba|Juninho Capixaba": {
+      "tmId": 406676,
+      "tmNome": "Juninho Capixaba",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Pedro Henrique da Silva Nascimento|Pedro Henrique": {
+      "tmId": 858712,
+      "tmNome": "Pedro Henrique",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Gustavo Henrique de Souza Marques|Gustavo Marques": {
+      "tmId": 977465,
+      "tmNome": "Gustavo Marques",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Fabinho Bruno da Silva|Fabinho": {
+      "tmId": 225693,
+      "tmNome": "Fabinho",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Eric Ramires da Silva|Eric Ramires": {
+      "tmId": 614328,
+      "tmNome": "Eric Ramires",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Rodrigo da Silva Ribeiro|Rodriguinho": {
+      "tmId": 77059,
+      "tmNome": "Rodriguinho",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Isidro Pitta Sánchez|Isidro Pitta": {
+      "tmId": 675178,
+      "tmNome": "Isidro Pitta",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|Lucas Barbosa da Silva|Lucas Barbosa": {
+      "tmId": 816144,
+      "tmNome": "Lucas Barbosa",
+      "clube": "Red Bull Bragantino"
+    },
+    "Red Bull Bragantino|José Manuel Herrera|Herrera": {
+      "tmId": 734016,
+      "tmNome": "Marcelo Herrera",
+      "clube": "Red Bull Bragantino"
+    },
+    "Remo|Ivan|": {
+      "tmId": 8037,
+      "tmNome": "IvâÃ­n de la Peââa",
+      "clube": "Remo"
+    },
+    "Remo|Léo Andrade|": {
+      "tmId": 539135,
+      "tmNome": "LâÂ®o Andrade",
+      "clube": "Remo"
+    },
+    "Remo|Marllon|": {
+      "tmId": 101252,
+      "tmNome": "Marllon",
+      "clube": "Remo"
+    },
+    "Remo|Zé Welison|": {
+      "tmId": 323452,
+      "tmNome": "ZâÂ® Welison",
+      "clube": "Remo"
+    },
+    "Remo|Vítor Bueno|": {
+      "tmId": 390368,
+      "tmNome": "Vitor Bueno",
+      "clube": "Remo"
+    },
+    "Remo|Gabriel Taliari|": {
+      "tmId": 585876,
+      "tmNome": "Gabriel Taliari",
+      "clube": "Remo"
+    },
+    "Remo|Yago Pikachu|Yago Pikachu": {
+      "tmId": 265660,
+      "tmNome": "Yago Pikachu",
+      "clube": "Remo"
+    },
+    "Remo|Alef Manga|": {
+      "tmId": 612479,
+      "tmNome": "Alef Manga",
+      "clube": "Remo"
+    },
+    "Remo|Marcelo Rangel|": {
+      "tmId": 412610,
+      "tmNome": "Marcelo Rangel",
+      "clube": "Remo"
+    },
+    "Santos|Gabriel Brazão Ferreira|Gabriel Brazão": {
+      "tmId": 371247,
+      "tmNome": "Gabriel BrazâÃºo",
+      "clube": "Santos"
+    },
+    "Santos|Lucas Veríssimo da Silva|Lucas Veríssimo": {
+      "tmId": 411662,
+      "tmNome": "Lucas VerâÂ¡ssimo",
+      "clube": "Santos"
+    },
+    "Santos|Adonis Frías|": {
+      "tmId": 598838,
+      "tmNome": "Adonis FrâÂ¡as",
+      "clube": "Santos"
+    },
+    "Santos|Igor Vinícius da Silva|Igor Vinícius": {
+      "tmId": 552240,
+      "tmNome": "Igor VinâÂ¡cius",
+      "clube": "Santos"
+    },
+    "Santos|Willian Arão da Silva|Willian Arão": {
+      "tmId": 210747,
+      "tmNome": "Willian ArâÃºo",
+      "clube": "Santos"
+    },
+    "Santos|Gabriel Bontempo da Silva|Gabriel Bontempo": {
+      "tmId": 1089958,
+      "tmNome": "Gabriel Bontempo",
+      "clube": "Santos"
+    },
+    "Santos|Neymar da Silva Santos Júnior|Neymar": {
+      "tmId": 68290,
+      "tmNome": "Neymar",
+      "clube": "Santos"
+    },
+    "Santos|Rony Rodrigues de Souza|Rony": {
+      "tmId": 371009,
+      "tmNome": "Rony",
+      "clube": "Santos"
+    },
+    "Santos|Gonzalo Escobar|": {
+      "tmId": 440377,
+      "tmNome": "Gonzalo Escobar",
+      "clube": "Santos"
+    },
+    "Santos|Diógenes Júnior da Silva Nascimento|Diógenes": {
+      "tmId": 440455,
+      "tmNome": "Diogenes",
+      "clube": "Santos"
+    },
+    "São Bernardo|Alex Alves de Lima|Alex Alves": {
+      "tmId": 333,
+      "tmNome": "Alex Alves",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Jemerson de Jesus Nascimento|Jemerson": {
+      "tmId": 258254,
+      "tmNome": "Jemerson",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Matheus Salustiano Pires|Matheus Salustiano": {
+      "tmId": 286474,
+      "tmNome": "Matheus Salustiano",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Hugo Sanches Nogueira Ribeiro Magalhães|Hugo Sanches": {
+      "tmId": 612328,
+      "tmNome": "Hugo Sanches",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Romisson Lino dos Santos|Romisson": {
+      "tmId": 539467,
+      "tmNome": "Romisson",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Hyoran Kauê Dalmoro|Hyoran": {
+      "tmId": 338861,
+      "tmNome": "Hyoran",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Lucas Fernandes|Lucas Fernandes": {
+      "tmId": 430761,
+      "tmNome": "Lucas Fernandes",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Leonardo Rodrigues Lima|Léo Jabá": {
+      "tmId": 468260,
+      "tmNome": "LâÂ®o JabâÃ­",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Fabrício Daniel de Souza|Fabrício Daniel": {
+      "tmId": 787269,
+      "tmNome": "FabrâÂ¡cio Daniel",
+      "clube": "São Bernardo"
+    },
+    "São Bernardo|Luis Otávio de Oliveira|Echaporã": {
+      "tmId": 688896,
+      "tmNome": "EchaporâÃº",
+      "clube": "São Bernardo"
+    },
+    "São Paulo|Carlos Coronel|": {
+      "tmId": 378871,
+      "tmNome": "Carlos Coronel",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Rafael Tolói|": {
+      "tmId": 72441,
+      "tmNome": "Rafael Tolââi",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Robert Arboleda|": {
+      "tmId": 139867,
+      "tmNome": "Robert Arboleda",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Enzo Díaz|": {
+      "tmId": 540458,
+      "tmNome": "Enzo DâÂ¡az",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Pablo Maia|": {
+      "tmId": 892089,
+      "tmNome": "Pablo Maia",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Marcos Antônio Lourenço da Silva|Marcos Antônio": {
+      "tmId": 468301,
+      "tmNome": "Marcos Antââ¤nio",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Lucas Rodrigues Moura da Silva|Lucas Moura": {
+      "tmId": 77100,
+      "tmNome": "Lucas Moura",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Jonathan Calleri|": {
+      "tmId": 284727,
+      "tmNome": "Jonathan Calleri",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Luciano da Souza de Castro|Luciano": {
+      "tmId": 251037,
+      "tmNome": "Luciano Chiarugi",
+      "clube": "São Paulo"
+    },
+    "São Paulo|Rafael Fernandes de Almeida|Rafael": {
+      "tmId": 323831,
+      "tmNome": "Rafael Santos BorrâÂ®",
+      "clube": "São Paulo"
+    },
+    "Sport|Thiago Couto|": {
+      "tmId": 546217,
+      "tmNome": "Thiago Couto",
+      "clube": "Sport"
+    },
+    "Sport|Marcelo Benevenuto|": {
+      "tmId": 476339,
+      "tmNome": "Marcelo Benevenuto",
+      "clube": "Sport"
+    },
+    "Sport|Felipinho|": {
+      "tmId": 1115489,
+      "tmNome": "Felipinho",
+      "clube": "Sport"
+    },
+    "Sport|Claudinho|": {
+      "tmId": 403315,
+      "tmNome": "Claudinho",
+      "clube": "Sport"
+    },
+    "Sport|Patrick de Paula|": {
+      "tmId": 737821,
+      "tmNome": "Patrick de Paula",
+      "clube": "Sport"
+    },
+    "Sport|Fábio Matheus|": {
+      "tmId": 1087725,
+      "tmNome": "FâÃ­bio Matheus",
+      "clube": "Sport"
+    },
+    "Sport|Biel Fonseca|": {
+      "tmId": 867139,
+      "tmNome": "Biel Fonseca",
+      "clube": "Sport"
+    },
+    "Sport|Perotti|": {
+      "tmId": 432959,
+      "tmNome": "Perotti",
+      "clube": "Sport"
+    },
+    "Sport|Diego Hernández|": {
+      "tmId": 800732,
+      "tmNome": "Diego HernâÃ­ndez",
+      "clube": "Sport"
+    },
+    "Sport|Chrystian Barletta|": {
+      "tmId": 695232,
+      "tmNome": "Chrystian Barletta",
+      "clube": "Sport"
+    },
+    "Vasco da Gama|Léo Jardim|": {
+      "tmId": 288415,
+      "tmNome": "LâÂ®o Jardim",
+      "clube": "Vasco da Gama"
+    },
+    "Vitória|Tomás Pochettino|": {
+      "tmId": 348354,
+      "tmNome": "TomâÃ­s Pochettino",
       "clube": "Vitória"
     }
   }

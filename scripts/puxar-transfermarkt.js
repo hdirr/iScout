@@ -198,6 +198,18 @@ function montarPlayer(j, r, perfil) {
   let erros = 0;
   let bloqueiosConsec = 0;
   const COOLDOWN_MS = parseInt(process.env.TM_COOLDOWN_MS || "300000", 10); // 5 min
+  // mapa incremental: grava a cada clube, então mesmo se for interrompida no meio
+  // (timeout/bloqueio), o OFFLINE=1 consegue mandar o cache pro Supabase.
+  const MapaCaminho = path.join(__dirname, "data", "tm-map.json");
+  function salvarMapa(mapaNovos) {
+    if (!Object.keys(mapaNovos).length) return;
+    const base = fs.existsSync(MapaCaminho)
+      ? JSON.parse(fs.readFileSync(MapaCaminho, "utf8")).mapa || {}
+      : {};
+    Object.assign(base, mapaNovos);
+    fs.writeFileSync(MapaCaminho, JSON.stringify({ geradoEm: new Date().toISOString(), achados: Object.keys(base).length, mapa: base }, null, 2), "utf8");
+  }
+  const mapaNovos = {};
   for (let i = 0; i < destaques.length; i++) {
     const { roster, jogadores } = destaques[i];
     let nClube = 0;
@@ -253,6 +265,11 @@ function montarPlayer(j, r, perfil) {
           temporadas,
           lesoes: lesoes.lesoes || [],
         });
+        mapaNovos[`${roster.clube}|${j.nome}|${j.apelido || ""}`] = {
+          tmId: Number(res.best.id),
+          tmNome: res.best.nome,
+          clube: roster.clube,
+        };
         nClube++;
         console.log(`TM ${res.best.id} (${res.best.nome}) | temporadas: ${temporadas.map((t) => t.temporada).join(",")}`);
       } catch (e) {
@@ -261,6 +278,8 @@ function montarPlayer(j, r, perfil) {
       }
     }
     if (nClube === 0) console.log(`  → ${roster.clube}: nenhum match`);
+    salvarMapa(mapaNovos);
+    for (const k of Object.keys(mapaNovos)) delete mapaNovos[k];
   }
 
   console.log(`\nResolução bruta: ${achados.length} achados, ${semMatch.length} sem match, ${erros} erros`);

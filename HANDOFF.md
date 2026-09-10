@@ -104,6 +104,13 @@ temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A
 - **Cooldown global (novo)**: `resolverJogador` não retenta mais in-place (retry 12→51s por query
   devorava horas). Bloqueio → `{bloqueado:true}`; o loop principal conta 3 bloqueios consecutivos e
   dorme `TM_COOLDOWN_MS` (default 5 min), depois retoma. Foi o que deixou a run de 2h chegar ao fim.
+- **Pipeline em 2 fases (cache desacopla rede do banco)**: (1) **rede → cache** — o `puxar` baixa e
+  salva em `cache-tm/` (perfil-*, desempenho-*, lesoes-*, search-*) e **grava `tm-map.json`
+  incrementalmente a cada clube** (mesmo morto no meio, o mapa fica atualizado); (2) **cache →
+  Supabase** — `OFFLINE=1 node scripts/puxar-transfermarkt.js` popular o banco inteiramente a partir
+  do cache, sem tocar a rede (seguro contra bloqueio/timeout; idempotente: purge total). Sem isso, uma
+  run cortada no meio perdia a gravação. `scripts/extrair-mapa.js [logs...]` reconstrói/mescla o mapa
+  a partir dos logs de resolução.
 - **Avaliações derivadas**: **308** avaliações geradas (`Auto-scout`) com nota/recomendação; **47
   jogadores sem season_stats** (temporadas 2024-2026 vazias na API) ficaram com `nota_global` null e
   sem avaliação. Distribuição: 21 Comprar imediatamente / 206 Monitorar / 81 Descartar. Top:
