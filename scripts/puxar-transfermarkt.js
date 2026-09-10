@@ -114,24 +114,20 @@ async function resolverJogador(j, r) {
   if (j.nome) queries.push(j.nome.trim());
 
   for (const q of queries[0] ? queries.slice(0, 2) : queries) {
-    for (let tentativa = 1; tentativa <= 4; tentativa++) {
-      const res = await tm.buscaJogador(q);
-      if (res.bloqueado) {
-        // TM rate-limit: espera progressiva e tenta de novo
-        const espera = 12000 * tentativa + Math.random() * 3000;
-        process.stdout.write(`(bloqueado, aguardando ${Math.round(espera / 1000)}s...) `);
-        await tm.sleep(espera);
-        continue;
-      }
-      if (!res.cands.length) break;
-      const best = res.cands[0];
-      // igualdade forte ou melhor colocação; desempate por nome mais longo já
-      // ordenado no client. Aceita a partir de score 1 (contém o termo).
-      if (best.score >= 1) {
-        return { query: q, cands: res.cands.slice(0, 3), best };
-      }
-      break;
+    const res = await tm.buscaJogador(q);
+    // Se bloqueado, NÃO fica retentando aqui: sinaliza pro loop principal, que
+    // aplica um cooldown global (o retry in-place 12→51s por query devorava horas).
+    if (res.bloqueado) {
+      return { bloqueado: true };
     }
+    if (!res.cands.length) break;
+    const best = res.cands[0];
+    // igualdade forte ou melhor colocação; desempate por nome mais longo já
+    // ordenado no client. Aceita a partir de score 1 (contém o termo).
+    if (best.score >= 1) {
+      return { query: q, cands: res.cands.slice(0, 3), best };
+    }
+    break;
   }
   return null;
 }
@@ -200,6 +196,8 @@ function montarPlayer(j, r, perfil) {
   const semMatch = [];
   const pendentes = [];
   let erros = 0;
+  let bloqueiosConsec = 0;
+  const COOLDOWN_MS = parseInt(process.env.TM_COOLDOWN_MS || "300000", 10); // 5 min
   for (let i = 0; i < destaques.length; i++) {
     const { roster, jogadores } = destaques[i];
     let nClube = 0;
@@ -212,6 +210,19 @@ function montarPlayer(j, r, perfil) {
         if (res && res.origem === "mapa") {
           process.stdout.write(`(mapa) `);
         }
+        if (res && res.bloqueado) {
+          // bloquios intermitentes: após 3 seguidos, cooldown global e volta
+          bloqueiosConsec++;
+          if (bloqueiosConsec >= 3) {
+            process.stdout.write(`(cooldown ${Math.round(COOLDOWN_MS / 60000)}min) `);
+            await tm.sleep(COOLDOWN_MS);
+            bloqueiosConsec = 0;
+          }
+          semMatch.push({ clube: roster.clube, nome: j.nome, apelido: j.apelido, motivo: "bloqueado" });
+          console.log("sem match (bloqueado)");
+          continue;
+        }
+        bloqueiosConsec = 0;
         if (!res) {
           semMatch.push({ clube: roster.clube, nome: j.nome, apelido: j.apelido });
           console.log("sem match");

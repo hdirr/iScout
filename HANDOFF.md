@@ -51,7 +51,7 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
 | Autenticação (Supabase Auth) | ok — email/senha + proteção de rotas |
 | RLS restrito a autenticados | pendente — rodar `supabase/security.sql` |
 | Dados de mercado (Série A/B 2026) | ok — 400 jogadores via seed (p/ demo) |
-| **Dados reais via Transfermarkt** | **parcial (127/400)** — ver "Milestone Transfermarkt" abaixo; bloqueado pelo anti-bot do TM |
+| **Dados reais via Transfermarkt** | **quase completo (355/400)** — faltam 45 no bloqueio; ver "Milestone Transfermarkt"; re-run via `sincronizar-tm.js` quando o anti-bot liberar |
 | Dashboard com busca simplificada (seção 7 doc) | ok — busca por jogador ou time em `/jogadores` |
 
 ## Milestone Transfermarkt (dados reais, custo zero)
@@ -96,26 +96,28 @@ temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A
     **Lock anti-sobreposição**: se um sync já estiver rodando (`SYNC_RUNNING.lock` em cache-tm), o
     watcher registra e não inicia outro.
   - `scripts/data/cache-tm/` **ignorado no git** (`.gitignore` em `scripts/`).
-- **Sincronização atual**: **127/400** jogadores reais inseridos (135 achados − 8 duplicatas), com
-  **332 `season_stats`** (média ~2,6 temporadas por jogador), 0 erros. O restante (265) ficou "sem
-  match" porque o TM bloqueou a busca por IP (anti-bot "Human Verification", HTTP 405; quando
-  bloqueado, até perfil/ceapi/lesões param de responder — só o que está em cache continua valendo).
-- **Avaliações derivadas**: **112** avaliações geradas (`Auto-scout`) com nota/recomendação; **15
+- **Sincronização atual**: **355/400** jogadores reais inseridos, com **906 `season_stats`** e
+  **1302 `player_injuries`**, 0 erros (sync rede completo em `sync-full-4.log`, 10/09 15:56Z).
+  Faltam **45** "sem match" (34 no relatório; maioria pegou bloqueio do TM no fim da run — Vasco/Vila
+  Nova/Vitória). O anti-bot do TM é **intermitente por IP** (HTTP 405 "Human Verification"; bloqueia
+  por 1–3 min, libera, re-bloqueia) — quando bloqueado, até perfil/ceapi/lesões param de responder.
+- **Cooldown global (novo)**: `resolverJogador` não retenta mais in-place (retry 12→51s por query
+  devorava horas). Bloqueio → `{bloqueado:true}`; o loop principal conta 3 bloqueios consecutivos e
+  dorme `TM_COOLDOWN_MS` (default 5 min), depois retoma. Foi o que deixou a run de 2h chegar ao fim.
+- **Avaliações derivadas**: **308** avaliações geradas (`Auto-scout`) com nota/recomendação; **47
   jogadores sem season_stats** (temporadas 2024-2026 vazias na API) ficaram com `nota_global` null e
-  sem avaliação. Top da amostra: Arrascaeta 89, Éverson 82, Viveros 79, Hugo Souza 78, Rossi 77.
-- **Lesões**: parse pronto e integrado no puxar (tipo/localização/gravidade/causa por keyword do
-  texto TM, recidiva por repetição, cirurgia se "surgery/operation"); o **download real vai junto na
-  re-run agendada** (nunca foram cacheadas, então não há como popular offline agora).
+  sem avaliação. Distribuição: 21 Comprar imediatamente / 206 Monitorar / 81 Descartar. Top:
+  Neymar 91 (Santos), Arrascaeta 90, Esli García 87 (Goiás), Gabriel Brazão 85, Escobar 84, Viveros 82.
+- **Lesões**: parse pronto e **populado** (1302 registros). Tipo/localização/gravidade/causa por
+  keyword do texto TM, recidiva por repetição, cirurgia se "surgery/operation".
 - **Contacts reality check**: dados realistas confirmados — Pedro 2026 = 33 jogos/1053 min/5 gols
   (retorno de lesão), Pulgar 2026 = 1 vermelho, Arrascaeta 2025 = 23 gols/18 assist, valori: Ortiz
   €12M, Rossi €10M.
-- **Como completar os 273 restantes**: rodar `node scripts/sincronizar-tm.js` (ficar de prontidão em
-  horário de baixa demanda) ou, quando o TM liberar, `node scripts/puxar-transfermarkt.js` (com
-  retry+backoff em bloqueio; os 127 já cacheados saem do cache; busca das lesões inclui os 127 + novos).
-  Não há risco de dados errados por re-run: purge total + idempotente. Nomes óbvios tipo "Gustavo
-  Gómez" que falharam foram vítimas do bloqueio, não do parse.
-- **Pendências**: `player_injuries` entra na próxima re-run (parse pronto); `calcular-avaliacoes.js`
-  concluído (re-rodar depois que os 400 estiverem no banco: `node scripts/calcular-avaliacoes.js`).
+- **Como completar os 45 restantes**: rodar `node scripts/sincronizar-tm.js` (watcher — espera o
+  TM liberar e roda o sync sozinho, com o lock anti-overlap) ou, quando o TM liberar,
+  `node scripts/puxar-transfermarkt.js` (355 já saem do cache; só os 45 pendentes tocam a rede)
+  e depois `node scripts/calcular-avaliacoes.js`. Re-run é seguro: purge total + idempotente. Nomes
+  óbvios tipo "Gustavo Gómez" que falharam foram vítimas do bloqueio, não do parse.
 
 ## Dashboard de busca `(/jogadores)`
 
@@ -222,9 +224,10 @@ Modelo em `.env.local.example`.
 
 ## Próximos passos
 
-1. **Completar os 273 dados reais TM**: no terminal do usuário, `node scripts/sincronizar-tm.js`
+1. **Completar os 45 dados reais TM restantes**: no terminal do usuário, `node scripts/sincronizar-tm.js`
    (ou background: `Start-Process -FilePath node -ArgumentList 'scripts\sincronizar-tm.js'`). O
-   agendador espera o anti-bot liberar e roda o sync completo com lesões automaticamente.
+   agendador espera o anti-bot liberar e roda o sync completo automaticamente. Depois, re-rodar
+   `node scripts/calcular-avaliacoes.js` para recalcular as ~47 avaliações que estão null.
 2. **Re-rodar avaliações após os 400**: `node scripts/calcular-avaliacoes.js`.
 3. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
 4. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
