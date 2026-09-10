@@ -48,6 +48,13 @@ async function aguardarBlocos(maxMs) {
 function rodarSync() {
   return new Promise((resolve) => {
     fs.mkdirSync(CACHE, { recursive: true });
+    const lockPath = path.join(CACHE, "SYNC_RUNNING.lock");
+    if (fs.existsSync(lockPath)) {
+      log("sync já em andamento (lock existe); encerrando watcher");
+      resolve(-1);
+      return;
+    }
+    fs.writeFileSync(lockPath, JSON.stringify({ inicio: new Date().toISOString() }));
     const logFile = path.join(CACHE, `sync-${new Date().toISOString().replace(/[:.]/g, "-")}.log`);
     const out = fs.openSync(logFile, "a");
     log(`rodando puxar-transfermarkt.js (log: ${logFile})`);
@@ -57,6 +64,7 @@ function rodarSync() {
     });
     child.on("close", (code) => {
       fs.closeSync(out);
+      fs.unlinkSync(lockPath);
       fs.writeFileSync(
         path.join(CACHE, "SYNC_OK.json"),
         JSON.stringify({ geradoEm: new Date().toISOString(), exitCode: code, log: logFile }, null, 2)

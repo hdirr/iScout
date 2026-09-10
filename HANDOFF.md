@@ -90,7 +90,11 @@ temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A
   - `scripts/sincronizar-tm.js`: **agendador de re-run**. Sonda a busca TM a cada
     `TM_PROBE_INTERVAL_MS` (default 10 min, margem sobre throttle); quando o anti-bot liberar, roda o
     puxar em modo rede até o fim (com lesões), grava `sync-*.log` e `SYNC_OK.json` e encerra.
-    `--uma-vez` para sonda única. Roda em background: `node scripts/sincronizar-tm.js`.
+    `--uma-vez` para sonda única. **Rodar no terminal do usuário** (processos destacados a partir do
+    ambiente do assistente são terminados pelo executor). Em background no Windows:
+    `Start-Process -FilePath node -ArgumentList 'scripts\sincronizar-tm.js' -WindowStyle Hidden`.
+    **Lock anti-sobreposição**: se um sync já estiver rodando (`SYNC_RUNNING.lock` em cache-tm), o
+    watcher registra e não inicia outro.
   - `scripts/data/cache-tm/` **ignorado no git** (`.gitignore` em `scripts/`).
 - **Sincronização atual**: **127/400** jogadores reais inseridos (135 achados − 8 duplicatas), com
   **332 `season_stats`** (média ~2,6 temporadas por jogador), 0 erros. O restante (265) ficou "sem
@@ -218,8 +222,9 @@ Modelo em `.env.local.example`.
 
 ## Próximos passos
 
-1. **Completar os 273 dados reais TM**: `node scripts/sincronizar-tm.js` (agendador espera o anti-bot
-   liberar e roda o sync completo com lesões automaticamente).
+1. **Completar os 273 dados reais TM**: no terminal do usuário, `node scripts/sincronizar-tm.js`
+   (ou background: `Start-Process -FilePath node -ArgumentList 'scripts\sincronizar-tm.js'`). O
+   agendador espera o anti-bot liberar e roda o sync completo com lesões automaticamente.
 2. **Re-rodar avaliações após os 400**: `node scripts/calcular-avaliacoes.js`.
 3. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
 4. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
