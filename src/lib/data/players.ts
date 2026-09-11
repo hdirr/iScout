@@ -7,7 +7,6 @@ import type {
   GravidadeLesao,
   Pe,
   Posicao,
-  Recomendacao,
   StatusDisponibilidade,
   TipoLesao,
   Player,
@@ -76,7 +75,6 @@ export interface PlayerFilters {
   avaliadoDe?: string;
   avaliadoAte?: string;
   scout?: string;
-  recomendacao?: Recomendacao;
   potencialMin?: number;
   potencialMax?: number;
   ordenarPor?: OrdenarJogadores;
@@ -276,7 +274,6 @@ function aplicaFiltros(j: PlayerSummary, f: PlayerFilters): boolean {
     f.avaliadoDe !== undefined ||
     f.avaliadoAte !== undefined ||
     f.scout !== undefined ||
-    f.recomendacao !== undefined ||
     f.potencialMin !== undefined ||
     f.potencialMax !== undefined
   ) {
@@ -286,8 +283,6 @@ function aplicaFiltros(j: PlayerSummary, f: PlayerFilters): boolean {
       f.scout &&
       !av.scout_responsavel?.toLowerCase().includes(f.scout.toLowerCase())
     )
-      return false;
-    if (f.recomendacao && av.recomendacao_final !== f.recomendacao)
       return false;
     if (
       (f.potencialMin !== undefined || f.potencialMax !== undefined) &&

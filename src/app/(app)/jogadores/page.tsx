@@ -9,10 +9,8 @@ import { calcularIdade, formatarMoedaEUR } from "@/lib/utils";
 import { JogadoresFiltros } from "@/components/jogadores-filtros";
 import {
   POSICOES,
-  RECOMENDACAO,
   STATUS_DISPONIBILIDADE,
   type Posicao,
-  type Recomendacao,
   type StatusDisponibilidade,
 } from "@/lib/types";
 
@@ -55,11 +53,6 @@ function lerFiltros(sp: SearchParams): PlayerFilters {
       sp,
       "status",
       Object.values(STATUS_DISPONIBILIDADE) as StatusDisponibilidade[]
-    ),
-    recomendacao: enumValor(
-      sp,
-      "recomendacao",
-      Object.values(RECOMENDACAO) as Recomendacao[]
     ),
     ordenarPor,
     ordem,
@@ -137,7 +130,6 @@ export default async function JogadoresPage({
                 <th className="px-4 py-3 font-medium">Temporada</th>
                 <th className="px-4 py-3 font-medium">Gols · Assist</th>
                 <th className="px-4 py-3 font-medium">Dias afastado</th>
-                <th className="px-4 py-3 font-medium">Recomendação</th>
                 <th className="px-4 py-3 font-medium">Valor</th>
                 <th className="px-4 py-3 font-medium">Nota</th>
                 <th className="px-4 py-3 font-medium">Status</th>
@@ -154,19 +146,35 @@ export default async function JogadoresPage({
                     className="transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900"
                   >
                     <td className="px-4 py-3">
-                      <Link
-                        href={`/jogadores/${j.id}`}
-                        className="font-semibold text-zinc-900 hover:underline dark:text-zinc-100"
-                      >
-                        {j.nome_completo}
-                      </Link>
-                      {(auxiliar || idade !== null) && (
-                        <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                          {[auxiliar, idade !== null ? `${idade} anos` : null]
-                            .filter(Boolean)
-                            .join(" · ")}
-                        </p>
-                      )}
+                      <div className="flex items-center gap-3">
+                        {j.foto_url ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={j.foto_url}
+                            alt={j.nome_completo}
+                            className="h-10 w-10 shrink-0 rounded-full bg-zinc-100 object-cover dark:bg-zinc-800"
+                          />
+                        ) : (
+                          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zinc-100 text-sm font-bold text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
+                            {j.nome_completo.charAt(0).toUpperCase()}
+                          </span>
+                        )}
+                        <div>
+                          <Link
+                            href={`/jogadores/${j.id}`}
+                            className="font-semibold text-zinc-900 hover:underline dark:text-zinc-100"
+                          >
+                            {j.nome_completo}
+                          </Link>
+                          {(auxiliar || idade !== null) && (
+                            <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                              {[auxiliar, idade !== null ? `${idade} anos` : null]
+                                .filter(Boolean)
+                                .join(" · ")}
+                            </p>
+                          )}
+                        </div>
+                      </div>
                     </td>
                     <td className="px-4 py-3">
                       <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-semibold text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
@@ -214,11 +222,6 @@ export default async function JogadoresPage({
                           </p>
                         </>
                       ) : (
-                        <span className="text-zinc-400">—</span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
-                      {j.ultima_avaliacao?.recomendacao_final ?? (
                         <span className="text-zinc-400">—</span>
                       )}
                     </td>

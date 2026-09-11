@@ -11,22 +11,10 @@ import {
 import type { PlayerWithStats } from "@/lib/types";
 import { POSICAO_LABEL } from "@/lib/types";
 
-const COR_RECOMENDACAO: Record<string, string> = {
-  "Comprar imediatamente": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200",
-  Monitorar: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200",
-  Descartar: "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200",
-};
-
 const COR_RISCO: Record<string, string> = {
   Baixo: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200",
   Médio: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200",
   Alto: "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200",
-};
-
-const COR_CUSTO: Record<string, string> = {
-  Alto: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200",
-  Médio: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200",
-  Baixo: "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200",
 };
 
 const COR_ASPECTO: Record<string, string> = {
@@ -58,17 +46,6 @@ export default function JogadorRelatorio({ jogador }: { jogador: PlayerWithStats
           <ResumoCard label="Nota global" valor={rel.resumo.nota !== null ? `${rel.resumo.nota.toFixed(1)}/100` : "—"} destaque />
           <ResumoCard label="Potencial" valor={rel.resumo.potencial !== null ? `${rel.resumo.potencial}/100` : "—"} />
           <ResumoCard label="Idade" valor={rel.resumo.idade !== null ? `${rel.resumo.idade} anos` : "—"} />
-          <ResumoCard
-            label="Custo-benefício (nota ÷ €M)"
-            valor={rel.resumo.custo_beneficio !== null ? String(rel.resumo.custo_beneficio) : "—"}
-            badge={rel.resumo.custo_beneficio_classe ? COR_CUSTO[rel.resumo.custo_beneficio_classe] : null}
-            badgeTexto={rel.resumo.custo_beneficio_classe}
-          />
-          <ResumoCard
-            label="Recomendação"
-            valor={rel.resumo.recomendacao ?? "—"}
-            badge={rel.resumo.recomendacao ? COR_RECOMENDACAO[rel.resumo.recomendacao] : null}
-          />
           <ResumoCard
             label="Risco de lesão"
             valor={rel.resumo.risco_lesao}
@@ -255,8 +232,11 @@ export default function JogadorRelatorio({ jogador }: { jogador: PlayerWithStats
         </div>
       </section>
 
-      {/* 6. Observações + sugestão */}
-      {(rel.observacoes || rel.sugestao_estrategica) && (
+      {/* 6. Observações + pontos de atenção */}
+      {(
+        rel.observacoes ||
+        rel.pontos_atencao
+      ) && (
         <section className="grid gap-4 lg:grid-cols-2">
           {rel.observacoes && (
             <div className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
@@ -270,10 +250,10 @@ export default function JogadorRelatorio({ jogador }: { jogador: PlayerWithStats
           )}
           <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-4 dark:border-indigo-900 dark:bg-indigo-950/40">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-indigo-500 dark:text-indigo-400">
-              Sugestão estratégica
+              Pontos de atenção
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-indigo-900 dark:text-indigo-100">
-              {rel.sugestao_estrategica}
+              {rel.pontos_atencao || "Sem pontos de atenção a destacar."}
             </p>
           </div>
         </section>

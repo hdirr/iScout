@@ -51,9 +51,9 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
 | Autenticação (Supabase Auth) | ok — email/senha + proteção de rotas |
 | RLS restrito a autenticados | pendente — rodar `supabase/security.sql` |
 | Dados de mercado (Série A/B 2026) | ok — 400 jogadores via seed (p/ demo) |
-| **Dados reais via Transfermarkt** | **quase completo (355/400)** — faltam 45 no bloqueio; ver "Milestone Transfermarkt"; re-run via `sincronizar-tm.js` quando o anti-bot liberar |
+| **Dados reais via Transfermarkt** | **380/400** — faltam 8 sem match; re-run via `sincronizar-tm.js` quando o anti-bot liberar |
 | Dashboard com busca simplificada (seção 7 doc) | ok — busca por jogador ou time em `/jogadores` |
-| **Relatório do jogador — visão única (seção 8)** | **ok** — radar SVG + evolução + análise detalhada + lesões + mercado + sugestão em `/jogadores/[id]`, com botão Imprimir |
+| **Relatório do jogador — visão única (seção 8)** | **ok** — radar SVG + evolução + análise detalhada + lesões + mercado + pontos de atenção em `/jogadores/[id]`, com botão Imprimir |
 
 ## Milestone Transfermarkt (dados reais, custo zero)
 
@@ -85,9 +85,10 @@ temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A
     Nota 0-100 = média ponderada de **percentis** (entre os destaques da amostra) de métricas por 90
     min, por grupo posicional (GOL: min/precisão/jogos; DEF: desarmes/passes/min; MID: gols+assist/
     desarmes/passes; MEI: gols+assist/finalizações/passes; ATT: gols/assist/finaizações) com shrink
-    0.92+0.04. `recomendacao_final` = Comprar ≥ 75, Monitorar 40–74, Descartar < 40; preenche
-    `tecnica`/`fisica`/`comportamental`, `potencial_*`, `scout_responsavel="Auto-scout"` e atualiza
-    `players.nota_global`. **Idempotente** (apaga avaliações e reinsere). `node scripts/calcular-avaliacoes.js`.
+    0.92+0.04. Preenche `tecnica`/`fisica`/`comportamental`, `potencial_*`,
+    `scout_responsavel="Auto-scout"` e atualiza `players.nota_global`. **Não emite recomendação**
+    (a ferramenta só auxilia — quem decide é o scout/técnico). **Idempotente** (apaga avaliações e
+    reinsere). `node scripts/calcular-avaliacoes.js`.
   - `scripts/sincronizar-tm.js`: **agendador de re-run**. Sonda a busca TM a cada
     `TM_PROBE_INTERVAL_MS` (default 10 min, margem sobre throttle); quando o anti-bot liberar, roda o
     puxar em modo rede até o fim (com lesões), grava `sync-*.log` e `SYNC_OK.json` e encerra.
@@ -112,20 +113,18 @@ temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A
   do cache, sem tocar a rede (seguro contra bloqueio/timeout; idempotente: purge total). Sem isso, uma
   run cortada no meio perdia a gravação. `scripts/extrair-mapa.js [logs...]` reconstrói/mescla o mapa
   a partir dos logs de resolução.
-- **Avaliações derivadas**: **308** avaliações geradas (`Auto-scout`) com nota/recomendação; **47
-  jogadores sem season_stats** (temporadas 2024-2026 vazias na API) ficaram com `nota_global` null e
-  sem avaliação. Distribuição: 21 Comprar imediatamente / 206 Monitorar / 81 Descartar. Top:
-  Neymar 91 (Santos), Arrascaeta 90, Esli García 87 (Goiás), Gabriel Brazão 85, Escobar 84, Viveros 82.
+- **Avaliações derivadas**: **333** avaliações geradas (`Auto-scout`, 47 sem season_stats → `nota_global`
+  null). Top: Neymar 92 (Santos), Gabriel 91 (Vitória), Arrascaeta 90.
 - **Lesões**: parse pronto e **populado** (1302 registros). Tipo/localização/gravidade/causa por
   keyword do texto TM, recidiva por repetição, cirurgia se "surgery/operation".
 - **Contacts reality check**: dados realistas confirmados — Pedro 2026 = 33 jogos/1053 min/5 gols
   (retorno de lesão), Pulgar 2026 = 1 vermelho, Arrascaeta 2025 = 23 gols/18 assist, valori: Ortiz
   €12M, Rossi €10M.
-- **Como completar os 45 restantes**: rodar `node scripts/sincronizar-tm.js` (watcher — espera o
+- **Como completar os 8 restantes**: rodar `node scripts/sincronizar-tm.js` (watcher — espera o
   TM liberar e roda o sync sozinho, com o lock anti-overlap) ou, quando o TM liberar,
-  `node scripts/puxar-transfermarkt.js` (355 já saem do cache; só os 45 pendentes tocam a rede)
+  `node scripts/puxar-transfermarkt.js` (372 já saem do cache; só os pendentes tocam a rede)
   e depois `node scripts/calcular-avaliacoes.js`. Re-run é seguro: purge total + idempotente. Nomes
-  óbvios tipo "Gustavo Gómez" que falharam foram vítimas do bloqueio, não do parse.
+  estrangeiros (S. Rodríguez, Matías Segovia, Sebastián Gómez, etc.) precisam de busca manual.
 
 ## Dashboard de busca `(/jogadores)`
 
@@ -138,13 +137,13 @@ temporadas (2024/2025/2026), começando pelos destaques (10/clube) das Séries A
 - **Regras definidas** (importante para não gerar conflitos):
   - Desempenho (gols, assist, xG, xA, desarmes, precisão de passes, mín. jogos) aplicado à **última temporada**.
   - Lesões: `maxDiasAfastado` compara com a **pior lesão**; `/tipo/gravidade/recidiva` = pelo menos uma lesão que satisfaça.
-  - Scout (recomendação, scout, potencial, data) aplicado à **última avaliação** (por `data_avaliacao`).
+  - Scout (scout, potencial, data) aplicado à **última avaliação** (por `data_avaliacao`).
   - Precisão de passes = `passes_completos/passes_tentados * 100` na última temporada.
 - **UI** (request do usuário: "busca simples por time ou jogador, métricas importantes, ferramenta fácil"):
   `src/components/jogadores-filtros.tsx` é um form compacto com **campo único de busca** (jogador OU time),
-  três seletores-chave (Posição, Disponibilidade, Recomendação do scout), ordenação (Nome/Idade/Posição/Clube/
-  Nota/Valor + direção) e botões Buscar/Limpar. A tabela mostra as métricas importantes: Jogador, Posição,
-  Clube/Liga, Temporada (jogos), Gols · Assist, Dias afastado, Recomendação, Valor, Nota e Status.
+  seletores-chave (Posição, Disponibilidade), ordenação (Nome/Idade/Posição/Clube/
+  Nota/Valor + direção) e botões Buscar/Limpar. A tabela mostra: Jogador (**com foto** do TM),
+  Posição, Clube/Liga, Temporada (jogos), Gols · Assist, Dias afastado, Valor, Nota e Status.
 - **Nota de escala**: com muitos players, migrar a agregação para função RPC no Postgres
   (`LIMITE_CARREGAMENTO = 1000` no data layer).
 - **Atenção**: os embeds do PostgREST vêm com nome de tabela (`player_injuries`, `player_evaluations`) — o
@@ -233,11 +232,11 @@ Modelo em `.env.local.example`.
 ## Relatório do jogador (seção 8 — visão única)
 
 - `src/lib/reporte.ts`: `montarRelatorio(jogador)` deriva tudo do que `getPlayer` já traz (sem query
-  extra/DDL): resumo executivo (nota, potencial, recomendação, risco de lesão → Baixo/Médio/Alto,
-  custo-benefício = nota ÷ €M), radar 5 eixos (média das chaves de cada jsonb da avaliação),
+  extra/DDL): resumo executivo (nota, potencial, risco de lesão → Baixo/Médio/Alto), radar 5 eixos
+  (média das chaves de cada jsonb da avaliação),
   evolução por temporada (gols/assist/min/jogos, G+A/90, % passes), análise detalhada
   (técnica/física/comportamental — rótulos amigáveis por chave), mercado (valor, cláusula, fim de
-  contrato, potencial de mercado) e sugestão estratégica em texto.
+  contrato, potencial de mercado) e pontos de atenção em texto (fatos, sem prescrição).
 - `src/components/jogador-relatorio.tsx`: Server Component, **SVG inline** (sem lib de chart) — radar
   pentagonal + barras gols/assist por temporada. Estados vazios para jogadores sem avaliação/stats
   (os 47 sem season_stats). `src/components/imprimir-relatorio.tsx`: botão Imprimir (`window.print`),
@@ -262,19 +261,48 @@ Modelo em `.env.local.example`.
 - **Estado atual**: backup completo rodado — **1404 artefatos** no Supabase (perfil 381, desempenho
   381, lesoes 381, search 259, mapa, relatório), 0 erros.
 
+## Foco no jogador — a ferramenta não decide (milestone 1/3)
+
+- **Decisão do usuário**: "quero só a ferramenta de auxílio, ela não toma decisão — quem decide é o
+  scout/técnico." Removidos os rótulos prescritivos; métricas (nota, eixos, risco lesão, mercado)
+  permanecem como auxílio.
+- **Removidas** (código + seed):
+  - **Recomendação**: `recomendacao_final` saiu do `calcular-avaliacoes.js`, `seed-brasileirao-2026.js`,
+    types (`Recomendacao`/`RECOMENDACAO`), filtro `recomendacao` no data layer, coluna + dropdown da
+    lista, badge da ficha. `sugerirEstrategia` → **`pontos_atencao`** (só fatos: idade, risco lesão, valor
+    baixo, contrato próximo do fim, sem stats — sem "comprar/monitorar/descartar").
+  - **Custo-benefício** (card da ficha): `custoBeneficio()` e campos `custo_beneficio*` removidos.
+  - Resumo executivo agora: Nota, Potencial, Idade, Risco de lesão.
+- **Fotos**: avatar circular com `foto_url` do TM na lista `/jogadores` (379/380 têm).
+- **Avaliações re-derivadas** com o novo cálculo (333; 47 sem stats). Rótulos antigos zerados.
+- **Migração pendente (SQL Editor — usuário roda)**:
+  ```sql
+  alter table public.player_evaluations drop column if exists recomendacao_final;
+  drop type if exists public.recommendation;
+  ```
+  `schema.sql` já está limpo (setup novo nasce sem a coluna/enum).
+- **Parcelas seguintes** (já aprovadas): **B** — expor filtros que o backend já tem (idade, valor, nota,
+  pé, clube/liga); **C** — comparador de 2–3 jogadores `/comparar` (radar + stats lado a lado).
+
 ## Próximos passos
 
-1. **Completar os 8 dados reais TM restantes** (sem match por vizinhos de nome — S. Rodríguez,
+1. **Rodar a migração pós-remoção** (SQL Editor): `drop column recomendacao_final` + `drop type
+   recommendation` (ver seção "Foco no jogador").
+2. **Completar os 8 dados reais TM restantes** (sem match por vizinhos de nome — S. Rodríguez,
    Matías Segovia, Sebastián Gómez, etc.): revisar busca manual com apelidos alternativos quando o TM
    liberar, ou aceitar como fora da amostra. Watcher: `node scripts/sincronizar-tm.js` no terminal do
    usuário.
-2. **Re-rodar avaliações após qualquer sync**: `node scripts/calcular-avaliacoes.js` (agora é feita
+3. **Re-rodar avaliações após qualquer sync**: `node scripts/calcular-avaliacoes.js` (agora é feita
    automaticamente pelo próprio puxar ao final de cada sync que grava).
-3. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
+4. **Filtros ricos na busca (parcela B)**: expor no form o que `buscarJogadores` já filtra — idade
+   min/max, valor min/max, nota min/max, pé, clube/liga.
+5. **Comparador de jogadores (parcela C)**: `/comparar` com seleção de 2–3 jogadores, radar e stats
+   lado a lado.
+6. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
    orçamento, necessidade) + score derivado dos percentis/avaliação; sem tabela nova.
-4. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
+7. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
    recorrente, desempenho em alta/queda, jovem talento, oportunidade de mercado).
-5. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
-6. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
-7. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
-   incluir ligas/mercados secundários.
+8. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
+9. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
+10. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
+    incluir ligas/mercados secundários.

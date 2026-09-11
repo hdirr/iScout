@@ -1,6 +1,7 @@
-// Calcula avaliação do scout (nota 0-100 + recomendação) a partir dos stats
-// reais da última temporada (season_stats) e grava em player_evaluations,
-// atualizando também players.nota_global.
+// Calcula avaliação do scout (nota 0-100) a partir dos stats reais da última
+// temporada (season_stats) e grava em player_evaluations, atualizando também
+// players.nota_global. A ferramenta só auxilia: não emite recomendação de
+// compra/monitoramento/descarte — quem decide é o scout/tecnico.
 //
 // Nota = média ponderada de PERCENTIS (entre os destaques da amostra) das
 // métricas por 90 min, por grupo posicional. Distribui em 0-100 de forma
@@ -67,12 +68,6 @@ function pct(valor, ordenado) {
     else if (v === valor) eq++;
   }
   return (less + eq / 2) / ordenado.length;
-}
-
-function recomendacao(nota) {
-  if (nota >= 75) return "Comprar imediatamente";
-  if (nota >= 40) return "Monitorar";
-  return "Descartar";
 }
 
 function potencialDesenvolvimento(nota, anos) {
@@ -173,7 +168,6 @@ function fisicaPos(pos) {
       perfil_psicologico: null,
       potencial_de_mercado: potencialMercado(p.valor_mercado_estimado, anos),
       potencial_desenvolvimento: potencialDesenvolvimento(nota, anos),
-      recomendacao_final: recomendacao(nota),
       scout_responsavel: SCR,
       data_avaliacao: hoje,
     };

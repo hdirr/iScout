@@ -43,12 +43,9 @@ export interface Relatorio {
     idade: number | null;
     nota: number | null;
     potencial: number | null;
-    recomendacao: string | null;
     tem_avaliacao: boolean;
     risco_lesao: "Baixo" | "Médio" | "Alto";
     risco_detalhe: string;
-    custo_beneficio: number | null;
-    custo_beneficio_classe: "Alto" | "Médio" | "Baixo" | null;
   };
   radar: EixoRadar[];
   evolucao: TemporadaEvolucao[];
@@ -60,7 +57,7 @@ export interface Relatorio {
     potencial_de_mercado: string | null;
   };
   observacoes: string | null;
-  sugestao_estrategica: string;
+  pontos_atencao: string;
   total_lesoes: number;
   max_dias_afastado: number;
 }
@@ -141,17 +138,6 @@ function riscoLesao(lesoes: PlayerInjury[]): { risco: "Baixo" | "Médio" | "Alto
   return { risco: "Baixo", detalhe: `${lesoes.length} lesões; afastamentos curtos.` };
 }
 
-function custoBeneficio(nota: number | null, valor: number | null) {
-  if (nota === null || nota === undefined || !valor || valor <= 0) {
-    return { numerico: null, classe: null as "Alto" | "Médio" | "Baixo" | null };
-  }
-  const porMilhao = nota / (valor / 1_000_000);
-  const numerico = Math.round(porMilhao * 10) / 10;
-  const classe: "Alto" | "Médio" | "Baixo" =
-    porMilhao >= 20 ? "Alto" : porMilhao >= 12 ? "Médio" : "Baixo";
-  return { numerico, classe };
-}
-
 function proximoDoFim(contrato: string | null): boolean {
   if (!contrato) return false;
   const fim = new Date(contrato);
@@ -160,40 +146,27 @@ function proximoDoFim(contrato: string | null): boolean {
   return meses >= 0 && meses <= 12;
 }
 
-function sugerirEstrategia(
-  rel: Pick<Relatorio["resumo"], "nota" | "potencial" | "recomendacao" | "risco_lesao" | "idade">,
+function pontosAtencao(
+  rel: Pick<Relatorio["resumo"], "idade" | "nota" | "potencial" | "risco_lesao">,
   mercado: { valor_mercado: number | null; fim_contrato: string | null },
   temporadas: SeasonStats[]
 ): string {
   const partes: string[] = [];
-  switch (rel.recomendacao) {
-    case "Comprar imediatamente":
-      partes.push("Perfil de contratação prioritária.");
-      break;
-    case "Monitorar":
-      partes.push("Acompanhar de perto antes de decidir a investida.");
-      break;
-    case "Descartar":
-      partes.push("Não recomendado para investimento no momento.");
-      break;
-    default:
-      partes.push("Sem recomendação formal registrada.");
-  }
   if (rel.idade !== null && rel.idade < 23) {
-    partes.push(`Jovem (${rel.idade} anos) — encaixa em política de valorização de ativo.`);
+    partes.push(`Jovem (${rel.idade} anos) — ativo em potencial de valorização.`);
   } else if (rel.idade !== null && rel.idade >= 30) {
-    partes.push(`Já tem ${rel.idade} anos — janela de revenda limitada.`);
+    partes.push(`Tem ${rel.idade} anos — janela de revenda limitada.`);
   }
   if (rel.potencial !== null && rel.potencial >= 75) {
     partes.push("Teto de desenvolvimento alto.");
   }
   if (rel.risco_lesao === "Alto") {
-    partes.push("Histórico de lesões demanda exames médicos e plano de carga cuidadoso.");
+    partes.push("Histórico de lesões demanda exames médicos e plano de carga." );
   }
   if (mercado.valor_mercado === null) {
     partes.push("Sem referência de valor de mercado — negociação por estimativa.");
   } else if (rel.nota !== null && rel.nota >= 75 && mercado.valor_mercado < 5_000_000) {
-    partes.push("Valor de mercado atrativo frente ao rendimento — oportunidade de mercado.");
+    partes.push("Valor de mercado atrativo frente ao rendimento.");
   }
   if (proximoDoFim(mercado.fim_contrato)) {
     partes.push("Contrato próximo do fim — momento favorável para negociar.");
@@ -214,7 +187,6 @@ export function montarRelatorio(jogador: PlayerWithStats): Relatorio {
   );
 
   const risco = riscoLesao(jogador.injuries);
-  const cb = custoBeneficio(jogador.nota_global, jogador.valor_mercado_estimado);
   const idade = calcularIdade(jogador.data_nascimento);
 
   const radar: EixoRadar[] = [
@@ -253,12 +225,9 @@ export function montarRelatorio(jogador: PlayerWithStats): Relatorio {
     idade,
     nota: jogador.nota_global,
     potencial: ultimaAvaliacao?.potencial_desenvolvimento ?? null,
-    recomendacao: ultimaAvaliacao?.recomendacao_final ?? null,
     tem_avaliacao: !!ultimaAvaliacao,
     risco_lesao: risco.risco,
     risco_detalhe: risco.detalhe,
-    custo_beneficio: cb.numerico,
-    custo_beneficio_classe: cb.classe,
   };
 
   return {
@@ -274,7 +243,7 @@ export function montarRelatorio(jogador: PlayerWithStats): Relatorio {
       potencial_de_mercado: ultimaAvaliacao?.potencial_de_mercado ?? null,
     },
     observacoes: ultimaAvaliacao?.observacoes_gerais ?? null,
-    sugestao_estrategica: sugerirEstrategia(
+    pontos_atencao: pontosAtencao(
       resumo,
       { valor_mercado: jogador.valor_mercado_estimado, fim_contrato: jogador.data_fim_contrato },
       temporadas

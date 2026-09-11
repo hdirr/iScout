@@ -115,10 +115,3 @@ export const RISCO_LESAO = {
   MUITO_ALTO: "Muito alto risco",
 } as const;
 export type RiscoLesao = (typeof RISCO_LESAO)[keyof typeof RISCO_LESAO];
-
-export const RECOMENDACAO = {
-  COMPRAR: "Comprar imediatamente",
-  MONITORAR: "Monitorar",
-  DESCARTAR: "Descartar",
-} as const;
-export type Recomendacao = (typeof RECOMENDACAO)[keyof typeof RECOMENDACAO];

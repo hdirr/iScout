@@ -33,9 +33,6 @@ create type public.injury_cause as enum (
 create type public.injury_risk as enum (
   'Baixo risco', 'Médio risco', 'Alto risco', 'Muito alto risco'
 );
-create type public.recommendation as enum (
-  'Comprar imediatamente', 'Monitorar', 'Descartar'
-);
 
 -- ---------- FUNCTIONS E TRIGGERS ----------
 
@@ -230,7 +227,6 @@ create table public.player_evaluations (
   perfil_psicologico       text,
   potencial_de_mercado     text, -- Alto | Médio | Baixo
   potencial_desenvolvimento numeric, -- 0-100
-  recomendacao_final       public.recommendation,
 
   scout_responsavel text,
   data_avaliacao    date,

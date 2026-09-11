@@ -3,7 +3,6 @@ import type { PlayerFilters } from "@/lib/data/players";
 import {
   POSICAO_LABEL,
   POSICOES,
-  RECOMENDACAO,
   STATUS_DISPONIBILIDADE,
   type Posicao,
 } from "@/lib/types";
@@ -75,13 +74,6 @@ export function JogadoresFiltros({ valores }: { valores: PlayerFilters }) {
           opcoes={STATUS_DISPONIBILIDADE}
         />
 
-        <CampoSelect
-          nome="recomendacao"
-          rotulo="Recomendação do scout"
-          valor={valores.recomendacao}
-          opcoes={RECOMENDACAO}
-        />
-
         <div className="flex items-end gap-2">
           <button
             type="submit"
@@ -128,8 +120,8 @@ export function JogadoresFiltros({ valores }: { valores: PlayerFilters }) {
           </label>
         </div>
         <p className="text-xs text-zinc-500 dark:text-zinc-400">
-          Gols/assistências e recomendação vêm dos últimos registros. Clique no
-          jogador para abrir a ficha completa.
+          Gols/assistências vêm dos últimos registros. Clique no jogador para
+          abrir a ficha completa.
         </p>
       </div>
     </form>

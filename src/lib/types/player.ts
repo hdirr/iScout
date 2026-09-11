@@ -7,7 +7,6 @@ import type {
   LadoLesao,
   GravidadeLesao,
   CausaLesao,
-  Recomendacao,
 } from "./enums";
 
 export interface Player {
@@ -258,7 +257,6 @@ export interface PlayerEvaluation {
   perfil_psicologico: string | null;
   potencial_de_mercado: "Alto" | "Médio" | "Baixo" | null;
   potencial_desenvolvimento: number | null;
-  recomendacao_final: Recomendacao | null;
   scout_responsavel: string | null;
   data_avaliacao: string | null;
   created_at: string;

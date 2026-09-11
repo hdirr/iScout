@@ -294,14 +294,6 @@ function gerarLesao(rnd) {
 function gerarAvaliacao(j, nota, rnd) {
   const idadeJ = idade(j.data_nascimento);
   const potencial = clamp(Math.round(92 - idadeJ * 1.15 + rint(rnd, -6, 6)), 45, 96);
-  let recomendacao;
-  if (potencial >= 82 && nota >= 74) {
-    recomendacao = choice(rnd, [["Comprar imediatamente", 0.55], ["Monitorar", 0.45]]);
-  } else if (nota < 60) {
-    recomendacao = choice(rnd, [["Monitorar", 0.55], ["Descartar", 0.45]]);
-  } else {
-    recomendacao = choice(rnd, [["Monitorar", 0.68], ["Comprar imediatamente", 0.2], ["Descartar", 0.12]]);
-  }
   const tecnica = {};
   for (const k of ["passe_curto", "passe_longo", "passe_decisivo", "cruzamento", "finalizacao", "drible", "controle_bola", "recepcao", "visao_jogo", "inteligencia_tatica"]) {
     tecnica[k] = rint(rnd, 50, 94);
@@ -319,11 +311,8 @@ function gerarAvaliacao(j, nota, rnd) {
     fisica,
     comportamental,
     potencial_de_mercado:
-      recomendacao === "Comprar imediatamente" ? "Alto"
-      : recomendacao === "Descartar" ? "Baixo"
-      : potencial >= 75 ? "Médio" : "Baixo",
+      potencial >= 75 ? "Médio" : "Baixo",
     potencial_desenvolvimento: potencial,
-    recomendacao_final: recomendacao,
     scout_responsavel: pick(rnd, SCOUTS),
     data_avaliacao: addDays("2026-01-01", rint(rnd, 0, 240)),
   };
