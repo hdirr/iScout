@@ -8,8 +8,10 @@ import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { calcularIdade, formatarMoedaEUR } from "@/lib/utils";
 import { JogadoresFiltros } from "@/components/jogadores-filtros";
 import {
+  PES,
   POSICOES,
   STATUS_DISPONIBILIDADE,
+  type Pe,
   type Posicao,
   type StatusDisponibilidade,
 } from "@/lib/types";
@@ -42,9 +44,18 @@ function enumValor<T extends string>(
   return valores.includes(v as T) ? (v as T) : undefined;
 }
 
+function numero(sp: SearchParams, chave: string): number | undefined {
+  const v = texto(sp, chave);
+  if (v === undefined) return undefined;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : undefined;
+}
+
 function lerFiltros(sp: SearchParams): PlayerFilters {
   const ordenarPor = enumValor(sp, "ordenarPor", ORDENACOES);
   const ordem = texto(sp, "ordem") === "desc" ? "desc" : "asc";
+  const valorMin = numero(sp, "valorMin");
+  const valorMax = numero(sp, "valorMax");
 
   return {
     busca: texto(sp, "busca"),
@@ -54,6 +65,15 @@ function lerFiltros(sp: SearchParams): PlayerFilters {
       "status",
       Object.values(STATUS_DISPONIBILIDADE) as StatusDisponibilidade[]
     ),
+    pe: enumValor(sp, "pe", Object.values(PES) as Pe[]),
+    clube: texto(sp, "clube"),
+    liga: texto(sp, "liga"),
+    idadeMin: numero(sp, "idadeMin"),
+    idadeMax: numero(sp, "idadeMax"),
+    valorMin: valorMin !== undefined ? Math.round(valorMin * 1_000_000) : undefined,
+    valorMax: valorMax !== undefined ? Math.round(valorMax * 1_000_000) : undefined,
+    notaMin: numero(sp, "notaMin"),
+    notaMax: numero(sp, "notaMax"),
     ordenarPor,
     ordem,
   };

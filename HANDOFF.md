@@ -274,6 +274,10 @@ Modelo em `.env.local.example`.
   - **Custo-benefício** (card da ficha): `custoBeneficio()` e campos `custo_beneficio*` removidos.
   - Resumo executivo agora: Nota, Potencial, Idade, Risco de lesão.
 - **Fotos**: avatar circular com `foto_url` do TM na lista `/jogadores` (379/380 têm).
+- **Filtros ricos (parcela B, feita)**: formulário agora expõe o que `buscarJogadores` já filtrava —
+  pé dominante, clube, liga, idade min/max, valor min/max (€M no form × 1e6 no parse) e nota min/max.
+  Testado: `?posicao=CA&notaMin=80` = 1 (bate com SQL); `?clube=Flamengo&idadeMax=23` = 0 (mais novo do
+  Flamengo nasce em 2000).
 - **Avaliações re-derivadas** com o novo cálculo (333; 47 sem stats). Rótulos antigos zerados.
 - **Migração pendente (SQL Editor — usuário roda)**:
   ```sql
@@ -281,8 +285,7 @@ Modelo em `.env.local.example`.
   drop type if exists public.recommendation;
   ```
   `schema.sql` já está limpo (setup novo nasce sem a coluna/enum).
-- **Parcelas seguintes** (já aprovadas): **B** — expor filtros que o backend já tem (idade, valor, nota,
-  pé, clube/liga); **C** — comparador de 2–3 jogadores `/comparar` (radar + stats lado a lado).
+- **Parcelas restantes**: **C** — comparador de 2–3 jogadores `/comparar` (radar + stats lado a lado).
 
 ## Próximos passos
 
@@ -294,15 +297,13 @@ Modelo em `.env.local.example`.
    usuário.
 3. **Re-rodar avaliações após qualquer sync**: `node scripts/calcular-avaliacoes.js` (agora é feita
    automaticamente pelo próprio puxar ao final de cada sync que grava).
-4. **Filtros ricos na busca (parcela B)**: expor no form o que `buscarJogadores` já filtra — idade
-   min/max, valor min/max, nota min/max, pé, clube/liga.
-5. **Comparador de jogadores (parcela C)**: `/comparar` com seleção de 2–3 jogadores, radar e stats
+4. **Comparador de jogadores (parcela C)**: `/comparar` com seleção de 2–3 jogadores, radar e stats
    lado a lado.
-6. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
+5. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
    orçamento, necessidade) + score derivado dos percentis/avaliação; sem tabela nova.
-7. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
+6. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
    recorrente, desempenho em alta/queda, jovem talento, oportunidade de mercado).
-8. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
-9. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
-10. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
-    incluir ligas/mercados secundários.
+7. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
+8. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
+9. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
+   incluir ligas/mercados secundários.

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { PlayerFilters } from "@/lib/data/players";
 import {
+  PES,
   POSICAO_LABEL,
   POSICOES,
   STATUS_DISPONIBILIDADE,
@@ -37,6 +38,62 @@ function CampoSelect({
           </option>
         ))}
       </select>
+    </label>
+  );
+}
+
+function CampoInput({
+  nome,
+  rotulo,
+  valor,
+  placeholder,
+}: {
+  nome: string;
+  rotulo: string;
+  valor: string | undefined;
+  placeholder?: string;
+}) {
+  return (
+    <label className="flex flex-col gap-1">
+      <span className={rotuloClasse}>{rotulo}</span>
+      <input
+        name={nome}
+        type="text"
+        defaultValue={valor ?? ""}
+        placeholder={placeholder}
+        className={`${controleClasse} px-3`}
+      />
+    </label>
+  );
+}
+
+function CampoNumero({
+  nome,
+  rotulo,
+  valor,
+  min,
+  max,
+  step,
+}: {
+  nome: string;
+  rotulo: string;
+  valor: number | undefined;
+  min?: number;
+  max?: number;
+  step?: number;
+}) {
+  return (
+    <label className="flex flex-col gap-1">
+      <span className={rotuloClasse}>{rotulo}</span>
+      <input
+        name={nome}
+        type="number"
+        defaultValue={valor ?? ""}
+        min={min}
+        max={max}
+        step={step}
+        className={`${controleClasse} px-3`}
+      />
     </label>
   );
 }
@@ -88,6 +145,71 @@ export function JogadoresFiltros({ valores }: { valores: PlayerFilters }) {
             Limpar
           </Link>
         </div>
+      </div>
+
+      <div className="mt-4 grid gap-3 rounded-lg border border-zinc-100 p-3 sm:grid-cols-2 lg:grid-cols-4 dark:border-zinc-800">
+        <CampoSelect
+          nome="pe"
+          rotulo="Pé dominante"
+          valor={valores.pe}
+          opcoes={Object.fromEntries(
+            Object.entries(PES).map(([k, v]) => [k, v])
+          ) as Record<string, string>}
+        />
+        <CampoInput
+          nome="clube"
+          rotulo="Clube"
+          valor={valores.clube}
+          placeholder="Ex.: Flamengo, Santos…"
+        />
+        <CampoInput
+          nome="liga"
+          rotulo="Liga"
+          valor={valores.liga}
+          placeholder="Ex.: Série A…"
+        />
+        <CampoNumero
+          nome="idadeMin"
+          rotulo="Idade mínima"
+          valor={valores.idadeMin}
+          min={16}
+          max={45}
+        />
+        <CampoNumero
+          nome="idadeMax"
+          rotulo="Idade máxima"
+          valor={valores.idadeMax}
+          min={16}
+          max={45}
+        />
+        <CampoNumero
+          nome="valorMin"
+          rotulo="Valor mín (€M)"
+          valor={valores.valorMin !== undefined ? valores.valorMin / 1_000_000 : undefined}
+          min={0}
+          step={0.5}
+        />
+        <CampoNumero
+          nome="valorMax"
+          rotulo="Valor máx (€M)"
+          valor={valores.valorMax !== undefined ? valores.valorMax / 1_000_000 : undefined}
+          min={0}
+          step={0.5}
+        />
+        <CampoNumero
+          nome="notaMin"
+          rotulo="Nota mínima"
+          valor={valores.notaMin}
+          min={0}
+          max={100}
+        />
+        <CampoNumero
+          nome="notaMax"
+          rotulo="Nota máxima"
+          valor={valores.notaMax}
+          min={0}
+          max={100}
+        />
       </div>
 
       <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-3 sm:flex-row sm:items-center sm:justify-between dark:border-zinc-800">
