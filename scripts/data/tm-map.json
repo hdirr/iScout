@@ -1,6 +1,6 @@
 {
-  "geradoEm": "2026-09-10T19:22:07.676Z",
-  "achados": 366,
+  "geradoEm": "2026-09-11T13:47:02.167Z",
+  "achados": 392,
   "mapa": {
     "América-MG|Gustavo Santos da Silva|Gustavo": {
       "tmId": 330085,
@@ -1830,6 +1830,136 @@
     "Vitória|Tomás Pochettino|": {
       "tmId": 348354,
       "tmNome": "TomâÃ­s Pochettino",
+      "clube": "Vitória"
+    },
+    "Vasco da Gama|Robert Renan|": {
+      "tmId": 958598,
+      "tmNome": "Robert Renan",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Lucas Piton|": {
+      "tmId": 670201,
+      "tmNome": "Lucas Piton",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Paulo Henrique|": {
+      "tmId": 412594,
+      "tmNome": "Paulo Henrique",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Santiago Sosa|": {
+      "tmId": 576026,
+      "tmNome": "Santiago Sosa",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Thiago Mendes|": {
+      "tmId": 135617,
+      "tmNome": "Thiago Mendes",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Nuno Moreira|": {
+      "tmId": 461937,
+      "tmNome": "Nuno Moreira",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Brenner|": {
+      "tmId": 412366,
+      "tmNome": "Brenner",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Facundo Colidio|": {
+      "tmId": 491705,
+      "tmNome": "Facundo Colidio",
+      "clube": "Vasco da Gama"
+    },
+    "Vasco da Gama|Andrés Gómez|": {
+      "tmId": 957461,
+      "tmNome": "Andrés Gómez",
+      "clube": "Vasco da Gama"
+    },
+    "Vila Nova|Helton Leite|": {
+      "tmId": 175383,
+      "tmNome": "Helton Leite",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Tiago Pagnussat|": {
+      "tmId": 346729,
+      "tmNome": "Tiago Pagnussat",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Anderson Jesus|": {
+      "tmId": 539183,
+      "tmNome": "Anderson",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Hayner|": {
+      "tmId": 389942,
+      "tmNome": "Hayner",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Willian Maranhão|": {
+      "tmId": 538107,
+      "tmNome": "Willian Maranhão",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Marquinhos Gabriel|": {
+      "tmId": 100091,
+      "tmNome": "Marquinhos Gabriel",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Dudú|": {
+      "tmId": 114937,
+      "tmNome": "Dudu",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Rafa Silva|": {
+      "tmId": 238055,
+      "tmNome": "Rafa Silva",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Janderson|": {
+      "tmId": 976561,
+      "tmNome": "Janderson",
+      "clube": "Vila Nova"
+    },
+    "Vila Nova|Gabriel Átila|": {
+      "tmId": 1083089,
+      "tmNome": "Gabriel Átila",
+      "clube": "Vila Nova"
+    },
+    "Vitória|Lucas Willians Assis Arcanjo|Lucas Arcanjo": {
+      "tmId": 645602,
+      "tmNome": "Lucas Arcanjo",
+      "clube": "Vitória"
+    },
+    "Vitória|Emanuel Brítez|Brítez": {
+      "tmId": 262851,
+      "tmNome": "Emanuel Brítez",
+      "clube": "Vitória"
+    },
+    "Vitória|Cacá Henrique da Silva|Cacá": {
+      "tmId": 603122,
+      "tmNome": "Cacá",
+      "clube": "Vitória"
+    },
+    "Vitória|Luan Cândido de Souza|Luan Cândido": {
+      "tmId": 432166,
+      "tmNome": "Luan Cândido",
+      "clube": "Vitória"
+    },
+    "Vitória|Renato Kayzer de Souza|Renato Kayzer": {
+      "tmId": 404321,
+      "tmNome": "Renato Kayzer",
+      "clube": "Vitória"
+    },
+    "Vitória|Erick Luis da Silva|Erick": {
+      "tmId": 215616,
+      "tmNome": "Erick Pulgar",
+      "clube": "Vitória"
+    },
+    "Vitória|Gabriel Vasconcelos Ferreira|Gabriel": {
+      "tmId": 435338,
+      "tmNome": "Gabriel",
       "clube": "Vitória"
     }
   }
