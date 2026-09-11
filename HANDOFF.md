@@ -278,6 +278,11 @@ Modelo em `.env.local.example`.
   pé dominante, clube, liga, idade min/max, valor min/max (€M no form × 1e6 no parse) e nota min/max.
   Testado: `?posicao=CA&notaMin=80` = 1 (bate com SQL); `?clube=Flamengo&idadeMax=23` = 0 (mais novo do
   Flamengo nasce em 2000).
+- **Comparador (parcela C, feita)**: rota `/comparar?ids=a,b,c` (2–3 jogadores) — cards com
+  foto/nota/idade/valor, radar 5 eixos lado a lado (cores por jogador) e tabela comparativa com o
+  **melhor de cada métrica destacado** ("melhor") onde maior/menor importa. `RadarChart` extraído para
+  `src/components/radar-grafico.tsx` (reusado na ficha). Na lista `/jogadores`, `SelecionarComparar`
+  (client) filtra e marca até 3 jogadores → navega pra `/comparar`. Com 0/1 id a página mostra a dica.
 - **Avaliações re-derivadas** com o novo cálculo (333; 47 sem stats). Rótulos antigos zerados.
 - **Migração pendente (SQL Editor — usuário roda)**:
   ```sql
@@ -285,7 +290,6 @@ Modelo em `.env.local.example`.
   drop type if exists public.recommendation;
   ```
   `schema.sql` já está limpo (setup novo nasce sem a coluna/enum).
-- **Parcelas restantes**: **C** — comparador de 2–3 jogadores `/comparar` (radar + stats lado a lado).
 
 ## Próximos passos
 
@@ -297,13 +301,11 @@ Modelo em `.env.local.example`.
    usuário.
 3. **Re-rodar avaliações após qualquer sync**: `node scripts/calcular-avaliacoes.js` (agora é feita
    automaticamente pelo próprio puxar ao final de cada sync que grava).
-4. **Comparador de jogadores (parcela C)**: `/comparar` com seleção de 2–3 jogadores, radar e stats
-   lado a lado.
-5. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
+4. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
    orçamento, necessidade) + score derivado dos percentis/avaliação; sem tabela nova.
-6. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
+5. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
    recorrente, desempenho em alta/queda, jovem talento, oportunidade de mercado).
-7. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
-8. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
-9. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
+6. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
+7. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
+8. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
    incluir ligas/mercados secundários.

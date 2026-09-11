@@ -7,6 +7,7 @@ import {
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { calcularIdade, formatarMoedaEUR } from "@/lib/utils";
 import { JogadoresFiltros } from "@/components/jogadores-filtros";
+import { SelecionarComparar } from "@/components/selecionar-comparar";
 import {
   PES,
   POSICOES,
@@ -140,8 +141,9 @@ export default async function JogadoresPage({
       )}
 
       {isSupabaseConfigured() && !erro && jogadores.length > 0 && (
-        <div className="mt-6 overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
-          <table className="w-full min-w-[900px] text-sm">
+        <>
+          <div className="mt-6 overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <table className="w-full min-w-[900px] text-sm">
             <thead>
               <tr className="border-b border-zinc-200 text-left text-xs uppercase tracking-wide text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
                 <th className="px-4 py-3 font-medium">Jogador</th>
@@ -263,7 +265,11 @@ export default async function JogadoresPage({
               })}
             </tbody>
           </table>
-        </div>
+          </div>
+          <SelecionarComparar
+            jogadores={jogadores.map((j) => ({ id: j.id, nome: j.nome_completo }))}
+          />
+        </>
       )}
     </div>
   );

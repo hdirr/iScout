@@ -5,11 +5,11 @@ import {
 } from "@/lib/utils";
 import {
   montarRelatorio,
-  type EixoRadar,
   type TemporadaEvolucao,
 } from "@/lib/reporte";
 import type { PlayerWithStats } from "@/lib/types";
 import { POSICAO_LABEL } from "@/lib/types";
+import { RadarChart } from "@/components/radar-grafico";
 
 const COR_RISCO: Record<string, string> = {
   Baixo: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200",
@@ -299,79 +299,6 @@ function ResumoCard({
       </div>
       {dica && <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">{dica}</p>}
     </div>
-  );
-}
-
-function RadarChart({ eixos }: { eixos: EixoRadar[] }) {
-  const cx = 130;
-  const cy = 120;
-  const R = 88;
-  const n = eixos.length;
-  if (!n) return null;
-  const ang = (i: number) => -Math.PI / 2 + (2 * Math.PI * i) / n;
-  const pt = (i: number, valor: number) => {
-    const r = (Math.max(0, Math.min(100, valor)) / 100) * R;
-    return [cx + r * Math.cos(ang(i)), cy + r * Math.sin(ang(i))] as const;
-  };
-  const ringPts = (pct: number) =>
-    Array.from({ length: n }, (_, i) => pt(i, pct).join(",")).join(" ");
-  const eixosComValor = eixos.map((e) => ({ ...e, valor: e.valor ?? 0 }));
-  const dataPts = eixosComValor.map((e, i) => pt(i, e.valor).join(",")).join(" ");
-
-  return (
-    <svg viewBox="0 0 260 256" className="mx-auto w-full max-w-sm" role="img" aria-label="Gráfico radar do jogador">
-      <g fill="none" stroke="currentColor" strokeOpacity="0.15">
-        {[20, 40, 60, 80, 100].map((p) => (
-          <polygon key={p} points={ringPts(p)} />
-        ))}
-        {eixos.map((_, i) => {
-          const [x, y] = pt(i, 100);
-          return <line key={i} x1={cx} y1={cy} x2={x} y2={y} />;
-        })}
-      </g>
-      <polygon
-        points={dataPts}
-        fill="rgba(56,189,248,0.15)"
-        stroke="#38bdf8"
-        strokeWidth={2}
-        strokeLinejoin="round"
-      />
-      {eixosComValor.map((e, i) => {
-        const [x, y] = pt(i, e.valor);
-        return <circle key={i} cx={x} cy={y} r={3.5} fill={e.valor === 0 ? "#a1a1aa" : "#38bdf8"} />;
-      })}
-      {eixos.map((e, i) => {
-        const lx = cx + (R + 26) * Math.cos(ang(i));
-        const ly = cy + (R + 26) * Math.sin(ang(i));
-        const cos = Math.cos(ang(i));
-        const anchor = Math.abs(cos) < 0.3 ? "middle" : cos > 0 ? "start" : "end";
-        return (
-          <g key={`${e.rotulo}-label`}>
-            <text
-              x={lx}
-              y={ly}
-              textAnchor={anchor}
-              dominantBaseline="middle"
-              fontSize={11}
-              fontWeight={600}
-              fill="currentColor"
-            >
-              {e.rotulo}
-            </text>
-            <text
-              x={lx}
-              y={ly + 13}
-              textAnchor={anchor}
-              dominantBaseline="middle"
-              fontSize={10}
-              fill="#71717a"
-            >
-              {e.valor === null ? "sem dados" : String(e.valor)}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
   );
 }
 
