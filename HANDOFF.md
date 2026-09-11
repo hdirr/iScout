@@ -53,6 +53,7 @@ SaaS de scouting de jogadores focado em mercados emergentes. Spec completa em `d
 | Dados de mercado (Série A/B 2026) | ok — 400 jogadores via seed (p/ demo) |
 | **Dados reais via Transfermarkt** | **quase completo (355/400)** — faltam 45 no bloqueio; ver "Milestone Transfermarkt"; re-run via `sincronizar-tm.js` quando o anti-bot liberar |
 | Dashboard com busca simplificada (seção 7 doc) | ok — busca por jogador ou time em `/jogadores` |
+| **Relatório do jogador — visão única (seção 8)** | **ok** — radar SVG + evolução + análise detalhada + lesões + mercado + sugestão em `/jogadores/[id]`, com botão Imprimir |
 
 ## Milestone Transfermarkt (dados reais, custo zero)
 
@@ -229,16 +230,33 @@ Modelo em `.env.local.example`.
 - `POST /api/players`, `PATCH /api/players/[id]`, `DELETE /api/players/[id]`
 - `GET /jogadores`, `/jogadores/novo`, `/jogadores/[id]`, `/jogadores/[id]/editar`
 
+## Relatório do jogador (seção 8 — visão única)
+
+- `src/lib/reporte.ts`: `montarRelatorio(jogador)` deriva tudo do que `getPlayer` já traz (sem query
+  extra/DDL): resumo executivo (nota, potencial, recomendação, risco de lesão → Baixo/Médio/Alto,
+  custo-benefício = nota ÷ €M), radar 5 eixos (média das chaves de cada jsonb da avaliação),
+  evolução por temporada (gols/assist/min/jogos, G+A/90, % passes), análise detalhada
+  (técnica/física/comportamental — rótulos amigáveis por chave), mercado (valor, cláusula, fim de
+  contrato, potencial de mercado) e sugestão estratégica em texto.
+- `src/components/jogador-relatorio.tsx`: Server Component, **SVG inline** (sem lib de chart) — radar
+  pentagonal + barras gols/assist por temporada. Estados vazios para jogadores sem avaliação/stats
+  (os 47 sem season_stats). `src/components/imprimir-relatorio.tsx`: botão Imprimir (`window.print`),
+  layout com `print:hidden` nos controles e cabeçalho próprio no print.
+- `/jogadores/[id]` passou a renderizar o relatório completo (Editar/Excluir mantidos).
+
 ## Próximos passos
 
-1. **Completar os 45 dados reais TM restantes**: no terminal do usuário, `node scripts/sincronizar-tm.js`
-   (ou background: `Start-Process -FilePath node -ArgumentList 'scripts\sincronizar-tm.js'`). O
-   agendador espera o anti-bot liberar e roda o sync completo automaticamente. Depois, re-rodar
-   `node scripts/calcular-avaliacoes.js` para recalcular as ~47 avaliações que estão null.
-2. **Re-rodar avaliações após os 400**: `node scripts/calcular-avaliacoes.js`.
-3. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
-4. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
-5. Relatório do jogador — visão única (seção 8).
-6. Sistema de compatibilidade (fit) (seção 9) e alertas inteligentes (seção 10).
+1. **Completar os 8 dados reais TM restantes** (sem match por vizinhos de nome — S. Rodríguez,
+   Matías Segovia, Sebastián Gómez, etc.): revisar busca manual com apelidos alternativos quando o TM
+   liberar, ou aceitar como fora da amostra. Watcher: `node scripts/sincronizar-tm.js` no terminal do
+   usuário.
+2. **Re-rodar avaliações após qualquer sync**: `node scripts/calcular-avaliacoes.js` (a purga cascade
+   do puxar apaga `player_evaluations` — por isso toda sync termina com aval em 0).
+3. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
+   orçamento, necessidade) + score derivado dos percentis/avaliação; sem tabela nova.
+4. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
+   recorrente, desempenho em alta/queda, jovem talento, oportunidade de mercado).
+5. Rodar `supabase/security.sql` no SQL Editor (fecha acesso anônimo) — **após o fim da demo**.
+6. Registrar um usuário real no app ou desativar confirmação de e-mail para dev.
 7. Mercado BR: subir nome de clube para tabela própria (`clubes`) + escudos/fotos; aumentar volume e
    incluir ligas/mercados secundários.
