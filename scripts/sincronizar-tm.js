@@ -70,6 +70,17 @@ function rodarSync() {
         JSON.stringify({ geradoEm: new Date().toISOString(), exitCode: code, log: logFile }, null, 2)
       );
       log(`sync finalizado (exit ${code}); marcador em SYNC_OK.json`);
+      if (code === 0) {
+        try {
+          execFileSync(process.execPath, [path.join(__dirname, "persistir-cache.js")], {
+            stdio: "inherit",
+            env: process.env,
+          });
+          log("cache acumulado persistido no Supabase");
+        } catch (e) {
+          log(`falha ao persistir cache: ${e.message}`);
+        }
+      }
       resolve(code);
     });
   });

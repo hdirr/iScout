@@ -445,6 +445,20 @@ function montarPlayer(j, r, perfil) {
 
   const { count } = await sb.from("players").select("id", { count: "exact", head: true });
   console.log(`Total players na tabela: ${count}`);
+
+  // 7. auto-avaliação: a purge em cascade apaga player_evaluations, então todo
+  // sync que grava precisa re-derivar as avaliações (idempotente).
+  try {
+    const { spawnSync } = require("child_process");
+    const r = spawnSync(process.execPath, [path.join(__dirname, "calcular-avaliacoes.js")], {
+      stdio: "inherit",
+    });
+    if (r.status !== 0) {
+      console.warn(`Atenção: auto-avaliação falhou (exit ${r.status}) — rode manualmente.`);
+    }
+  } catch (e) {
+    console.warn(`Atenção: auto-avaliação falhou: ${e.message} — rode manualmente.`);
+  }
 })().catch((e) => {
   console.error(e);
   process.exit(1);

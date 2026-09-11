@@ -244,14 +244,32 @@ Modelo em `.env.local.example`.
   layout com `print:hidden` nos controles e cabeçalho próprio no print.
 - `/jogadores/[id]` passou a renderizar o relatório completo (Editar/Excluir mantidos).
 
+## Empacotamento — acúmulo durável no Supabase
+
+- **Problema resolvido**: o acúmulo do TM (cache ~1400 arquivos/1,5 MB) vivia só no disco local e é
+  gitignored — se a máquina se perdesse, o OFFLINE ficava cego. Agora tudo é persistido no Supabase
+  na tabela `public.tm_data_cache` (kind+chave PK, payload jsonb, RLS "acesso dev").
+- **DDL** (`supabase/tm_cache.sql`, rodado no SQL Editor — anon key não tem permissão de DDL):
+  `tm_data_cache(kind, chave, payload, atualizado_em)`. UPSERT por `(kind,chave)` = idempotente/
+  acumulativo (rodar N vezes nunca duplica).
+- **`scripts/persistir-cache.js`**: sobe `perfil-*/desempenho-*/lesoes-*/search-*` + `tm-map.json` +
+  `ultima-sync.json` em lotes de 100. `--somente-map` = só mapa+relatório (backup rápido).
+- **`scripts/restaurar-cache.js`**: baixa tudo e reconstrói o arquivos locais (recuperação em outra
+  máquina). Round-trip validado (amostra 15/15 idêntica).
+- **Auto-avaliação no puxar**: a purge cascade apaga `player_evaluations`, então o `puxar` agora
+  invoca `scripts/calcular-avaliacoes.js` no fim de todo sync que grava (try/catch; avisa se falhar).
+- **Watcher**: `sincronizar-tm.js` após sync com exit 0 roda `persistir-cache.js` automaticamente.
+- **Estado atual**: backup completo rodado — **1404 artefatos** no Supabase (perfil 381, desempenho
+  381, lesoes 381, search 259, mapa, relatório), 0 erros.
+
 ## Próximos passos
 
 1. **Completar os 8 dados reais TM restantes** (sem match por vizinhos de nome — S. Rodríguez,
    Matías Segovia, Sebastián Gómez, etc.): revisar busca manual com apelidos alternativos quando o TM
    liberar, ou aceitar como fora da amostra. Watcher: `node scripts/sincronizar-tm.js` no terminal do
    usuário.
-2. **Re-rodar avaliações após qualquer sync**: `node scripts/calcular-avaliacoes.js` (a purga cascade
-   do puxar apaga `player_evaluations` — por isso toda sync termina com aval em 0).
+2. **Re-rodar avaliações após qualquer sync**: `node scripts/calcular-avaliacoes.js` (agora é feita
+   automaticamente pelo próprio puxar ao final de cada sync que grava).
 3. **Sistema de compatibilidade (fit)** (seção 9): form (estilo de jogo, sistema tático, prioridades,
    orçamento, necessidade) + score derivado dos percentis/avaliação; sem tabela nova.
 4. **Alertas inteligentes** (seção 10): painel computado on the fly (contrato perto do fim, lesão
